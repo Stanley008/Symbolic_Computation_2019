@@ -1,0 +1,129 @@
+Symbolic computation
+
+Classes:
+
+1. General Info
+2. Parks
+3. Hobbies
+4. Food - (Subclass optional) 4.1. drinks, 4.2. snacks, 4.3. meals 4.4. veggies 4.5 fruits
+5. Verbs  “+ing”
+6. Others
+7. Functional words(end, exit, quit….)
+8. Question words
+9. Silly questions, would you like to quit? Are we done? What would you like to do? etc…
+
+BIG O notations. 
+
+value:key
+
+Templates 1.:
+Hello, I am chatbot… etc. 
+
+1. Hi, how are you? 
+2. How old are you? 
+3. What gender are you? 
+4. What is your first name?
+5. What is your last name? 
+6. How tall are you?
+7. What is your weight?
+8. What Is your favorite tv show? 
+9. What languages do you speak? 
+10. What is your favorite color? 
+11. Are you a student? 
+12. Do you work?  What is your profession? 
+13. Where do you live? 
+14. Would you like to live elsewhere?  …. Why would you like to live there?….. Oh that seems cool, can I join you? - YES/NO (user input) , different answers. 
+15. What is your nickname? Would 
+
+(Contractions ’s - Eliza ? Dictionary has it ?)
+
+1. Hi, I am XXXbot.  What is your name? 
+2. Hi, {name} do you want me to call you by a nickname? 
+3. Tell me your nickname. 
+4. How are you {nickname/name} ?
+5. Would you mind telling me your age? 
+6. Are you a tourist?
+7. Are you a student? 
+8. What is your profession? 
+9. What languages do you speak? 
+10. Where are you from? 
+11. Would you like to finish this conversation? 
+12. Do you really want to finish this conversation? 
+13. 
+
+
+{YES/NO Feature.}
+
+General responses:
+1. Ok bye {nickname}.
+2. Oh, cool. 
+3. Oh, nice.
+4. Oh, wow. 
+5. WOW, that’s great. 
+6. Good luck.
+7. Tell me more.
+8. 
+
+Profession template:
+1. Do you like your job?
+2. How long have you been working? 
+3. 
+
+Where are you from:
+1. Would you like to live elsewhere?…. Why would you like t o live there?….. Oh that seems cool, can I join you? - YES/NO (user input) , different answers. 
+
+
+PARKS
+
+1. Do you like spending time in parks? 
+2. Why do you like spending time in parks ?
+3. Do you like nature? Would you like to go to a park? 
+4. Where would you like to go? 
+5. Do you have a favorite park? 
+6. Do you like to socialize or spend time alone or with friends in the park?
+7. Do you look at parks as a place where you can eat food? 
+8.  Do you walk your have a dog? 
+9. Would you like me to suggest you the best part for walking dogs? 
+10. This {park} is the best place for {walking dogs.} 
+11. What do you like doing in a park? 
+12. 
+13. 
+
+
+HOBBIES
+
+1. What are your hobbies? 
+2. What is your most favorite hobby? 
+3. How long do you practice {hobby} ? 
+4. Would you like from me to find a hobby for you? {- YES (user) , I would recommend ”from predefined hobbies choose one.” }
+5. Do you like it? 
+6. Or would you like to choose another one?
+7.  
+
+
+FOOD
+
+  1. What is your most favorite food? 
+2. What is your most favourite drink? 
+3. What is your favorite snack? 
+4. What si your favorite fruit? 
+
+
+Classes of words - dictionary:
+1. When
+2. Why
+3. What
+4. Where
+5. How
+6. Should 
+7. May
+8. Whose
+9. Which
+
+Dictionary of words/sentences. Make. To create relationships.
+
+TASK:
+README
+TEMPLATE
+CLOJURE CODE
+CLOJURE 
