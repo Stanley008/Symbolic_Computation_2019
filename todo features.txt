@@ -1,0 +1,13 @@
+To do/ features:
+
+1. Take user input
+2. Starter function - fixed ones hello etc.. and continues to start the main program
+3. Tokenizer
+4. Import Library 
+5. Sentence analyzer/ end function
+6. Sentence chooser / random end sentence/question
+7. Random question chooser
+8. Park information - features 
+9. User record store feature
+10. Dictionary of words/sentences/question
+
