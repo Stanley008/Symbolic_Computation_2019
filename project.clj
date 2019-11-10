@@ -7,4 +7,5 @@
                  [clojure-opennlp "0.5.0"]
                  [org.clojars.cognesence/matcher "1.0.1"]
                  [org.clojure/core.logic "0.8.11"]]
-  :repl-options {:init-ns park-chatbot.core})
+  :repl-options {:init-ns park-chatbot.core}
+  :main park-chatbot.core)
