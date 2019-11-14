@@ -1,4 +1,5 @@
-(ns park-chatbot.core)
+(ns park-chatbot.core
+    (:require [opennlp.nlp :as nlp]))
 
 """define Park record """
 (defrecord Park [name wc restaurant cafe bicycle_paths skating sports_ground playground dogs opening_hours])
@@ -19,16 +20,12 @@
 (def vysehrad (->Park "Vyšehrad" true true true true false true true nil "All year round"))
 
 
+(def tokenize (nlp/make-tokenizer "src/en-token.bin"))
+(def name-find (make-name-finder "models/namefind/en-ner-person.bin"))
 
+(defn take_user_input []
+  (let [user_input (read-line)]
+    user_input))
 
-
-
-
-
-
-
-
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn -main [& args]
+  (newline))
