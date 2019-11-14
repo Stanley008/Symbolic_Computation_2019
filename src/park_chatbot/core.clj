@@ -21,7 +21,7 @@
 
 
 (def tokenize (nlp/make-tokenizer "src/en-token.bin"))
-(def name-find (make-name-finder "models/namefind/en-ner-person.bin"))
+(def name-find (nlp/make-name-finder "src/en-ner-person.bin"))
 
 (defn take_user_input []
   (let [user_input (read-line)]
