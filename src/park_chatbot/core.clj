@@ -17,18 +17,3 @@
 (def stromovka (->Park "Stromovka" true true false true true true true true "All year round"))
 (def vajanovy (->Park "Vojanovy sady" false false false false false false false true "All year round"))
 (def vysehrad (->Park "Vyšehrad" true true true true false true true nil "All year round"))
-
-
-
-
-
-
-
-
-
-
-
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
