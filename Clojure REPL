@@ -1,0 +1,47 @@
+REPL Instructions
+
+Code can be entered at the bottom and executed by pressing shift+enter.
+
+Try it now by typing (+ 1 1) in the bottom section and pressing shift+enter.
+
+Working in another Clojure file and sending forms to the REPL is the most efficient way to work. Use the following key bindings to send code to the REPL. See the settings for more keybindings.
+
+ctrl-alt-, then b
+Execute block. Finds the block of Clojure code your cursor is in and executes that.
+
+ctrl-alt-, s
+Executes the selection. Sends the selected text to the REPL.
+
+You can disable this help text in the settings.
+Atom Ink does not appear to be installed. Install it to get a better REPL experience.
+Starting REPL with lein in D:\Hey\new\Symbolic\ICA1\Symbolic_Computation_2019-master\Symbolic_Computation_2019-master
+nREPL server started on port 63237 on host 127.0.0.1 - nrepl://127.0.0.1:63237
+Refreshing code...
+clojure.tools.namespace.repl not available. Add proto-repl in your project.clj as a dependency to allow refresh. See https://clojars.org/proto-repl
+Refresh Warning: Execution error (IllegalArgumentException) at user/eval1505 (form-init6117731271888548276.clj:1).
+No such namespace: clojure.tools.namespace.repl
+Refresh Warning: Execution error (IllegalArgumentException) at user/eval1505 (form-init6117731271888548276.clj:1).
+No such namespace: clojure.tools.namespace.repl
+(+ 1 1)
+user=>
+2
+(:name letna)
+Syntax error compiling at (form-init6117731271888548276.clj:1:1).
+Unable to resolve symbol: letna in this context
+REPL already running
+(:name letna)
+park-chatbot.core=>
+"Letná"
+(record? letna)
+park-chatbot.core=>
+true
+(assoc letna :opening_hours "All year")
+park-chatbot.core=>
+#park_chatbot.core.Park{:name "Letná", :wc true, :restaurant true, :cafe false, :bicycle_paths true, :skating true, :sports_ground true, :playground true, :dogs true, :opening_hours "All year"}
+(assoc letna :wc true)
+park-chatbot.core=>
+#park_chatbot.core.Park{:name "Letná", :wc true, :restaurant true, :cafe false, :bicycle_paths true, :skating true, :sports_ground true, :playground true, :dogs true, :opening_hours "All year round"}
+(println (key letna))
+Execution error (ClassCastException) at park-chatbot.core/eval1809 (form-init6117731271888548276.clj:28).
+park_chatbot.core.Park cannot be cast to java.util.Map$Entry
+--------------------
