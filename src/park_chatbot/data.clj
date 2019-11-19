@@ -1,9 +1,9 @@
 (ns park-chatbot.data)
 
-"""define Park record """
+"""define Park record"""
 (defrecord Park [name wc restaurant cafe bicycle_paths skating sports_ground playground dogs opening_hours])
 
-"""create a defrecord variable Park"""
+"""create defrecord variable Park"""
 (def betramka (Park. "Betramka" true false true true false false false nil "All year round with different closing hours"))
 (def fran_garden (Park. "Frantiskanska zahrada" true false false true false false true true "All year round but closes at night"))
 (def obora (Park. "Obora Hvezda" true true true true false false true true "All year round"))
@@ -20,3 +20,9 @@
 
 """define a list for parks"""
 (def Parks [betramka, fran_garden, obora, kampa, zahrada, klam, ladronka, letna, petrin, riegrovy, stromovka, vajanovy, vysehrad])
+
+"""define User record"""
+(defrecord User [name wc restaurant cafe bicycle_paths skating sports_ground playground dogs terminate])
+
+"""create defrecord variable User"""
+(def user (User. (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref false)))
