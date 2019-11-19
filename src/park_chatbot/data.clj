@@ -41,3 +41,14 @@
 """create defrecord variable User"""
 (def user (User. (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref false)))
 
+"""define a list of asking name"""
+(def name_ask ["What is your name?",
+			   "May I have your name?",
+			   "How may I address you?",
+			   "Do you mind if I ask you for your name?",
+			   "How do they call you?",
+			   "I am sorry, I did not catch your name. What is your name?",
+			   "What can I call you?",
+			   "How do you like to be called?"])
+
+
