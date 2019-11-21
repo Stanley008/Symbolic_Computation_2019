@@ -3,7 +3,7 @@
 """Park record"""
 (defrecord Park [name wc restaurant cafe bicycle_paths skating sports_ground playground dogs opening_hours])
 
-"""defrecord variable for Park"""
+"""Defrecord variable for Park"""
 (def betramka (Park. "Betramka" true false true true false false false nil "All year round with different closing hours"))
 (def fran_garden (Park. "Frantiskanska zahrada" true false false true false false true true "All year round but closes at night"))
 (def obora (Park. "Obora Hvezda" true true true true false false true true "All year round"))
@@ -21,7 +21,7 @@
 """A list of parks"""
 (def Parks [betramka, fran_garden, obora, kampa, zahrada, klam, ladronka, letna, petrin, riegrovy, stromovka, vajanovy, vysehrad])
 
-"""define a list of greetings"""
+"""Define a list of greetings"""
 (def greetings ["Hello, I am Parkbot. I am the most advanced park information bot and I am here to help you. Hello, I am Parkbot.",
                 "I am here to serve your needs.",
                 "Hi, I am Parkbot. I am here today to help you to find the best park just for you.",
@@ -34,13 +34,13 @@
                 "Nice to see you. I am a Parkbot living in Prague. I would like to help you to find the right park just for you.",
                 "Look who it is! It’s me Parkbot and I am here today to help you."])
 
-"""defrecord variable for User"""
+"""Defrecord variable for User"""
 (defrecord User [name wc restaurant cafe bicycle_paths skating sports_ground playground dogs terminate])
 
 """Create defrecord variable User"""
 (def user (User. (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref false)))
 
-"""define a list of asking name"""
+"""Define a list of asking name"""
 (def name_ask ["What is your name?",
                "May I have your name?",
                "How may I address you?",
@@ -50,6 +50,11 @@
                "What can I call you?",
                "How do you like to be called?"])
 
+"""Vocabulary"""
 (def pos_preference (set '["yes", "like", "love", "enjoy"]))
+(def neg_preference (set '["no", "not", "don't"]))
 (def verbs (set '["have", "eat", "drink", "ride", "cycle", "bike", "roller skate", "skate", "play", "practice", "use",
                   "do", "walk", "go", "end", "finish", "goodbye", "want", "open", "close", "fun"]))
+(def nouns (set '["lunch", "breakfast", "dinner", "bike", "sports", "skate", "dog",
+                  "coffee", "tea", "dessert", "skateboard", "football", "basketball",
+                  "wc", "meal", "animal", "sport", "cake"]))
