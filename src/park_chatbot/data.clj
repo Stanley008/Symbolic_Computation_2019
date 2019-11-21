@@ -69,6 +69,30 @@
 				   "WOW, you are the first one. What is your nickname? ",
 				   "Positive answer, nice… I was just wondering, if you can type your nickname here? That’s my only input. Thank you."])
 
+"""Define a list of nickname_answer"""
+(def nickname_answer ["Than I will call you",
+				   "It is your choice, I will call you",
+				   "Your choice, I will call you",
+				   "I like it. I will call you than ",
+				   "Oh wow what a nice nickname, I will call you",
+				   "Never heard this nickname, I shall call you than",
+				   "Did you type it correctly? I am just kidding, It is your nickname. I am gonna call you than",
+				   "Any mistake in your nickname? Just kidding, I am gonna call you",
+				   "This is the first time I hear this. I love it",
+				   "OK, as you wish",
+				   "Great, I am gonna make your wish go true"])
+
+"""Define a list of nickname_end"""
+(def nickname_end ["OK, as you wish.",
+				   "As you wish master.",
+				   "Your choice.",
+				   "I thought that you love nicknames. Oh well...",
+				   "What a biggie, but It is your choice.",
+				   "If you don't like nicknames, there is nothing that I can do.",
+				   "No problem, I agree."])
+
+
+
 """Vocabulary"""
 (def pos_preference (set '["yes", "like", "love", "enjoy"]))
 (def neg_preference (set '["no", "not", "don't"]))

@@ -32,8 +32,8 @@
           (println (rand-nth data/nickname_ask))
           (ref-set (:name data/user)
             (find_name (tokenize (strip_punctuation (take_user_input)))))
-          (println "Then I will call you" @(:name data/user)))
-        (println "As you wish master.")))))
+          (println (rand-nth data/nickname_answer) @(:name data/user) "."))
+        (println (rand-nth data/nickname_end))))))
 
 (defn -main []
   """Main function"""
