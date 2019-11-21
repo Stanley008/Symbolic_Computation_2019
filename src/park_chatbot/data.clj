@@ -50,6 +50,25 @@
                "What can I call you?",
                "How do you like to be called?"])
 
+"""Define a list of asking nickname yes or no answer"""
+(def nickname_ask_yes_no ["Do you want me to call you by a nickname?",
+						  "Would you like to be called by a nickname?",
+						  "I did not get your nickname, would you like to be called by a nickname?",
+						  "People rarely do have nicknames, would you like to be called by one?",
+						  "Ok, now I know your name, but would you like to be rather called by your nickname?",
+						  "What a nice name, I prefer nicknames. Mine is Parkiebot, would you also like to be called by a nickname?",
+						  "I never heard this name. I prefer nicknames. Would you like to be called by a nickname?",
+						  "Oh wow what a nice name. That’s cool, but I prefer nicknames. Mine is Parkiebot. Do you want to be called by a nickname?"])
+
+"""Define a list of asking nickname"""
+(def nickname_ask ["What nickname would you like?",
+				   "What is your nickname?",
+				   "I like your answer. I love nicknames. What is yours?",
+				   "I am thrilled to hear you answer. What is your nickname?",
+				   "I am waiting for your secret nickname. Tell me it!",
+				   "WOW, you are the first one. What is your nickname? ",
+				   "Positive answer, nice… I was just wondering, if you can type your nickname here? That’s my only input. Thank you."])
+
 """Vocabulary"""
 (def pos_preference (set '["yes", "like", "love", "enjoy"]))
 (def neg_preference (set '["no", "not", "don't"]))

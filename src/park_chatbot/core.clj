@@ -25,11 +25,11 @@
 
 (defn ask_for_nickname []
   (dosync
-    (println "Do you want me to call you by a nickname?")
+    (println (rand-nth data/nickname_ask_yes_no))
     (let [answer (take_user_input)]
       (if (not (nil? (re-find #"[yY]es" answer)))
         (do
-          (println "What nickname would you like?")
+          (println (rand-nth data/nickname_ask))
           (ref-set (:name data/user)
             (find_name (tokenize (strip_punctuation (take_user_input)))))
           (println "Then I will call you" @(:name data/user)))
