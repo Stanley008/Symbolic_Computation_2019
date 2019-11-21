@@ -99,3 +99,13 @@
 (def nouns (set '["lunch", "breakfast", "dinner", "bike", "sports", "skate", "dog",
                   "coffee", "tea", "dessert", "skateboard", "football", "basketball",
                   "wc", "meal", "animal", "sport", "cake"]))
+
+"""Park questions"""
+(def questions [{:sent "Would you like to use toilet in the park?" :topic (:wc user)}
+				{:sent "Would you like to visit a restaurant in the park?" :topic (:restaurant user)}
+				{:sent "Would you like to visit a cafe in the park?" :topic (:cafe user)}
+				{:sent "Would you like to ride a bicycle in the park?" :topic (:bicycle_paths user)}
+				{:sent "Would you like to skate in the park?" :topic (:skating user)}
+				{:sent "Would you like to have park some sports_ground?" :topic (:sports_ground user)}
+				{:sent "Would you like to have a playground in the park?" :topic (:plauyground user)}
+				{:sent "Would you like to walk a dog in the park?" :topic (:dogs user)}])
