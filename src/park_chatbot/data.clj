@@ -49,3 +49,8 @@
                "I am sorry, I did not catch your name. What is your name?",
                "What can I call you?",
                "How do you like to be called?"])
+
+(def neg_preference (set '["no", "not", "don't"]))
+(def nouns (set '["lunch", "breakfast", "dinner", "bike", "sports", "skate", "dog",
+                  "coffee", "tea", "dessert", "skateboard", "football", "basketball",
+                  "wc", "meal", "animal", "sport", "cake"]))
