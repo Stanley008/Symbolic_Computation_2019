@@ -91,8 +91,6 @@
 				   "If you don't like nicknames, there is nothing that I can do.",
 				   "No problem, I agree."])
 
-
-
 """Vocabulary"""
 (def pos_preference (set '["yes", "like", "love", "enjoy"]))
 (def neg_preference (set '["no", "not", "don't"]))
