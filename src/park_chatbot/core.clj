@@ -35,6 +35,30 @@
           (println "Then I will call you" @(:name data/user)))
         (println "As you wish master.")))))
 
+(defn end_conversation? []
+  (dosync
+    (println "Do you want to end this conversation?")
+    (let [answer (take_user_input)]
+      (if (not (nil? (re-find #"[yY]es" answer)))
+        (ref-set (:terminate data/user) true)
+        (println "As you wish master.")))))
+
+(defn parkbot_loop []
+  (with-local-vars [count 1
+                    word_class {:verb nil :noun nil}
+                    user_input ""
+                    question_obj "Do you want to ride the bike in the park?"]
+    (println @question_obj)
+    (while (not @(:terminate data/user))
+      (let []
+        (var-set user_input (take_user_input))
+
+
+        (if (= 0 (rem @count 5))
+          (end_conversation?))
+        (var-set count (+ @count 1))))
+    (println "Ok goodbye.")))
+
 (defn -main []
   """Main function"""
   (dosync
@@ -44,4 +68,7 @@
     (ref-set (:name data/user)
       (find_name (tokenize (strip_punctuation (take_user_input)))))
     (println "Welcome" @(:name data/user))
-    (ask_for_nickname)))
+    (ask_for_nickname)
+    (println "How are you?")
+    (take_user_input)
+    (parkbot_loop)))
