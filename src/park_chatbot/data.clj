@@ -49,3 +49,7 @@
                "I am sorry, I did not catch your name. What is your name?",
                "What can I call you?",
                "How do you like to be called?"])
+
+(def pos_preference (set '["yes", "like", "love", "enjoy"]))
+(def verbs (set '["have", "eat", "drink", "ride", "cycle", "bike", "roller skate", "skate", "play", "practice", "use",
+                  "do", "walk", "go", "end", "finish", "goodbye", "want", "open", "close", "fun"]))
