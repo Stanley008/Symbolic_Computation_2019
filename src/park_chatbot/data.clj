@@ -109,3 +109,32 @@
                 {:sent "Would you like to play some sports in the park?" :topic (:sports_ground user) :status (ref 0)}
                 {:sent "Would you like a playground in the park?" :topic (:playground user) :status (ref 0)}
                 {:sent "Would you like to walk your dog in the park?" :topic (:dogs user) :status (ref 0)}])
+
+"""User questions"""
+(def user_questions ["How are you?",
+					 "How are you feeling today?",
+					 "What always makes you smile?",
+					 "What was your favorite moment thus far today?",
+					 "What was your last dream about?",
+					 "What’s your most (un)healthy habit?",
+					 "When you were little, what did you think you were going to be?",
+					 "What talent do you wish you’d have?",
+					 "If there is anything you would do differently in your life, what would it be?",
+					 "Who would you like to have dinner with tonight (could be anyone, dead or alive)?",
+					 "Which music genre do you listen to the most?",
+					 "What is your favourite band?",
+					 "What is your favourite movie?",
+					 "What advice would you give your 20-year old self?",
+					 "What is your biggest fear that you’ve overcome?",
+					 "What is the most unbelievable thing that’s ever happened to you?",
+					 "Where would you live if you had no ties to any specific place?",
+					 "What was your favorite subject in school?",
+					 "What was the last book that you read?",
+					 "What was the best gift you have ever received?",
+					 "What did you love doing as a child that you don’t do anymore?",
+					 "How do you relax yourself when stressed out?",
+					 "What is your favorite meal?",
+					 "What is your favorite drink?",
+					 "What was the last picture you took?",
+					 "If money wasn’t an issue, how would that make your life different?",
+					 "What is your favorite thing you have at home?"])

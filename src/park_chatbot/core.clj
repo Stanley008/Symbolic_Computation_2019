@@ -91,6 +91,6 @@
       (find_name (tokenize (strip_punctuation (take_user_input)))))
     (println "Welcome" @(:name data/user))
     (ask_for_nickname)
-    (println "How are you?")
+    (println (rand-nth data/user_questions))
     (take_user_input)
     (parkbot_loop)))
