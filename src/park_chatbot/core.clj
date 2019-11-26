@@ -59,12 +59,12 @@
   (with-local-vars [count 1
                     word_class {:verb nil :noun nil}
                     user_input ""
-                    question_obj "Do you want to ride the bike in the park?"]
-    (println @question_obj)
+                    question_obj (rand-nth data/questions)]
+    (println (:sent @question_obj))
     (while (not @(:terminate data/user))
       (let []
         (var-set user_input (take_user_input))
-
+        (find_preferences @question_obj @user_input)
 
         (if (= 0 (rem @count 5))
           (end_conversation?))
