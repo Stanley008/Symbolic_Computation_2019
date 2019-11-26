@@ -78,7 +78,7 @@
         (var-set count (+ @count 1))
         (ref-set (:status @question_obj) 1)
         (select_question question_obj)))
-    (println "Ok goodbye.")))
+    (println (rand-nth data/user_goodbye))))
 
 (defn -main []
   """Main function"""

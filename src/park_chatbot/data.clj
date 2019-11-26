@@ -138,3 +138,24 @@
 					 "What was the last picture you took?",
 					 "If money wasn’t an issue, how would that make your life different?",
 					 "What is your favorite thing you have at home?"])
+
+
+"""User goodbye"""
+(def user_goodbye ["Bye.",
+				   "Goodbye.",
+				   "Bye-bye.",
+				   "Take care.",
+				   "See you later.",
+				   "Catch you later.",
+				   "See you soon.",
+				   "Have a nice day.",
+				   "Have a good day.",
+				   "I am looking forward for the next meeting.",
+				   "I'm out. Bye.",
+				   "See you next time.",
+				   "Don't look at me. I am going home. Bye.",
+				   "Nice talking to you. Bye-bye.",
+				   "See ya!",
+				   "I gotta hit the road. Take care.",
+				   "Time to leave, see you later.",
+				   "Time to serve another user. Have a nice day."])
