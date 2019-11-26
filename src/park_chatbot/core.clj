@@ -38,7 +38,7 @@
 
 (defn find_preferences [question_obj answer]
   """Find preference from the user's answer and raise a flag (true/false) in user records"""
-  (let [tokens (tokenize answer)]
+  (let [tokens (tokenize (str/lower-case answer))]
     (doseq [word tokens]
       (if (contains? data/pos_preference word)
         (ref-set (:topic question_obj) true)
