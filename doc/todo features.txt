@@ -11,3 +11,4 @@ To do/ features:
 9. User record store feature
 10. Dictionary of words/sentences/question
 11. Use want and don't want for positive and negative preferences (Dictionary)
+12. Add bgm to Chatbot CLI

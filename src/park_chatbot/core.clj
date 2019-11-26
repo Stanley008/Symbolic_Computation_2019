@@ -15,6 +15,7 @@
   (str/replace text #"[.?,;:!]" ""))
 
 (defn find_name [sent]
+  """Ask user's name"""
   (with-local-vars [name nil]
     (doseq [token sent]
       (if (= token (str/capitalize token))
@@ -24,16 +25,27 @@
     @name))
 
 (defn ask_for_nickname []
+  """Ask the user whether he wants to be called by a nickname and if so, call as such"""
   (dosync
-    (println "Do you want me to call you by a nickname?")
+    (println (rand-nth data/nickname_ask_yes_no))
     (let [answer (take_user_input)]
       (if (not (nil? (re-find #"[yY]es" answer)))
         (do
-          (println "What nickname would you like?")
+          (println (rand-nth data/nickname_ask))
           (ref-set (:name data/user)
             (find_name (tokenize (strip_punctuation (take_user_input)))))
-          (println "Then I will call you" @(:name data/user)))
-        (println "As you wish master.")))))
+          (println (rand-nth data/nickname_answer) @(:name data/user) "."))
+        (println (rand-nth data/nickname_end))))))
+
+(defn find_preferences [question_obj answer]
+  """Find preference from the user's answer and raise a flag (true/false) in user records"""
+  (dosync
+    (let [tokens (tokenize answer)]
+      (doseq [word tokens]
+        (if (contains? data/pos_preference word)
+          (ref-set (:topic question_obj) true)
+          (if (contains? data/neg_preference word)
+            (ref-set (:topic question_obj) false)))))))
 
 (defn end_conversation? []
   (dosync
