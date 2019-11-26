@@ -101,11 +101,11 @@
                   "wc", "meal", "animal", "sport", "cake"]))
 
 """Park questions"""
-(def questions [{:sent "Would you like to have restrooms in the park?" :topic (:wc user)}
-				{:sent "Would you like to visit a restaurant in the park?" :topic (:restaurant user)}
-				{:sent "Would you like to visit a cafe in the park?" :topic (:cafe user)}
-				{:sent "Would you like to ride a bicycle in the park?" :topic (:bicycle_paths user)}
-				{:sent "Would you like to skate in the park?" :topic (:skating user)}
-				{:sent "Would you like to play some sports in the park?" :topic (:sports_ground user)}
-				{:sent "Would you like a playground in the park?" :topic (:playground user)}
-				{:sent "Would you like to walk your dog in the park?" :topic (:dogs user)}])
+(def questions [{:sent "Would you like to have restrooms in the park?" :topic (:wc user) :status (ref 0)}]
+        {:sent "Would you like to visit a restaurant in the park?" :topic (:restaurant user) :status (ref 0)}
+        {:sent "Would you like to visit a cafe in the park?" :topic (:cafe user) :status (ref 0)}
+        {:sent "Would you like to ride a bicycle in the park?" :topic (:bicycle_paths user) :status (ref 0)}
+        {:sent "Would you like to skate in the park?" :topic (:skating user) :status (ref 0)}
+        {:sent "Would you like to play some sports in the park?" :topic (:sports_ground user) :status (ref 0)}
+        {:sent "Would you like a playground in the park?" :topic (:playground user) :status (ref 0)}
+        {:sent "Would you like to walk your dog in the park?" :topic (:dogs user) :status (ref 0)})
