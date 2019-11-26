@@ -36,14 +36,19 @@
         (println (rand-nth data/nickname_answer) @(:name data/user) "."))
       (println (rand-nth data/nickname_end)))))
 
-(defn find_preferences [question_obj answer]
+(defn match_park [topic user_preference selected_parks]
+  (doseq [park data/Parks]
+    (if (= user_preference (topic park))
+      (var-set selected_parks (conj @selected_parks park)))))
+
+(defn find_preferences [question_obj answer selected_parks]
   """Find preference from the user's answer and raise a flag (true/false) in user records"""
   (let [tokens (tokenize (str/lower-case answer))]
     (doseq [word tokens]
       (if (contains? data/pos_preference word)
-        (ref-set (:topic question_obj) true)
+        (ref-set ((:topic question_obj) data/user) true)
         (if (contains? data/neg_preference word)
-          (ref-set (:topic question_obj) false))))))
+          (ref-set ((:topic question_obj) data/user) false))))))
 
 (defn end_conversation? []
   (println "Do you want to end this conversation?")
@@ -66,12 +71,13 @@
   (with-local-vars [count 1
                     word_class {:verb nil :noun nil}
                     user_input ""
-                    question_obj (rand-nth data/questions)]
+                    question_obj (rand-nth data/questions)
+                    selected_parks (vector)]
     (while (not @(:terminate data/user))
       (let []
         (println (:sent @question_obj))
         (var-set user_input (take_user_input))
-        (find_preferences @question_obj @user_input)
+        (find_preferences @question_obj @user_input selected_parks)
 
         (if (= 0 (rem @count 5))
           (end_conversation?))
