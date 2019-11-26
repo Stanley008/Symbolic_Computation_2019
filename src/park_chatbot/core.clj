@@ -26,54 +26,64 @@
 
 (defn ask_for_nickname []
   """Ask the user whether he wants to be called by a nickname and if so, call as such"""
-  (dosync
-    (println (rand-nth data/nickname_ask_yes_no))
-    (let [answer (take_user_input)]
-      (if (not (nil? (re-find #"[yY]es" answer)))
-        (do
-          (println (rand-nth data/nickname_ask))
-          (ref-set (:name data/user)
-            (find_name (tokenize (strip_punctuation (take_user_input)))))
-          (println (rand-nth data/nickname_answer) @(:name data/user) "."))
-        (println (rand-nth data/nickname_end))))))
+  (println (rand-nth data/nickname_ask_yes_no))
+  (let [answer (take_user_input)]
+    (if (not (nil? (re-find #"[yY]es" answer)))
+      (do
+        (println (rand-nth data/nickname_ask))
+        (ref-set (:name data/user)
+          (find_name (tokenize (strip_punctuation (take_user_input)))))
+        (println (rand-nth data/nickname_answer) @(:name data/user) "."))
+      (println (rand-nth data/nickname_end)))))
 
 (defn find_preferences [question_obj answer]
   """Find preference from the user's answer and raise a flag (true/false) in user records"""
-  (dosync
-    (let [tokens (tokenize answer)]
-      (doseq [word tokens]
-        (if (contains? data/pos_preference word)
-          (ref-set (:topic question_obj) true)
-          (if (contains? data/neg_preference word)
-            (ref-set (:topic question_obj) false)))))))
+  (let [tokens (tokenize answer)]
+    (doseq [word tokens]
+      (if (contains? data/pos_preference word)
+        (ref-set (:topic question_obj) true)
+        (if (contains? data/neg_preference word)
+          (ref-set (:topic question_obj) false))))))
 
 (defn end_conversation? []
-  (dosync
-    (println "Do you want to end this conversation?")
-    (let [answer (take_user_input)]
-      (if (not (nil? (re-find #"[yY]es" answer)))
-        (ref-set (:terminate data/user) true)
-        (println "As you wish master.")))))
+  (println "Do you want to end this conversation?")
+  (let [answer (take_user_input)]
+    (if (not (nil? (re-find #"[yY]es" answer)))
+      (ref-set (:terminate data/user) true)
+      (println "As you wish master."))))
+
+(defn select_question [question_obj]
+  (loop [new_question (rand-nth data/questions)]
+    (if (= 0 @(:status new_question))
+      (var-set question_obj new_question)
+      (recur (rand-nth data/questions)))))
+
+(defn reset_questions []
+    (doseq [question_obj data/questions]
+      (ref-set (:status question_obj) 0)))
 
 (defn parkbot_loop []
   (with-local-vars [count 1
                     word_class {:verb nil :noun nil}
                     user_input ""
                     question_obj (rand-nth data/questions)]
-    (println (:sent @question_obj))
     (while (not @(:terminate data/user))
       (let []
+        (println (:sent @question_obj))
         (var-set user_input (take_user_input))
         (find_preferences @question_obj @user_input)
 
         (if (= 0 (rem @count 5))
           (end_conversation?))
-        (var-set count (+ @count 1))))
+        (var-set count (+ @count 1))
+        (ref-set (:status @question_obj) 1)
+        (select_question question_obj)))
     (println "Ok goodbye.")))
 
 (defn -main []
   """Main function"""
   (dosync
+    (reset_questions)
     (print (rand-nth data/greetings))
     (newline)
     (println (rand-nth data/name_ask))
