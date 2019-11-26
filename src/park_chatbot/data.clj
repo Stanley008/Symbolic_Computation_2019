@@ -52,44 +52,44 @@
 
 """Define a list of asking nickname yes or no answer"""
 (def nickname_ask_yes_no ["Do you want me to call you by a nickname?",
-						  "Would you like to be called by a nickname?",
-						  "I did not get your nickname, would you like to be called by a nickname?",
-						  "People rarely do have nicknames, would you like to be called by one?",
-						  "Ok, now I know your name, but would you like to be rather called by your nickname?",
-						  "What a nice name, I prefer nicknames. Mine is Parkiebot, would you also like to be called by a nickname?",
-						  "I never heard this name. I prefer nicknames. Would you like to be called by a nickname?",
-						  "Oh wow what a nice name. That’s cool, but I prefer nicknames. Mine is Parkiebot. Do you want to be called by a nickname?"])
+                          "Would you like to be called by a nickname?",
+                          "I did not get your nickname, would you like to be called by a nickname?",
+                          "People rarely do have nicknames, would you like to be called by one?",
+                          "Ok, now I know your name, but would you like to be rather called by your nickname?",
+                          "What a nice name, I prefer nicknames. Mine is Parkiebot, would you also like to be called by a nickname?",
+                          "I never heard this name. I prefer nicknames. Would you like to be called by a nickname?",
+                          "Oh wow what a nice name. That’s cool, but I prefer nicknames. Mine is Parkiebot. Do you want to be called by a nickname?"])
 
 """Define a list of asking nickname"""
 (def nickname_ask ["What nickname would you like?",
-				   "What is your nickname?",
-				   "I like your answer. I love nicknames. What is yours?",
-				   "I am thrilled to hear you answer. What is your nickname?",
-				   "I am waiting for your secret nickname. Tell me it!",
-				   "WOW, you are the first one. What is your nickname? ",
-				   "Positive answer, nice… I was just wondering, if you can type your nickname here? That’s my only input. Thank you."])
+                   "What is your nickname?",
+                   "I like your answer. I love nicknames. What is yours?",
+                   "I am thrilled to hear you answer. What is your nickname?",
+                   "I am waiting for your secret nickname. Tell me it!",
+                   "WOW, you are the first one. What is your nickname? ",
+                   "Positive answer, nice… I was just wondering, if you can type your nickname here? That’s my only input. Thank you."])
 
 """Define a list of nickname_answer"""
 (def nickname_answer ["Than I will call you",
-				   "It is your choice, I will call you",
-				   "Your choice, I will call you",
-				   "I like it. I will call you than ",
-				   "Oh wow what a nice nickname, I will call you",
-				   "Never heard this nickname, I shall call you than",
-				   "Did you type it correctly? I am just kidding, It is your nickname. I am gonna call you than",
-				   "Any mistake in your nickname? Just kidding, I am gonna call you",
-				   "This is the first time I hear this. I love it",
-				   "OK, as you wish",
-				   "Great, I am gonna make your wish go true"])
+                      "It is your choice, I will call you",
+                      "Your choice, I will call you",
+                      "I like it. I will call you than ",
+                      "Oh wow what a nice nickname, I will call you",
+                      "Never heard this nickname, I shall call you than",
+                      "Did you type it correctly? I am just kidding, It is your nickname. I am gonna call you than",
+                      "Any mistake in your nickname? Just kidding, I am gonna call you",
+                      "This is the first time I hear this. I love it",
+                      "OK, as you wish",
+                      "Great, I am gonna make your wish go true"])
 
 """Define a list of nickname_end"""
 (def nickname_end ["OK, as you wish.",
-				   "As you wish master.",
-				   "Your choice.",
-				   "I thought that you love nicknames. Oh well...",
-				   "What a biggie, but It is your choice.",
-				   "If you don't like nicknames, there is nothing that I can do.",
-				   "No problem, I agree."])
+                   "As you wish master.",
+                   "Your choice.",
+                   "I thought that you love nicknames. Oh well...",
+                   "What a biggie, but It is your choice.",
+                   "If you don't like nicknames, there is nothing that I can do.",
+                   "No problem, I agree."])
 
 """Vocabulary"""
 (def pos_preference (set '["yes", "like", "love", "enjoy"]))
