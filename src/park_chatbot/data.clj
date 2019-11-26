@@ -101,11 +101,11 @@
                   "wc", "meal", "animal", "sport", "cake"]))
 
 """Park questions"""
-(def questions [{:sent "Would you like to use toilet in the park?" :topic (:wc user)}
+(def questions [{:sent "Would you like to have restrooms in the park?" :topic (:wc user)}
 				{:sent "Would you like to visit a restaurant in the park?" :topic (:restaurant user)}
 				{:sent "Would you like to visit a cafe in the park?" :topic (:cafe user)}
 				{:sent "Would you like to ride a bicycle in the park?" :topic (:bicycle_paths user)}
 				{:sent "Would you like to skate in the park?" :topic (:skating user)}
-				{:sent "Would you like to have park some sports_ground?" :topic (:sports_ground user)}
-				{:sent "Would you like to have a playground in the park?" :topic (:plauyground user)}
-				{:sent "Would you like to walk a dog in the park?" :topic (:dogs user)}])
+				{:sent "Would you like to play some sports in the park?" :topic (:sports_ground user)}
+				{:sent "Would you like a playground in the park?" :topic (:playground user)}
+				{:sent "Would you like to walk your dog in the park?" :topic (:dogs user)}])
