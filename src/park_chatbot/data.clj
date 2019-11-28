@@ -99,7 +99,7 @@
 (def nouns (set '["lunch", "breakfast", "dinner", "bike", "sports", "skate", "dog",
                   "coffee", "tea", "dessert", "skateboard", "football", "basketball",
                   "wc", "meal", "animal", "sport", "cake"]))
-(def end_words (set '["exit", "quit", "end", "stop", "execute", "finish", "die"]'))
+(def end_words (set '["exit", "quit", "end", "stop", "execute", "finish", "die"]))
 
 """Park questions"""
 (def questions [{:sent "Would you like to have restrooms in the park?" :topic (:wc user) :status (ref 0)}
