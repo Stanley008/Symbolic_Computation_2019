@@ -19,7 +19,7 @@
 (def vysehrad (Park. "Vysehrad" true true true true false true true nil "All year round"))
 
 """A list of parks"""
-(def Parks [betramka, fran_garden, obora, kampa, zahrada, klam, ladronka, letna, petrin, riegrovy, stromovka, vajanovy, vysehrad])
+(def parks [betramka, fran_garden, obora, kampa, zahrada, klam, ladronka, letna, petrin, riegrovy, stromovka, vajanovy, vysehrad])
 
 """Define a list of greetings"""
 (def greetings ["Hello, I am Parkbot. I am the most advanced park information bot and I am here to help you. Hello, I am Parkbot.",

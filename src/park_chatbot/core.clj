@@ -36,14 +36,27 @@
         (println (rand-nth data/nickname_answer) @(:name data/user) "."))
       (println (rand-nth data/nickname_end)))))
 
-(defn find_preferences [question_obj answer]
+(defn match_park [topic user_preference selected_parks]
+  (if (empty? @selected_parks)
+    (doseq [park data/parks]
+      (if (= user_preference (topic park))
+        (var-set selected_parks (conj @selected_parks park))))
+    (doseq [park @selected_parks]
+      (if (not= user_preference (topic park))
+        (var-set selected_parks (remove #{park} @selected_parks))))))
+
+(defn find_preferences [question_obj answer selected_parks]
   """Find preference from the user's answer and raise a flag (true/false) in user records"""
   (let [tokens (tokenize (str/lower-case answer))]
     (doseq [word tokens]
       (if (contains? data/pos_preference word)
-        (ref-set (:topic question_obj) true)
+        (do
+          (ref-set ((:topic question_obj) data/user) true)
+          (match_park (:topic question_obj) true selected_parks))
         (if (contains? data/neg_preference word)
-          (ref-set (:topic question_obj) false))))))
+          (do
+            (ref-set ((:topic question_obj) data/user) false)
+            (match_park (:topic question_obj) false selected_parks)))))))
 
 (defn end_conversation? []
   (println "Do you want to end this conversation?")
@@ -66,18 +79,24 @@
   (with-local-vars [count 1
                     word_class {:verb nil :noun nil}
                     user_input ""
-                    question_obj (rand-nth data/questions)]
+                    question_obj (rand-nth data/questions)
+                    selected_parks []]
     (while (not @(:terminate data/user))
       (let []
         (println (:sent @question_obj))
         (var-set user_input (take_user_input))
-        (find_preferences @question_obj @user_input)
-
-        (if (= 0 (rem @count 5))
-          (end_conversation?))
+        (find_preferences @question_obj @user_input selected_parks)
+        (if (= 0 (rem @count 3))
+          (do
+            (if (empty? @selected_parks)
+              (println "I could not find an apropriate park for you.")
+              (println "You can visit"
+                (:name (rand-nth @selected_parks) ".")))
+            (end_conversation?)))
         (var-set count (+ @count 1))
         (ref-set (:status @question_obj) 1)
         (select_question question_obj)))
+      ;when it asks all questions it stucks
     (println "Ok goodbye.")))
 
 (defn -main []
