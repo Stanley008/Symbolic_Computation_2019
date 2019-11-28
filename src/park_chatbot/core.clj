@@ -28,13 +28,14 @@
   """Ask the user whether he wants to be called by a nickname and if so, call as such"""
   (println (rand-nth data/nickname_ask_yes_no))
   (let [answer (take_user_input)]
-    (if (not (nil? (re-find #"[yY]es" answer)))
-      (do
-        (println (rand-nth data/nickname_ask))
-        (ref-set (:name data/user)
-          (find_name (tokenize (strip_punctuation (take_user_input)))))
-        (println (rand-nth data/nickname_answer) @(:name data/user) "."))
-      (println (rand-nth data/nickname_end)))))
+    (doseq [word answer]
+      (if (contains? data/pos_preference word)
+        (do
+          (println (rand-nth data/nickname_ask))
+          (ref-set (:name data/user)
+            (find_name (tokenize (strip_punctuation (take_user_input)))))
+          (println (rand-nth data/nickname_answer) @(:name data/user) "."))
+        (println (rand-nth data/nickname_end))))))
 
 (defn match_park [topic user_preference selected_parks]
   (if (empty? @selected_parks)
