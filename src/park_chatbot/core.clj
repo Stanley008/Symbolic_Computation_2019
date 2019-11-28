@@ -58,12 +58,18 @@
             (ref-set ((:topic question_obj) data/user) false)
             (match_park (:topic question_obj) false selected_parks)))))))
 
-(defn end_conversation? []
+(defn approve_ending? []
   (println "Do you want to end this conversation?")
   (let [answer (take_user_input)]
     (if (not (nil? (re-find #"[yY]es" answer)))
       (ref-set (:terminate data/user) true)
       (println "As you wish master."))))
+
+(defn end_conversation? [user_input]
+  (let [tokens (tokenize (str/lower-case user_input))]
+    (doseq [word tokens]
+      (if (contains? data/end_words word)
+        (approve_ending?)))))
 
 (defn select_question [question_obj]
   (loop [new_question (rand-nth data/questions)]
@@ -85,6 +91,7 @@
       (let []
         (println (:sent @question_obj))
         (var-set user_input (take_user_input))
+        (end_conversation? @user_input)
         (find_preferences @question_obj @user_input selected_parks)
         (if (= 0 (rem @count 3))
           (do
@@ -92,7 +99,7 @@
               (println "I could not find an apropriate park for you.")
               (println "You can visit"
                 (:name (rand-nth @selected_parks) ".")))
-            (end_conversation?)))
+            (approve_ending?)))
         (var-set count (+ @count 1))
         (ref-set (:status @question_obj) 1)
         (select_question question_obj)))
