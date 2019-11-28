@@ -58,18 +58,20 @@
             (ref-set ((:topic question_obj) data/user) false)
             (match_park (:topic question_obj) false selected_parks)))))))
 
-(defn approve_ending? []
+(defn approve_ending? [counter]
   (println "Do you want to end this conversation?")
   (let [answer (take_user_input)]
     (if (not (nil? (re-find #"[yY]es" answer)))
       (ref-set (:terminate data/user) true)
-      (println "As you wish master."))))
+      (do
+        (var-set counter 0)
+        (println "As you wish master.")))))
 
-(defn end_conversation? [user_input]
+(defn end_conversation? [user_input counter]
   (let [tokens (tokenize (str/lower-case user_input))]
     (doseq [word tokens]
       (if (contains? data/end_words word)
-        (approve_ending?)))))
+        (approve_ending? counter)))))
 
 (defn select_question [question_obj]
   (loop [new_question (rand-nth data/questions)]
@@ -82,7 +84,7 @@
       (ref-set (:status question_obj) 0)))
 
 (defn parkbot_loop []
-  (with-local-vars [count 1
+  (with-local-vars [counter 1
                     word_class {:verb nil :noun nil}
                     user_input ""
                     question_obj (rand-nth data/questions)
@@ -91,16 +93,16 @@
       (let []
         (println (:sent @question_obj))
         (var-set user_input (take_user_input))
-        (end_conversation? @user_input)
+        (end_conversation? @user_input counter)
         (find_preferences @question_obj @user_input selected_parks)
-        (if (= 0 (rem @count 3))
+        (if (= 0 (rem @counter 3))
           (do
             (if (empty? @selected_parks)
               (println "I could not find an apropriate park for you.")
               (println "You can visit"
                 (:name (rand-nth @selected_parks) ".")))
-            (approve_ending?)))
-        (var-set count (+ @count 1))
+            (approve_ending? counter)))
+        (var-set counter (+ @counter 1))
         (ref-set (:status @question_obj) 1)
         (select_question question_obj)))
       ;when it asks all questions it stucks
