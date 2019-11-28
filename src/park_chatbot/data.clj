@@ -92,13 +92,14 @@
                    "No problem, I agree."])
 
 """Vocabulary"""
-(def pos_preference (set '["yes", "like", "love", "enjoy"]))
-(def neg_preference (set '["no", "not", "don't"]))
+(def pos_preference (set '["yes", "like", "love", "enjoy", "true"]))
+(def neg_preference (set '["no", "not", "don't", "false"]))
 (def verbs (set '["have", "eat", "drink", "ride", "cycle", "bike", "roller skate", "skate", "play", "practice", "use",
                   "do", "walk", "go", "end", "finish", "goodbye", "want", "open", "close", "fun"]))
 (def nouns (set '["lunch", "breakfast", "dinner", "bike", "sports", "skate", "dog",
                   "coffee", "tea", "dessert", "skateboard", "football", "basketball",
                   "wc", "meal", "animal", "sport", "cake"]))
+(def end_words (set '["exit", "quit", "end", "stop", "execute", "finish", "die"]'))
 
 """Park questions"""
 (def questions [{:sent "Would you like to have restrooms in the park?" :topic (:wc user) :status (ref 0)}
