@@ -102,11 +102,11 @@
 (def end_words (set '["exit", "quit", "end", "stop", "execute", "finish", "die"]))
 
 """Park questions"""
-(def questions [{:sent "Would you like to have restrooms in the park?" :topic (:wc user) :status (ref 0)}
-                {:sent "Would you like to visit a restaurant in the park?" :topic (:restaurant user) :status (ref 0)}
-                {:sent "Would you like to visit a cafe in the park?" :topic (:cafe user) :status (ref 0)}
-                {:sent "Would you like to ride a bicycle in the park?" :topic (:bicycle_paths user) :status (ref 0)}
-                {:sent "Would you like to skate in the park?" :topic (:skating user) :status (ref 0)}
-                {:sent "Would you like to play some sports in the park?" :topic (:sports_ground user) :status (ref 0)}
-                {:sent "Would you like a playground in the park?" :topic (:playground user) :status (ref 0)}
-                {:sent "Would you like to walk your dog in the park?" :topic (:dogs user) :status (ref 0)}])
+(def questions [{:sent "Would you like to have restrooms in the park?" :topic :wc :status (ref 0)}
+                {:sent "Would you like to visit a restaurant in the park?" :topic :restaurant :status (ref 0)}
+                {:sent "Would you like to visit a cafe in the park?" :topic :cafe :status (ref 0)}
+                {:sent "Would you like to ride a bicycle in the park?" :topic :bicycle_paths :status (ref 0)}
+                {:sent "Would you like to skate in the park?" :topic :skating :status (ref 0)}
+                {:sent "Would you like to play some sports in the park?" :topic :sports_ground :status (ref 0)}
+                {:sent "Would you like a playground in the park?" :topic :playground :status (ref 0)}
+                {:sent "Would you like to walk your dog in the park?" :topic :dogs :status (ref 0)}])
