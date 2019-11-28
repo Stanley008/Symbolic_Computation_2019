@@ -60,12 +60,13 @@
 
 (defn approve_ending? [counter]
   (println "Do you want to end this conversation?")
-  (let [answer (take_user_input)]
-    (if (not (nil? (re-find #"[yY]es" answer)))
-      (ref-set (:terminate data/user) true)
-      (do
-        (var-set counter 0)
-        (println "As you wish master.")))))
+  (let [answer (tokenize (str/lower-case (take_user_input)))]
+    (doseq [word answer]
+      (if (contains? data/pos_preference word)
+        (ref-set (:terminate data/user) true)
+        (do
+          (var-set counter 0)
+          (println "As you wish master."))))))
 
 (defn end_conversation? [user_input counter]
   (let [tokens (tokenize (str/lower-case user_input))]
