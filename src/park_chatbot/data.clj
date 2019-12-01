@@ -1,9 +1,26 @@
-(ns park-chatbot.data)
+(ns park-chatbot.data
+  "The chatbot library that includes all necessary data for the cahtbot to function.")
 
-"""Park record"""
-(defrecord Park [name wc restaurant cafe bicycle_paths skating sports_ground playground dogs opening_hours])
+(defrecord Park
+  "A park record template:
+  name -> string that represents the name of the park;
+  wc, restaurant, cafe, bicycle_paths, skating, sports_ground, playground, dogs ->
+  boolean values that represent whether a park has one of the facilities;
+  opening_hours -> string that explains when the park is open during the year."
+  [name wc restaurant cafe bicycle_paths skating sports_ground playground dogs opening_hours])
 
-"""Defrecord variable for Park"""
+(defrecord User
+  "A user record template:
+  name -> string that represents the name of the user;
+  wc, restaurant, cafe, bicycle_paths, skating, sports_ground, playground, dogs ->
+  boolean values that represent the preferences of the user;
+  terminate -> boolean that shows if a user want to end the conversation."
+  [name wc restaurant cafe bicycle_paths skating sports_ground playground dogs terminate])
+
+(def user
+  (User. (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref false)))
+
+;
 (def betramka (Park. "Betramka" true false true true false false false nil "All year round with different closing hours"))
 (def fran_garden (Park. "Frantiskanska zahrada" true false false true false false true true "All year round but closes at night"))
 (def obora (Park. "Obora Hvezda" true true true true false false true true "All year round"))
@@ -18,95 +35,112 @@
 (def vajanovy (Park. "Vojanovy sady" false false false false false false false true "All year round"))
 (def vysehrad (Park. "Vysehrad" true true true true false true true nil "All year round"))
 
-"""A list of parks"""
-(def parks [betramka, fran_garden, obora, kampa, zahrada, klam, ladronka, letna, petrin, riegrovy, stromovka, vajanovy, vysehrad])
+(def parks
+  "A vector of the parks known by the chatbot."
+  [betramka, fran_garden, obora, kampa, zahrada, klam, ladronka,
+   letna, petrin, riegrovy, stromovka, vajanovy, vysehrad])
 
-"""Define a list of greetings"""
-(def greetings ["Hello, I am Parkbot. I am the most advanced park information bot and I am here to help you. Hello, I am Parkbot.",
-                "I am here to serve your needs.",
-                "Hi, I am Parkbot. I am here today to help you to find the best park just for you.",
-                "Welcome, I am Parkbot. I am here to help you to find the best park just for you.",
-                "Hi, I am Parkbot. It’s a pleasure to meet you. I am here to help you.",
-                "Hey there, I am Parkbot. I am advanced interficial park information bot and I am here to help you to find the most suitable park just for you.",
-                "Good day. I am the most advanced interfacial park information bot. My name is Parkbot.",
-                "Howdy, my name is Parkbot. I am here to help you.",
-                "Great to see you. My name is Parkbot. I am advanced park information bot and I am here to help you.",
-                "Nice to see you. I am a Parkbot living in Prague. I would like to help you to find the right park just for you.",
-                "Look who it is! It’s me Parkbot and I am here today to help you."])
+(def greetings
+  "A vector of sentences that are used for greeting the user."
+  ["Hello, I am Parkbot. I am the most advanced park information bot and I am here to help you. Hello, I am Parkbot.",
+   "I am here to serve your needs.",
+   "Hi, I am Parkbot. I am here today to help you to find the best park just for you.",
+   "Welcome, I am Parkbot. I am here to help you to find the best park just for you.",
+   "Hi, I am Parkbot. It’s a pleasure to meet you. I am here to help you.",
+   "Hey there, I am Parkbot. I am advanced interficial park information bot and I am here to help you to find the most suitable park just for you.",
+   "Good day. I am the most advanced interfacial park information bot. My name is Parkbot.",
+   "Howdy, my name is Parkbot. I am here to help you.",
+   "Great to see you. My name is Parkbot. I am advanced park information bot and I am here to help you.",
+   "Nice to see you. I am a Parkbot living in Prague. I would like to help you to find the right park just for you.",
+   "Look who it is! It’s me Parkbot and I am here today to help you."])
 
-"""Defrecord variable for User"""
-(defrecord User [name wc restaurant cafe bicycle_paths skating sports_ground playground dogs terminate])
+(def name_ask
+  "A vector of sentences that are used to ask the user's name."
+  ["What is your name?",
+   "May I have your name?",
+   "How may I address you?",
+   "Do you mind if I ask you for your name?",
+   "How do they call you?",
+   "I am sorry, I did not catch your name. What is your name?",
+   "What can I call you?",
+   "How do you like to be called?"])
 
-"""Create defrecord variable User"""
-(def user (User. (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref false)))
+(def nickname_ask_yes_no
+  "A vector of sentences that are used to ask if the user want to be called by a nickname."
+  ["Do you want me to call you by a nickname?",
+   "Would you like to be called by a nickname?",
+   "I did not get your nickname, would you like to be called by a nickname?",
+   "People rarely do have nicknames, would you like to be called by one?",
+   "Ok, now I know your name, but would you like to be rather called by your nickname?",
+   "What a nice name, I prefer nicknames. Mine is Parkiebot, would you also like to be called by a nickname?",
+   "I never heard this name. I prefer nicknames. Would you like to be called by a nickname?",
+   "Oh wow what a nice name. That’s cool, but I prefer nicknames. Mine is Parkiebot. Do you want to be called by a nickname?"])
 
-"""Define a list of asking name"""
-(def name_ask ["What is your name?",
-               "May I have your name?",
-               "How may I address you?",
-               "Do you mind if I ask you for your name?",
-               "How do they call you?",
-               "I am sorry, I did not catch your name. What is your name?",
-               "What can I call you?",
-               "How do you like to be called?"])
+(def nickname_ask
+  "A vector of sentences that are used to ask the user's nickname"
+  ["What nickname would you like?",
+   "What is your nickname?",
+   "I like your answer. I love nicknames. What is yours?",
+   "I am thrilled to hear you answer. What is your nickname?",
+   "I am waiting for your secret nickname. Tell me it!",
+   "WOW, you are the first one. What is your nickname? ",
+   "Positive answer, nice… I was just wondering, if you can type your nickname here? That’s my only input. Thank you."])
 
-"""Define a list of asking nickname yes or no answer"""
-(def nickname_ask_yes_no ["Do you want me to call you by a nickname?",
-                          "Would you like to be called by a nickname?",
-                          "I did not get your nickname, would you like to be called by a nickname?",
-                          "People rarely do have nicknames, would you like to be called by one?",
-                          "Ok, now I know your name, but would you like to be rather called by your nickname?",
-                          "What a nice name, I prefer nicknames. Mine is Parkiebot, would you also like to be called by a nickname?",
-                          "I never heard this name. I prefer nicknames. Would you like to be called by a nickname?",
-                          "Oh wow what a nice name. That’s cool, but I prefer nicknames. Mine is Parkiebot. Do you want to be called by a nickname?"])
+(def nickname_answer
+  "A vector of sentences that are used after the user tells his/her nickname."
+  ["Than I will call you",
+   "It is your choice, I will call you",
+   "Your choice, I will call you",
+   "I like it. I will call you than ",
+   "Oh wow what a nice nickname, I will call you",
+   "Never heard this nickname, I shall call you than",
+   "Did you type it correctly? I am just kidding, It is your nickname. I am gonna call you than",
+   "Any mistake in your nickname? Just kidding, I am gonna call you",
+   "This is the first time I hear this. I love it",
+   "OK, as you wish",
+   "Great, I am gonna make your wish go true"])
 
-"""Define a list of asking nickname"""
-(def nickname_ask ["What nickname would you like?",
-                   "What is your nickname?",
-                   "I like your answer. I love nicknames. What is yours?",
-                   "I am thrilled to hear you answer. What is your nickname?",
-                   "I am waiting for your secret nickname. Tell me it!",
-                   "WOW, you are the first one. What is your nickname? ",
-                   "Positive answer, nice… I was just wondering, if you can type your nickname here? That’s my only input. Thank you."])
+(def nickname_end
+  "A vector of sentences that are used if the user does not want a nickname."
+  ["OK, as you wish.",
+   "As you wish master.",
+   "Your choice.",
+   "I thought that you love nicknames. Oh well...",
+   "What a biggie, but It is your choice.",
+   "If you don't like nicknames, there is nothing that I can do.",
+   "No problem, I agree."])
 
-"""Define a list of nickname_answer"""
-(def nickname_answer ["Than I will call you",
-                      "It is your choice, I will call you",
-                      "Your choice, I will call you",
-                      "I like it. I will call you than ",
-                      "Oh wow what a nice nickname, I will call you",
-                      "Never heard this nickname, I shall call you than",
-                      "Did you type it correctly? I am just kidding, It is your nickname. I am gonna call you than",
-                      "Any mistake in your nickname? Just kidding, I am gonna call you",
-                      "This is the first time I hear this. I love it",
-                      "OK, as you wish",
-                      "Great, I am gonna make your wish go true"])
+(def pos_preference
+  "A vector of words that represent a positive opinion."
+  (set '["yes", "like", "love", "enjoy", "true", "yeah", "great", "affirmative",
+         "y", "maybe"]))
+(def neg_preference
+  "A vector of words that represent a negative opinion."
+  (set '["no", "not", "don't", "don", "false", "nah", "never", "n"]))
+(def verbs
+  "A vector of words that represent verbs."
+  (set '["have", "eat", "drink", "ride", "cycle", "bike", "skate", "play", "practice", "use",
+         "do", "walk", "go", "end", "finish", "goodbye", "want", "open", "close", "fun"]))
+(def nouns
+  "A vector of words that represent nouns."
+  (set '["lunch", "breakfast", "dinner", "bike", "sports", "skate", "dog",
+         "coffee", "tea", "dessert", "skateboard", "football", "basketball",
+         "wc", "meal", "animal", "sport", "cake", "beer"]))
+(def end_words
+  "A vector of words that shows that the user want to end the conversation."
+  (set '["exit", "quit", "end", "stop", "execute", "finish", "die"]))
 
-"""Define a list of nickname_end"""
-(def nickname_end ["OK, as you wish.",
-                   "As you wish master.",
-                   "Your choice.",
-                   "I thought that you love nicknames. Oh well...",
-                   "What a biggie, but It is your choice.",
-                   "If you don't like nicknames, there is nothing that I can do.",
-                   "No problem, I agree."])
 
-"""Vocabulary"""
-(def pos_preference (set '["yes", "like", "love", "enjoy", "true", "yeah", "great", "affirmative", "y"]))
-(def neg_preference (set '["no", "not", "don't", "don", "false", "nah", "never", "n"]))
-(def verbs (set '["have", "eat", "drink", "ride", "cycle", "bike", "skate", "play", "practice", "use",
-                  "do", "walk", "go", "end", "finish", "goodbye", "want", "open", "close", "fun"]))
-(def nouns (set '["lunch", "breakfast", "dinner", "bike", "sports", "skate", "dog",
-                  "coffee", "tea", "dessert", "skateboard", "football", "basketball",
-                  "wc", "meal", "animal", "sport", "cake", "beer"]))
-(def end_words (set '["exit", "quit", "end", "stop", "execute", "finish", "die"]))
-
-"""Park questions"""
-(def questions [{:sent "Would you like to have restrooms in the park?" :topic :wc :status (ref 0)}
-                {:sent "Would you like to visit a restaurant in the park?" :topic :restaurant :status (ref 0)}
-                {:sent "Would you like to visit a cafe in the park?" :topic :cafe :status (ref 0)}
-                {:sent "Would you like to ride a bicycle in the park?" :topic :bicycle_paths :status (ref 0)}
-                {:sent "Would you like to skate in the park?" :topic :skating :status (ref 0)}
-                {:sent "Would you like to play some sports in the park?" :topic :sports_ground :status (ref 0)}
-                {:sent "Would you like a playground in the park?" :topic :playground :status (ref 0)}
-                {:sent "Would you like to walk your dog in the park?" :topic :dogs :status (ref 0)}])
+(def question_objects
+  "A vector of question objects that include:
+  :sent -> the sentences that are used to ask the user for a preference;
+  :topic -> the topic of the asked sentence;
+  :status -> the status of the object, if 0 it is unused, if 1 it was already used"
+  [{:sent "Would you like to have restrooms in the park?" :topic :wc :status (ref 0)}
+   {:sent "Would you like to visit a restaurant in the park?" :topic :restaurant :status (ref 0)}
+   {:sent "Would you like to visit a cafe in the park?" :topic :cafe :status (ref 0)}
+   {:sent "Would you like to ride a bicycle in the park?" :topic :bicycle_paths :status (ref 0)}
+   {:sent "Would you like to skate in the park?" :topic :skating :status (ref 0)}
+   {:sent "Would you like to play some sports in the park?" :topic :sports_ground :status (ref 0)}
+   {:sent "Would you like a playground in the park?" :topic :playground :status (ref 0)}
+   {:sent "Would you like to walk your dog in the park?" :topic :dogs :status (ref 0)}])
