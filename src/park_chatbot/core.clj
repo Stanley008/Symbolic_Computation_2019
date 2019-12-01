@@ -66,9 +66,10 @@
     (doseq [word answer]
       (if (contains? data/pos_preference word)
         (ref-set (:terminate data/user) true)
-        (do
-          (var-set counter 0)
-          (println "As you wish master."))))))
+        (if (contains? data/neg_preference word)
+          (do
+            (var-set counter 0)
+            (println "As you wish master.")))))))
 
 (defn end_conversation? [user_input counter]
   (let [tokens (tokenize (str/lower-case user_input))]
