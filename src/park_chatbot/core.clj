@@ -10,6 +10,10 @@
   (let [user_input (read-line)]
     user_input))
 
+(defn reset_questions []
+    (doseq [question_obj data/questions]
+      (ref-set (:status question_obj) 0)))
+
 (defn strip_punctuation [text]
   """Remove puntuation from a string"""
   (str/replace text #"[.?,;:!]" ""))
@@ -68,6 +72,7 @@
         (ref-set (:terminate data/user) true)
         (if (contains? data/neg_preference word)
           (do
+            (reset_questions)
             (var-set counter 0)
             (println "As you wish master.")))))))
 
@@ -82,10 +87,6 @@
     (if (= 0 @(:status new_question))
       (var-set question_obj new_question)
       (recur (rand-nth data/questions)))))
-
-(defn reset_questions []
-    (doseq [question_obj data/questions]
-      (ref-set (:status question_obj) 0)))
 
 (defn parkbot_loop []
   (with-local-vars [counter 1
