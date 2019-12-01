@@ -92,13 +92,13 @@
                    "No problem, I agree."])
 
 """Vocabulary"""
-(def pos_preference (set '["yes", "like", "love", "enjoy", "true"]))
-(def neg_preference (set '["no", "not", "don't", "false"]))
-(def verbs (set '["have", "eat", "drink", "ride", "cycle", "bike", "roller skate", "skate", "play", "practice", "use",
+(def pos_preference (set '["yes", "like", "love", "enjoy", "true", "yeah", "great", "affirmative", "y"]))
+(def neg_preference (set '["no", "not", "don't", "don", "false", "nah", "never", "n"]))
+(def verbs (set '["have", "eat", "drink", "ride", "cycle", "bike", "skate", "play", "practice", "use",
                   "do", "walk", "go", "end", "finish", "goodbye", "want", "open", "close", "fun"]))
 (def nouns (set '["lunch", "breakfast", "dinner", "bike", "sports", "skate", "dog",
                   "coffee", "tea", "dessert", "skateboard", "football", "basketball",
-                  "wc", "meal", "animal", "sport", "cake"]))
+                  "wc", "meal", "animal", "sport", "cake", "beer"]))
 (def end_words (set '["exit", "quit", "end", "stop", "execute", "finish", "die"]))
 
 """Park questions"""
