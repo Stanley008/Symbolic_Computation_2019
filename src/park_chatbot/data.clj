@@ -209,6 +209,28 @@
    "Allright, I heard everything I needed and my advice is to go to",
    "Interesting replies. My information system shows as most suitable park"])
 
+(def user_no_question 
+   "User do not ask questions."
+   ["Please don't ask questions when a question was already written. My resources are limited.",
+   "Be kind and don't ask questions. I am gonna ask everything.",
+   "My resources are limited, I will ask you everything I need. Don't reply with questions.",
+   "I am going to ask you everything in next few steps. You don't need to ask anything. Let me do my job.",
+   "You don't need to ask anything from now on. I will take care of your needs.",
+   "You don't need to ask anything from now on. I will handle park options and take care of your needs."
+   "No worries. I am here and I will ask you every question I need to find you the best option just for you."])
+
+(def user_end_questions 
+   "User questions to end the conversation."
+   ["Do you want to end this conversation?",
+   "Would you like to end this conversation?",
+   "I feel tired. Would you like to end this chat?",
+   "Aren't you feeling tired? Should we call it a day?",
+   "Oooh well my ram is filling up. What about yours? Would you like to end this conversation?",
+   "My cpu is getting hot, what about yours? Would you like to finish this conversation?",
+   "There is a 50/50 chance that you will reply this correctly. Would you like to end this conversation? SMILE :D",
+   "Aren't you feeling already tired for today? Would you like to end our talk?",
+   "I am not feeling well, what about you? Should we call it a day?"])
+
 (def question_objects
   "A vector of question objects that include:
   :sent -> the sentences that are used to ask the user for a preference;

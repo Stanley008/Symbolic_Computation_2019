@@ -90,7 +90,7 @@
   If yes updates the 'terminate' value in 'user' record to true.
   counter -> integer that stores the length of the conversation."
   [counter]
-  (println "Do you want to end this conversation?")
+  (println (rand-nth data/user_end_questions))
   (let [answer (tokenize (str/lower-case (take_user_input)))]
     (doseq [word answer]
       (if (contains? data/pos_preference word)
@@ -99,7 +99,7 @@
           (do
             (reset_questions)
             (var-set counter 0)
-            (println (rand-nth data/question_goodbye))))))))
+            ))))))
 
 (defn end_conversation?
   "Checks if the user has the desire to finish the converastion. If yes it calls
@@ -165,4 +165,5 @@
     (ask_for_nickname)
     (println (rand-nth data/user_questions))
     (take_user_input)
+    (println (rand-nth data/user_no_question)) 
     (parkbot_loop)))
