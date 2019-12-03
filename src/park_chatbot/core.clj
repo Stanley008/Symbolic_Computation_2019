@@ -4,9 +4,9 @@
         [park-chatbot.data :as data]
         [clojure.string :as str]))
 
-(def
+(def tokenize
   "Initialize the pre-trained tokenizer from 'en-token.bin'."
-  tokenize (nlp/make-tokenizer "src/en-token.bin"))
+  (nlp/make-tokenizer "src/en-token.bin"))
 
 (defn take_user_input
   "Takes user input from the CLI and outputs it."
@@ -24,7 +24,7 @@
   "Remove the puntuation from a string and outputs the new string.
   text -> string from where the punctuation should be removed."
   [text]
-  (str/replace text #"[.?,;:!]" ""))
+  (str/replace text #"[.?,;:!']" ""))
 
 (defn find_name
   "Search for a name in a string

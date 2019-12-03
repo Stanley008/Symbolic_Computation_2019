@@ -1,20 +1,20 @@
 (ns park-chatbot.data
   "The chatbot library that includes all necessary data for the cahtbot to function.")
 
+; A park record template:
+; name -> string that represents the name of the park;
+; wc, restaurant, cafe, bicycle_paths, skating, sports_ground, playground, dogs ->
+; boolean values that represent whether a park has one of the facilities;
+; opening_hours -> string that explains when the park is open during the year.
 (defrecord Park
-  "A park record template:
-  name -> string that represents the name of the park;
-  wc, restaurant, cafe, bicycle_paths, skating, sports_ground, playground, dogs ->
-  boolean values that represent whether a park has one of the facilities;
-  opening_hours -> string that explains when the park is open during the year."
   [name wc restaurant cafe bicycle_paths skating sports_ground playground dogs opening_hours])
 
+; A user record template:
+; name -> string that represents the name of the user;
+; wc, restaurant, cafe, bicycle_paths, skating, sports_ground, playground, dogs ->
+; boolean values that represent the preferences of the user;
+; terminate -> boolean that shows if a user want to end the conversation.
 (defrecord User
-  "A user record template:
-  name -> string that represents the name of the user;
-  wc, restaurant, cafe, bicycle_paths, skating, sports_ground, playground, dogs ->
-  boolean values that represent the preferences of the user;
-  terminate -> boolean that shows if a user want to end the conversation."
   [name wc restaurant cafe bicycle_paths skating sports_ground playground dogs terminate])
 
 (def user
@@ -116,7 +116,7 @@
          "y", "maybe"]))
 (def neg_preference
   "A vector of words that represent a negative opinion."
-  (set '["no", "not", "don't", "don", "false", "nah", "never", "n"]))
+  (set '["no", "not", "don't", "don", "false", "nah", "never", "n", "idk"]))
 (def verbs
   "A vector of words that represent verbs."
   (set '["have", "eat", "drink", "ride", "cycle", "bike", "skate", "play", "practice", "use",
