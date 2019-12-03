@@ -101,7 +101,7 @@
    "Great, I am gonna make your wish go true"])
 
 (def nickname_end
-  "A vector of sentences that are used if the user does not want a nickname."
+   "A vector of sentences that are used if the user does not want a nickname."
   ["OK, as you wish.",
    "As you wish master.",
    "Your choice.",
@@ -114,82 +114,100 @@
   "A vector of words that represent a positive opinion."
   (set '["yes", "like", "love", "enjoy", "true", "yeah", "great", "affirmative",
          "y", "maybe"]))
+
 (def neg_preference
   "A vector of words that represent a negative opinion."
   (set '["no", "not", "don't", "don", "false", "nah", "never", "n", "idk"]))
+
 (def verbs
   "A vector of words that represent verbs."
   (set '["have", "eat", "drink", "ride", "cycle", "bike", "skate", "play", "practice", "use",
          "do", "walk", "go", "end", "finish", "goodbye", "want", "open", "close", "fun"]))
+
 (def nouns
   "A vector of words that represent nouns."
   (set '["lunch", "breakfast", "dinner", "bike", "sports", "skate", "dog",
          "coffee", "tea", "dessert", "skateboard", "football", "basketball",
          "wc", "meal", "animal", "sport", "cake", "beer"]))
+
 (def end_words
   "A vector of words that shows that the user want to end the conversation."
   (set '["exit", "quit", "end", "stop", "execute", "finish", "die"]))
 
+(def user_questions 
+   "User predefined questions asking about him."
+   ["How are you?",
+   "How are you feeling today?",
+   "What always makes you smile?",
+   "What was your favorite moment thus far today?",
+   "What was your last dream about?",
+   "What’s your most (un)healthy habit?",
+   "When you were little, what did you think you were going to be?",
+   "What talent do you wish you’d have?",
+   "If there is anything you would do differently in your life, what would it be?",
+   "Who would you like to have dinner with tonight (could be anyone, dead or alive)?",
+   "Which music genre do you listen to the most?",
+   "What is your favourite band?",
+   "What is your favourite movie?",
+   "What advice would you give your 20-year old self?",
+   "What is your biggest fear that you’ve overcome?",
+   "What is the most unbelievable thing that’s ever happened to you?",
+   "Where would you live if you had no ties to any specific place?",
+   "What was your favorite subject in school?",
+   "What was the last book that you read?",
+   "What was the best gift you have ever received?",
+   "What did you love doing as a child that you don’t do anymore?",
+   "How do you relax yourself when stressed out?",
+   "What is your favorite meal?",
+   "What is your favorite drink?",
+   "What was the last picture you took?",
+   "If money wasn’t an issue, how would that make your life different?",
+   "What is your favorite thing you have at home?"])
 
-"""Park questions"""
-(def questions [{:sent "Would you like to have restrooms in the park?" :topic (:wc user) :status (ref 0)}
-                {:sent "Would you like to visit a restaurant in the park?" :topic (:restaurant user) :status (ref 0)}
-                {:sent "Would you like to visit a cafe in the park?" :topic (:cafe user) :status (ref 0)}
-                {:sent "Would you like to ride a bicycle in the park?" :topic (:bicycle_paths user) :status (ref 0)}
-                {:sent "Would you like to skate in the park?" :topic (:skating user) :status (ref 0)}
-                {:sent "Would you like to play some sports in the park?" :topic (:sports_ground user) :status (ref 0)}
-                {:sent "Would you like a playground in the park?" :topic (:playground user) :status (ref 0)}
-                {:sent "Would you like to walk your dog in the park?" :topic (:dogs user) :status (ref 0)}])
+(def user_goodbye 
+   "User goodbye answers."
+   ["As you wish master.",
+   "Bye.",
+   "Goodbye.",
+   "Bye-bye.",
+   "Take care.",
+   "See you later.",
+   "Catch you later.",
+   "See you soon.",
+   "Have a nice day.",
+   "Have a good day.",
+   "I am looking forward for the next meeting.",
+   "I'm out. Bye.",
+   "See you next time.",
+   "Don't look at me. I am going home. Bye.",
+   "Nice talking to you. Bye-bye.",
+   "See ya!",
+   "I gotta hit the road. Take care.",
+   "Time to leave, see you later.",
+   "Time to serve another user. Have a nice day."])
 
-"""User questions"""
-(def user_questions ["How are you?",
-					 "How are you feeling today?",
-					 "What always makes you smile?",
-					 "What was your favorite moment thus far today?",
-					 "What was your last dream about?",
-					 "What’s your most (un)healthy habit?",
-					 "When you were little, what did you think you were going to be?",
-					 "What talent do you wish you’d have?",
-					 "If there is anything you would do differently in your life, what would it be?",
-					 "Who would you like to have dinner with tonight (could be anyone, dead or alive)?",
-					 "Which music genre do you listen to the most?",
-					 "What is your favourite band?",
-					 "What is your favourite movie?",
-					 "What advice would you give your 20-year old self?",
-					 "What is your biggest fear that you’ve overcome?",
-					 "What is the most unbelievable thing that’s ever happened to you?",
-					 "Where would you live if you had no ties to any specific place?",
-					 "What was your favorite subject in school?",
-					 "What was the last book that you read?",
-					 "What was the best gift you have ever received?",
-					 "What did you love doing as a child that you don’t do anymore?",
-					 "How do you relax yourself when stressed out?",
-					 "What is your favorite meal?",
-					 "What is your favorite drink?",
-					 "What was the last picture you took?",
-					 "If money wasn’t an issue, how would that make your life different?",
-					 "What is your favorite thing you have at home?"])
-
-
-"""User goodbye"""
-(def user_goodbye ["Bye.",
-				   "Goodbye.",
-				   "Bye-bye.",
-				   "Take care.",
-				   "See you later.",
-				   "Catch you later.",
-				   "See you soon.",
-				   "Have a nice day.",
-				   "Have a good day.",
-				   "I am looking forward for the next meeting.",
-				   "I'm out. Bye.",
-				   "See you next time.",
-				   "Don't look at me. I am going home. Bye.",
-				   "Nice talking to you. Bye-bye.",
-				   "See ya!",
-				   "I gotta hit the road. Take care.",
-				   "Time to leave, see you later.",
-				   "Time to serve another user. Have a nice day."])
+(def user_park_not_find
+   "User not find park answers."
+   ["I could not find an apropriate park for you.",
+   "I could not find anything. I am reallly sorry.",
+   "I have tried hard, but I could not find anything suitable for you.",
+   "I have tried hard, But I could not find anything regarding your needs.",
+   "My information system does not show anything that will suit you. I am really sorry.",
+   "I don't know how to say it, but nothing suits you. I would advice you to visit BRNO instead."
+   "I am really sorry, but I could not find an appropriate park for you. Atleast I can advice you the most beautiful park in the world Royal Botanics Garden in Melbourne. What a great trip would that be."])
+		
+(def user_visit 
+   "User visit answers."
+   ["You can visit",
+   "You can go to",
+   "I would advice you to go to",
+   "My most recent informations, shows the best solution for you park",
+   "My advice would be to go to",
+   "Oooh, I see. That way I would advice you park",
+   "That's not my most favourite choice, but you chose the requirements and the best park for you is",
+   "Naaah, that's not my most favourite park, but it is your choice and I would advice you to go to",
+   "Allright, I heard everything I needed and my advice is to go to",
+   "Interesting replies. My information system shows as most suitable park"])
 
 (def question_objects
   "A vector of question objects that include:

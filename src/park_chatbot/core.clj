@@ -99,7 +99,7 @@
           (do
             (reset_questions)
             (var-set counter 0)
-            (println "As you wish master.")))))))
+            (println (rand-nth data/question_goodbye))))))))
 
 (defn end_conversation?
   "Checks if the user has the desire to finish the converastion. If yes it calls
@@ -139,8 +139,8 @@
         (if (= 0 (rem @counter 3))
           (do
             (if (empty? @selected_parks)
-              (println "I could not find an apropriate park for you.")
-              (println "You can visit"
+              (println (rand-nth data/user_park_not_find))
+              (println (rand-nth data/user_visit)
                 (:name (rand-nth @selected_parks) ".")))
             (approve_ending? counter)))
         (var-set counter (+ @counter 1))
@@ -149,7 +149,7 @@
 
     (println (rand-nth data/user_goodbye))))
       ;when it asks all questions it stucks
-    (println "Ok goodbye.")))
+    (println (rand-nth data/user_goodbye))
 
 (defn -main
   "The starter function. It initialize the conversation and asks for basic information."
