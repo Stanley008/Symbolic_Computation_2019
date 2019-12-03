@@ -142,7 +142,8 @@
               (println "I could not find an apropriate park for you.")
               (println "You can visit"
                 (:name (rand-nth @selected_parks) ".")))
-            (approve_ending? counter)))
+            (if (= false @(:terminate data/user))
+              (approve_ending? counter))))
         (var-set counter (+ @counter 1))
         (ref-set (:status @question_obj) 1)
         (select_question question_obj)))
