@@ -6,6 +6,7 @@
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [clojure-opennlp "0.5.0"]
                  [org.clojars.cognesence/matcher "1.0.1"]
-                 [org.clojure/core.logic "0.8.11"]]
+                 [org.clojure/core.logic "0.8.11"]
+                 [org.craigandera/dynne "0.4.1"]]
   :repl-options {:init-ns park-chatbot.core}
   :main park-chatbot.core)

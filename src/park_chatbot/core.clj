@@ -1,8 +1,9 @@
 (ns park-chatbot.core
     "The chatbot library that includes all necessary functions for it to run."
     (:require [opennlp.nlp :as nlp]
-        [park-chatbot.data :as data]
-        [clojure.string :as str]))
+              [park-chatbot.data :as data]
+              [clojure.string :as str]
+              [dynne.sampled-sound :refer :all]))
 
 (def tokenize
   "Initialize the pre-trained tokenizer from 'en-token.bin'."
@@ -25,6 +26,9 @@
   text -> string from where the punctuation should be removed."
   [text]
   (str/replace text #"[.?,;:!']" ""))
+
+(defn play_bg_music []
+  (play (read-sound "resources/bg_music.mp3")))
 
 (defn find_name
   "Search for a name in a string
@@ -152,6 +156,7 @@
 (defn -main
   "The starter function. It initialize the conversation and asks for basic information."
   []
+  (play_bg_music)
   (dosync
     (reset_questions)
     (print (rand-nth data/greetings))
