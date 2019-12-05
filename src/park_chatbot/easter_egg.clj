@@ -64,5 +64,5 @@
     (if (contains? (set '["xmas", "christmas"]) word)
       (println xmas_easter_egg))
     (if (contains? (set '["authors", "contributors", "creators",
-                          "stan", "virgil", "einyan", "petr"] word))
+                          "stan", "virgil", "einyan", "petr"]) word)
       (println contributors_easter_egg))))
