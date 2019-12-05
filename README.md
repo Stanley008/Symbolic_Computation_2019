@@ -1,9 +1,6 @@
 # Park_chatbot with Clojure
 
-As the first part of the assignment, park_chatbot project is created using Clojure to allow the user
-to be able to communicate about his walk in parks he can find in Prague. This chatbot interface is 
-also aimed to be used later in the second part of the group assignment. This current chatbot solution
-generally follows the idea of the classical system [ELIZA](https://www.masswerk.at/elizabot/) system.
+As the first part of the assignment, park_chatbot project is created using Clojure to allow the user to be able to communicate about his walk in parks he can find in Prague. This chatbot interface is also aimed to be used later in the second part of the group assignment. This current chatbot solution generally follows the idea of the classical system [ELIZA](https://www.masswerk.at/elizabot/) system.
 
 ## Getting Started
 
@@ -29,16 +26,23 @@ You can download the project directly from the master branch or clone it using g
 
 ### Project Deliverables
 
-Considered already having a REPL environment and upon running the program, the chatbot welcomes a user with a background music. The user can then communicate with the chatbot by an appropriate command. The chatbot then generally follows a dialogue structure, inspired by the ELIZA system, i.e. the chatbot will parse user's sentence and look for specific keywords to identify a suitable park that he can visit. The chatbot also allows the user to terminate the dialogue at any time he wishes to with an appropriate command. 
+Considered already having a REPL environment and upon running the program, the chatbot welcomes you with a background music. You can then communicate with the chatbot by an appropriate command. The chatbot then generally follows a dialogue structure, inspired by the ELIZA system, i.e. the chatbot will parse user's sentence and look for specific keywords to identify a suitable park that he can visit. The chatbot also allows you to terminate the dialogue at any time you wish but with an appropriate command. 
 
-In general, the park_chatbot is able to provide basic textual information about avaiable parks in Prague (such as restaurant, restrooms) upon user's request.
+In general, the park_chatbot is able to provide basic textual information about avaiable parks in Prague (such as restaurant, restrooms) upon your request.
 
 ### Project Limitations
 
-As a project limitation, the 'background music' functionality requires the user to switch to 'add_bg_music' branch before running the program, due to the usage of a music library that includes many dependencies for the soundtrack.
+As a project limitation, the 'background music' functionality requires you to switch to 'add_bg_music' branch before running the program, due to the usage of a music library that includes many dependencies for the soundtrack.
 
-As of now, the user is also required not to answer a question from the chatbot with a question due to the lack of functionality that will read the input and can further provide suitable responses. It is however expected to be implemented in the future. 
+As of now, you are also required not to answer a question from the chatbot with a question due to the lack of functionality that will read the input and can further provide suitable responses. It is however expected to be implemented in the future. 
 
+### Secrets
+
+We have also included some secrets in our park_chatbot. You will find them when you respond to the questions. 
+
+Hints: 
+- c h r i s t m a s
+- c o n t r i b u t o r s
 ## References
 
 - [ClojureDocs](https://clojuredocs.org/)
@@ -58,12 +62,7 @@ This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
 http://www.eclipse.org/legal/epl-2.0.
 
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
+This Source Code may also be made available under the following Secondary Licenses when the conditions for such availability set forth in the Eclipse Public License, v. 2.0 are satisfied: GNU General Public License as published by the Free Software Foundation, either version 2 of the License, or any later version, with the GNU Classpath Exception which is available at https://www.gnu.org/software/classpath/license.html.
 
 ## Contributors
 
