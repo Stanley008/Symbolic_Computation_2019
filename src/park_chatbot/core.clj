@@ -99,7 +99,7 @@
           (do
             (reset_questions)
             (var-set counter 0)
-            ))))))
+            (println (rand-nth data/user_goodbye))))))))
 
 (defn end_conversation?
   "Checks if the user has the desire to finish the converastion. If yes it calls
@@ -146,10 +146,9 @@
         (var-set counter (+ @counter 1))
         (ref-set (:status @question_obj) 1)
         (select_question question_obj)))
-
     (println (rand-nth data/user_goodbye))))
       ;when it asks all questions it stucks
-    (println (rand-nth data/user_goodbye))
+
 
 (defn -main
   "The starter function. It initialize the conversation and asks for basic information."
