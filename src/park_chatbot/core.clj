@@ -1,8 +1,9 @@
 (ns park-chatbot.core
     "The chatbot library that includes all necessary functions for it to run."
     (:require [opennlp.nlp :as nlp]
-        [park-chatbot.data :as data]
-        [clojure.string :as str]))
+              [park-chatbot.data :as data]
+              [clojure.string :as str]
+              [park-chatbot.easter-egg :as egg]))
 
 (def tokenize
   "Initialize the pre-trained tokenizer from 'en-token.bin'."
@@ -134,6 +135,7 @@
       (let []
         (println (rand-nth (:sent @question_obj)))
         (var-set user_input (take_user_input))
+        (egg/check_easter_egg (tokenize (str/lower-case @user_input)))
         (end_conversation? @user_input counter)
         (find_preferences @question_obj @user_input selected_parks)
         (if (= 0 (rem @counter 3))
@@ -163,6 +165,6 @@
     (ask_for_nickname)
     (println (rand-nth data/user_questions))
     (take_user_input)
-	(println (rand-nth data/user_reply))
-    (println (rand-nth data/user_no_question))
-    (parkbot_loop)))
+   (println (rand-nth data/user_reply))
+   (println (rand-nth data/user_no_question))
+   (parkbot_loop)))
