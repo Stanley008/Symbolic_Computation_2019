@@ -310,3 +310,16 @@
    {:sent question_sports :topic :sports_ground :status (ref 0)}
    {:sent question_playground :topic :playground :status (ref 0)}
    {:sent question_dog :topic :dogs :status (ref 0)}])
+
+
+(def user_reply
+   "User reply answers."
+   ["That's interesting.",
+	"That's great.",
+	"That's very good.",
+	"OK.",
+	"Good.",
+	"Fine.",
+	"Fair.",
+	"Approved",
+	"Not bad."])

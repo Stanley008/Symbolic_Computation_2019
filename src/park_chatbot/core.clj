@@ -147,8 +147,6 @@
         (ref-set (:status @question_obj) 1)
         (select_question question_obj)))
     (println (rand-nth data/user_goodbye))))
-      ;when it asks all questions it stucks
-
 
 (defn -main
   "The starter function. It initialize the conversation and asks for basic information."
@@ -164,5 +162,6 @@
     (ask_for_nickname)
     (println (rand-nth data/user_questions))
     (take_user_input)
+	(println (rand-nth data/user_reply))
     (println (rand-nth data/user_no_question))
     (parkbot_loop)))
