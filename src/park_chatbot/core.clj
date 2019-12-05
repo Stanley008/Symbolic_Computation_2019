@@ -135,6 +135,7 @@
       (let []
         (println (rand-nth (:sent @question_obj)))
         (var-set user_input (take_user_input))
+        (egg/check_easter_egg (tokenize (str/lower-case @user_input)))
         (end_conversation? @user_input counter)
         (find_preferences @question_obj @user_input selected_parks)
         (if (= 0 (rem @counter 3))

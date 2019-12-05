@@ -1,6 +1,6 @@
 (ns park-chatbot.easter-egg)
 
-(def easter_egg
+(def xmas_easter_egg
   "Christmas easter egg."
   "
                      _,.._                         __
@@ -40,3 +40,8 @@
 ..--'\\_       _,-'\\___'    ,             |     ' / ,'  ,'.  `._) '-..
       ' `''''`         '---'`-..._____.-'        '-'--'   `'-'
   ")
+
+(defn check_easter_egg [tokens]
+  (doseq [word tokens]
+    (if (contains? (set '["xmas", "christmas"]) word)
+      (println xmas_easter_egg))))
