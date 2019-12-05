@@ -132,7 +132,7 @@
                     selected_parks []]
     (while (not @(:terminate data/user))
       (let []
-        (println (:sent @question_obj))
+        (println (rand-nth (:sent @question_obj)))
         (var-set user_input (take_user_input))
         (end_conversation? @user_input counter)
         (find_preferences @question_obj @user_input selected_parks)
@@ -164,5 +164,5 @@
     (ask_for_nickname)
     (println (rand-nth data/user_questions))
     (take_user_input)
-    (println (rand-nth data/user_no_question)) 
+    (println (rand-nth data/user_no_question))
     (parkbot_loop)))
