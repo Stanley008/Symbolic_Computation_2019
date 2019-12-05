@@ -100,7 +100,7 @@
           (do
             (reset_questions)
             (var-set counter 0)
-            (println (rand-nth data/user_goodbye))))))))
+            (println (rand-nth data/user_continue_conv))))))))
 
 (defn end_conversation?
   "Checks if the user has the desire to finish the converastion. If yes it calls

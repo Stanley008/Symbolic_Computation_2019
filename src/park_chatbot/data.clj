@@ -311,7 +311,6 @@
    {:sent question_playground :topic :playground :status (ref 0)}
    {:sent question_dog :topic :dogs :status (ref 0)}])
 
-
 (def user_reply
    "User reply answers."
    ["That's interesting.",
@@ -323,3 +322,10 @@
     "Fair.",
     "Approved",
     "Not bad."])
+
+(def user_continue_conv
+  "Replies if the user want to continue the conversation"
+  ["As you wish master."
+   "Ok then, let's continue our conversation."
+   "Let's talk more then."
+   "I'm also fine with that."])
