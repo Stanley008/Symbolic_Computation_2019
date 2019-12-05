@@ -29,7 +29,9 @@ You can download the project directly from the master branch or clone it using g
 
 ### Project Deliverables
 
-Considered already having a REPL environment and upon running the program, the chatbot welcomes a user with a background music. The user can then communicate with the chatbot by an appropriate command. The chatbot then generally follows a dialogue structure, inspired by the ELIZA system, i.e. the chatbot will parse user's sentence and look for specific keywords to identify a suitable park that he can visit. The chatbot also allows the user to terminate the dialogue at any time he wishes to with an appropriate command. In general, the park_chatbot is able to provide basic textual information about avaiable parks in Prague (such as restaurant, restrooms) upon request.
+Considered already having a REPL environment and upon running the program, the chatbot welcomes a user with a background music. The user can then communicate with the chatbot by an appropriate command. The chatbot then generally follows a dialogue structure, inspired by the ELIZA system, i.e. the chatbot will parse user's sentence and look for specific keywords to identify a suitable park that he can visit. The chatbot also allows the user to terminate the dialogue at any time he wishes to with an appropriate command. 
+
+In general, the park_chatbot is able to provide basic textual information about avaiable parks in Prague (such as restaurant, restrooms) upon user's request.
 
 ### Project Limitations
 
