@@ -40,6 +40,26 @@
   [betramka, fran_garden, obora, kampa, zahrada, klam, ladronka,
    letna, petrin, riegrovy, stromovka, vajanovy, vysehrad])
 
+(def pos_preference
+  "A vector of words that represent a positive opinion."
+  (set '["yes", "like", "love", "enjoy", "true", "yeah", "great", "affirmative",
+         "y", "maybe"]))
+
+(def neg_preference
+  "A vector of words that represent a negative opinion."
+  (set '["no", "not", "don't", "don", "false", "nah", "never", "n", "idk"]))
+
+(def verbs
+  "A vector of words that represent verbs."
+  (set '["have", "eat", "drink", "ride", "cycle", "bike", "skate", "play", "practice", "use",
+         "do", "walk", "go", "end", "finish", "goodbye", "want", "open", "close", "fun"]))
+
+(def nouns
+  "A vector of words that represent nouns."
+  (set '["lunch", "breakfast", "dinner", "bike", "sports", "skate", "dog",
+         "coffee", "tea", "dessert", "skateboard", "football", "basketball",
+         "wc", "meal", "animal", "sport", "cake", "beer"]))
+
 (def greetings
   "A vector of sentences that are used for greeting the user."
   ["Hello, I am Parkbot. I am the most advanced park information bot and I am here to help you. Hello, I am Parkbot.",
@@ -109,26 +129,6 @@
    "What a biggie, but It is your choice.",
    "If you don't like nicknames, there is nothing that I can do.",
    "No problem, I agree."])
-
-(def pos_preference
-  "A vector of words that represent a positive opinion."
-  (set '["yes", "like", "love", "enjoy", "true", "yeah", "great", "affirmative",
-         "y", "maybe"]))
-
-(def neg_preference
-  "A vector of words that represent a negative opinion."
-  (set '["no", "not", "don't", "don", "false", "nah", "never", "n", "idk"]))
-
-(def verbs
-  "A vector of words that represent verbs."
-  (set '["have", "eat", "drink", "ride", "cycle", "bike", "skate", "play", "practice", "use",
-         "do", "walk", "go", "end", "finish", "goodbye", "want", "open", "close", "fun"]))
-
-(def nouns
-  "A vector of words that represent nouns."
-  (set '["lunch", "breakfast", "dinner", "bike", "sports", "skate", "dog",
-         "coffee", "tea", "dessert", "skateboard", "football", "basketball",
-         "wc", "meal", "animal", "sport", "cake", "beer"]))
 
 (def end_words
   "A vector of words that shows that the user want to end the conversation."
@@ -201,13 +201,13 @@
    ["You can visit",
     "You can go to",
     "I would advice you to go to",
-    "My most recent informations, shows the best solution for you park",
+    "My most recent informations, shows the best solution for you is",
     "My advice would be to go to",
     "Oooh, I see. That way I would advice you park",
     "That's not my most favourite choice, but you chose the requirements and the best park for you is",
     "Naaah, that's not my most favourite park, but it is your choice and I would advice you to go to",
     "Allright, I heard everything I needed and my advice is to go to",
-    "Interesting replies. My information system shows as most suitable park"])
+    "Interesting replies. My information system shows that most suitable park is"])
 
 (def user_no_question
    "User do not ask questions."
@@ -315,11 +315,11 @@
 (def user_reply
    "User reply answers."
    ["That's interesting.",
-	"That's great.",
-	"That's very good.",
-	"OK.",
-	"Good.",
-	"Fine.",
-	"Fair.",
-	"Approved",
-	"Not bad."])
+    "That's great.",
+    "That's very good.",
+    "OK.",
+    "Good.",
+    "Fine.",
+    "Fair.",
+    "Approved",
+    "Not bad."])
