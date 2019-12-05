@@ -132,7 +132,7 @@
 
 (def end_words
   "A vector of words that shows that the user want to end the conversation."
-  (set '["exit", "quit", "end", "stop", "execute", "finish", "die"]))
+  (set '["exit", "quit", "end", "stop", "execute", "finish", "die", "shut down", "kill", "leave", "bye"]))
 
 (def user_questions
    "User predefined questions asking about him."
