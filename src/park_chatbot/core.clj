@@ -142,7 +142,7 @@
         (egg/check_easter_egg (tokenize (str/lower-case @user_input)))
         (end_conversation? @user_input counter)
         (find_preferences @question_obj @user_input selected_parks)
-        (if (= 0 (rem @counter 8))
+        (if (= 0 (rem @counter 7))
           (if (= false @(:terminate data/user))
             (approve_ending? counter)))
         (var-set counter (+ @counter 1))
