@@ -64,8 +64,8 @@
   topic -> the facility of the park that the function searches for;
   user_preference -> boolean, represents wether the user want that facility included;
   selected_parks -> reference to the list of parks with suitable preferences."
-  [topic user_preference selected_parks]
-  (if (empty? @selected_parks)
+  [topic user_preference selected_parks counter]
+  (if (= 0 counter)
     (doseq [park data/parks]
       (if (= user_preference (topic park))
         (var-set selected_parks (conj @selected_parks park))))
@@ -78,17 +78,17 @@
   values in the user record with true/false. Then it calls 'match_park' function.
   question_obj -> the question object (see 'question_objects' from data.clj);
   selected_parks -> reference to the list of parks with suitable preferences."
-  [question_obj answer selected_parks]
+  [question_obj answer selected_parks counter]
   (let [tokens (tokenize (str/lower-case answer))]
     (doseq [word tokens]
       (if (contains? data/pos_preference word)
         (do
           (ref-set ((:topic question_obj) data/user) true)
-          (match_park (:topic question_obj) true selected_parks))
+          (match_park (:topic question_obj) true selected_parks counter))
         (if (contains? data/neg_preference word)
           (do
             (ref-set ((:topic question_obj) data/user) false)
-            (match_park (:topic question_obj) false selected_parks)))))))
+            (match_park (:topic question_obj) false selected_parks counter)))))))
 
 (defn approve_ending?
   "Confirms if the user really want to end the conversation with the cahtbot.
@@ -98,7 +98,7 @@
   (println (rand-nth data/user_end_questions))
   (let [answer (tokenize (str/lower-case (take_user_input)))]
     (doseq [word answer]
-      (if (contains? data/pos_preference word)
+      (if (or (contains? data/pos_preference word) (contains? data/end_words word))
         (ref-set (:terminate data/user) true)
         (if (contains? data/neg_preference word)
           (do
@@ -141,7 +141,7 @@
         (var-set user_input (take_user_input))
         (egg/check_easter_egg (tokenize (str/lower-case @user_input)))
         (end_conversation? @user_input counter)
-        (find_preferences @question_obj @user_input selected_parks)
+        (find_preferences @question_obj @user_input selected_parks @counter)
         (if (= 0 (rem @counter 7))
           (if (= false @(:terminate data/user))
             (approve_ending? counter)))
