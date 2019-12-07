@@ -99,7 +99,7 @@
         (if (contains? data/neg_preference word)
           (do
             (reset_questions)
-            (var-set counter 0)
+            (var-set counter 1)
             (println (rand-nth data/user_continue_conv))))))))
 
 (defn end_conversation?
@@ -138,7 +138,7 @@
         (egg/check_easter_egg (tokenize (str/lower-case @user_input)))
         (end_conversation? @user_input counter)
         (find_preferences @question_obj @user_input selected_parks)
-        (if (= 0 (rem @counter 8))        
+        (if (= 0 (rem @counter 8))
           (if (= false @(:terminate data/user))
             (approve_ending? counter)))
         (var-set counter (+ @counter 1))
