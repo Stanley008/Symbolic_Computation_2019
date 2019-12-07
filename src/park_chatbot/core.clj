@@ -4,6 +4,7 @@
               [park-chatbot.data :as data]
               [clojure.string :as str]
               [dynne.sampled-sound :refer :all]))
+              [park-chatbot.easter-egg :as egg]))
 
 (def tokenize
   "Initialize the pre-trained tokenizer from 'en-token.bin'."
@@ -94,7 +95,7 @@
   If yes updates the 'terminate' value in 'user' record to true.
   counter -> integer that stores the length of the conversation."
   [counter]
-  (println "Do you want to end this conversation?")
+  (println (rand-nth data/user_end_questions))
   (let [answer (tokenize (str/lower-case (take_user_input)))]
     (doseq [word answer]
       (if (contains? data/pos_preference word)
@@ -102,8 +103,8 @@
         (if (contains? data/neg_preference word)
           (do
             (reset_questions)
-            (var-set counter 0)
-            (println "As you wish master.")))))))
+            (var-set counter 1)
+            (println (rand-nth data/user_continue_conv))))))))
 
 (defn end_conversation?
   "Checks if the user has the desire to finish the converastion. If yes it calls
@@ -136,22 +137,22 @@
                     selected_parks []]
     (while (not @(:terminate data/user))
       (let []
-        (println (:sent @question_obj))
+        (println (rand-nth (:sent @question_obj)))
         (var-set user_input (take_user_input))
+        (egg/check_easter_egg (tokenize (str/lower-case @user_input)))
         (end_conversation? @user_input counter)
         (find_preferences @question_obj @user_input selected_parks)
-        (if (= 0 (rem @counter 3))
-          (do
-            (if (empty? @selected_parks)
-              (println "I could not find an apropriate park for you.")
-              (println "You can visit"
-                (:name (rand-nth @selected_parks) ".")))
+        (if (= 0 (rem @counter 8))
+          (if (= false @(:terminate data/user))
             (approve_ending? counter)))
         (var-set counter (+ @counter 1))
         (ref-set (:status @question_obj) 1)
         (select_question question_obj)))
-      ;when it asks all questions it stucks
-    (println "Ok goodbye.")))
+    (if (empty? @selected_parks)
+      (println (rand-nth data/user_park_not_find))
+      (println (rand-nth data/user_visit)
+        (:name (rand-nth @selected_parks) ".")))
+    (println (rand-nth data/user_goodbye))))
 
 (defn -main
   "The starter function. It initialize the conversation and asks for basic information."
@@ -166,6 +167,8 @@
       (find_name (tokenize (strip_punctuation (take_user_input)))))
     (println "Welcome" @(:name data/user))
     (ask_for_nickname)
-    (println "How are you?")
+    (println (rand-nth data/user_questions))
     (take_user_input)
-    (parkbot_loop)))
+   (println (rand-nth data/user_reply))
+   (println (rand-nth data/user_no_question))
+   (parkbot_loop)))
