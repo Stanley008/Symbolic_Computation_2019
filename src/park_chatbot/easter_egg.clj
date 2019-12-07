@@ -59,7 +59,11 @@
      S T A N        V I R G I L      E I N Y A N          P E T R
   ")
 
-(defn check_easter_egg [tokens]
+(defn check_easter_egg
+  "Checks if the user's input matches one of the keywords. If yes it calls
+  'contributors_easter_egg' variable.
+  tokens -> string that represent the input of the user"
+  [tokens]
   (doseq [word tokens]
     (if (contains? (set '["xmas", "christmas"]) word)
       (println xmas_easter_egg))
