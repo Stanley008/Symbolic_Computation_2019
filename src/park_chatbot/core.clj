@@ -3,7 +3,7 @@
     (:require [opennlp.nlp :as nlp]
               [park-chatbot.data :as data]
               [clojure.string :as str]
-              [dynne.sampled-sound :refer :all]))
+              [dynne.sampled-sound :refer :all]
               [park-chatbot.easter-egg :as egg]))
 
 (def tokenize
