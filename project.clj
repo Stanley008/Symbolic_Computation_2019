@@ -5,7 +5,7 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [clojure-opennlp "0.5.0"]
-                 [org.craigandera/dynne "0.4.1"]]
+                 [org.craigandera/dynne "0.4.1"]
                  [clojure-opennlp "0.5.0"]]
   :repl-options {:init-ns park-chatbot.core}
   :main park-chatbot.core)
