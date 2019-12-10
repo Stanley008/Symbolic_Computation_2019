@@ -61,7 +61,7 @@
   user_preference -> boolean, represents wether the user want that facility included;
   selected_parks -> reference to the list of parks with suitable preferences."
   [topic user_preference selected_parks counter]
-  (if (= 0 counter)
+  (if (= 1 counter)
     (doseq [park data/parks]
       (if (= user_preference (topic park))
         (var-set selected_parks (conj @selected_parks park))))
