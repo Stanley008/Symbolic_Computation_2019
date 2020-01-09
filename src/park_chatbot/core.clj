@@ -89,29 +89,35 @@
 (defn approve_ending?
   "Confirms if the user really want to end the conversation with the cahtbot.
   If yes updates the 'terminate' value in 'user' record to true.
-  counter -> integer that stores the length of the conversation."
-  [counter]
+  counter -> integer that stores the length of the conversation.
+  selected_parks -> reference to the list of parks with suitable preferences."
+  [counter selected_parks]
+  (if (empty? @selected_parks)
+    (println (rand-nth data/user_park_not_find))
+    (println (rand-nth data/user_visit)
+      (:name (rand-nth @selected_parks) ".")))
   (println (rand-nth data/user_end_questions))
   (let [answer (tokenize (str/lower-case (take_user_input)))]
     (doseq [word answer]
       (if (or (contains? data/pos_preference word) (contains? data/end_words word))
-        (ref-set (:terminate data/user) true)
-        (if (contains? data/neg_preference word)
-          (do
-            (reset_questions)
-            (var-set counter 1)
-            (println (rand-nth data/user_continue_conv))))))))
+        (do
+          (ref-set (:terminate data/user) true))
+        (when (contains? data/neg_preference word)
+          (reset_questions)
+          (var-set counter 1)
+          (println (rand-nth data/user_continue_conv)))))))
 
 (defn end_conversation?
   "Checks if the user has the desire to finish the converastion. If yes it calls
   'approve_ending?' funcition
-  user_input -> string that represent the input of the user;
-  counter -> integer that stores the length of the conversation."
-  [user_input counter]
-  (let [tokens (tokenize (str/lower-case user_input))]
-    (doseq [word tokens]
-      (if (contains? data/end_words word)
-        (approve_ending? counter)))))
+  user_input -> string that represent the input of the user;"
+  [user_input]
+  (with-local-vars [tokens (tokenize (str/lower-case user_input))
+                    flag false]
+    (doseq [word @tokens]
+      (when (contains? data/end_words word)
+        (var-set flag true)))
+    @flag))
 
 (defn select_question
   "Selects a random question object from the 'question_objects' list in data.clj.
@@ -136,18 +142,15 @@
         (println (rand-nth (:sent @question_obj)))
         (var-set user_input (take_user_input))
         (egg/check_easter_egg (tokenize (str/lower-case @user_input)))
-        (end_conversation? @user_input counter)
+        (when (end_conversation? @user_input)
+          (approve_ending? counter selected_parks))
         (find_preferences @question_obj @user_input selected_parks @counter)
         (if (= 0 (rem @counter 7))
           (if (= false @(:terminate data/user))
-            (approve_ending? counter)))
+            (approve_ending? counter selected_parks)))
         (var-set counter (+ @counter 1))
         (ref-set (:status @question_obj) 1)
         (select_question question_obj)))
-    (if (empty? @selected_parks)
-      (println (rand-nth data/user_park_not_find))
-      (println (rand-nth data/user_visit)
-        (:name (rand-nth @selected_parks) ".")))
     (println (rand-nth data/user_goodbye))))
 
 (defn -main
