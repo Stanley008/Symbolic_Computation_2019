@@ -17,6 +17,13 @@
 (defrecord User
   [name wc restaurant cafe bicycle_paths skating sports_ground playground dogs terminate])
 
+; A dog record template:
+; name -> string that represents the name of the dog;
+; color, size, fluffiness, nose, ears, tail ->
+; string and booleans values that represent the features of the dog;
+(defrecord Dog
+  [color size fluffiness nose ears tail])
+
 (def user
   (User. (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref false)))
 
@@ -39,6 +46,14 @@
   "A vector of the parks known by the chatbot."
   [betramka, fran_garden, obora, kampa, zahrada, klam, ladronka,
    letna, petrin, riegrovy, stromovka, vajanovy, vysehrad])
+
+;
+(def japanese_spitz (Dog. "white" "small" true "pointy" "pointy" "longer"))
+(def rottweiler (Dog. "black" "big" false "broad" "floppy" "shorter"))
+
+(def dogs
+  "A vector of the dogs known by the chatbot."
+  [japanese_spitz, rottweiler])
 
 (def pos_preference
   "A vector of words that represent a positive opinion."
