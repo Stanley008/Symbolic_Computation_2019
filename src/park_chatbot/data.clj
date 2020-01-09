@@ -60,6 +60,10 @@
          "coffee", "tea", "dessert", "skateboard", "football", "basketball",
          "wc", "meal", "animal", "sport", "cake", "beer"]))
 
+(def name_words
+  "A vector of words that are used by the user when giving names."
+  (set '["i", "am", "my", "name", "is", "this", "is", "people", "call", "me", "They", "called"]))
+
 (def greetings
   "A vector of sentences that are used for greeting the user."
   ["Hello, I am Parkbot. I am the most advanced park information bot and I am here to help you. Hello, I am Parkbot.",
