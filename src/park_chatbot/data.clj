@@ -22,7 +22,7 @@
 ; color, size, fluffiness, nose, ears, tail ->
 ; string and booleans values that represent the features of the dog;
 (defrecord Dog
-  [color size fluffiness nose ears tail])
+  [color size fluffiness nose ears tail wrinkles])
 
 (def user
   (User. (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref nil) (ref false)))
@@ -48,8 +48,8 @@
    letna, petrin, riegrovy, stromovka, vajanovy, vysehrad])
 
 ;
-(def japanese_spitz (Dog. "white" "small" true "pointy" "pointy" "longer"))
-(def rottweiler (Dog. "black" "big" false "broad" "floppy" "shorter"))
+(def japanese_spitz (Dog. "white" "small" true "pointy" "pointy" "longer" "false"))
+(def rottweiler (Dog. "black" "big" false "broad" "floppy" "shorter" "true"))
 
 (def dogs
   "A vector of the dogs known by the chatbot."
