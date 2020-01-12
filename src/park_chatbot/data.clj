@@ -439,3 +439,14 @@
 	"The sun is shining, you are smiling. Nothing can go wrong today. Would you like to advise a park or to identify a dog breed? Just let me know when you decide.",
 	"Oooh what a terrible rainy forecast today. I would advise you to stay at home, but it is your choice if you would like to advise a park to go to, or to identify a dog breed?",
     "I lost internet connection. I can't tell if it is going to be sunny or rainy today. Would you rather get and advise which park to choose, or to identify a dog breed?"])
+
+(def user_dog_picture_information
+   "Questions regarding user to choose to find a dog by picture or by information."
+   ["Would you rather identify a dog by a picture or by providing me information?",
+	"What a lovely day. Would you like to identify a dog breed by sending me a picture or by providing me with some information to my questions?",
+	"I have two possibilities of how to identify dogs. Either by a picture or by providing me with some information to my questions. What is it going to be today?",
+	"I don't feel today asking you many questions and gather information about the wanted dog breed, but it is up to you we can find either by providing me information or by sending me a picture? What is it going to be than information or picture?",
+	"Let's identify some dog breeds. We can do it either by the information you provide or by a lovely Mona Lisa picture. What is it going to be?",
+    "I like your haircut. I am glad that you choose to identify dog breeds. Would you like to that by providing me some information or by a picture?",
+	"I love dogs. Let's dig into it and identify the breed. Would you like to that by telling me information about it or by a picture?",
+	"Are you feeling today answering my questions so I can gather more information about the breed, or would you rather send some picture?"])
