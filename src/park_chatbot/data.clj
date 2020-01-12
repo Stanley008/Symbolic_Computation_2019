@@ -441,7 +441,7 @@
     "I lost internet connection. I can't tell if it is going to be sunny or rainy today. Would you rather get and advise which park to choose, or to identify a dog breed?"])
 
 (def user_dog_picture_information
-   "Questions regarding user to choose to find a dog by picture or by information."
+   "Questions regarding user to choose to find a dog by a picture or by information."
    ["Would you rather identify a dog by a picture or by providing me information?",
 	"What a lovely day. Would you like to identify a dog breed by sending me a picture or by providing me with some information to my questions?",
 	"I have two possibilities of how to identify dogs. Either by a picture or by providing me with some information to my questions. What is it going to be today?",
@@ -450,3 +450,33 @@
     "I like your haircut. I am glad that you choose to identify dog breeds. Would you like to that by providing me some information or by a picture?",
 	"I love dogs. Let's dig into it and identify the breed. Would you like to that by telling me information about it or by a picture?",
 	"Are you feeling today answering my questions so I can gather more information about the breed, or would you rather send some picture?"])
+
+(def dog_rottweiler
+   "Answers to the user regarding finding the wanted breed."
+   ["",
+	"",
+	"",
+	"",
+	"",
+	"",
+	""])
+
+(def dog_japanese_spitz
+   "Answers to the user regarding finding the wanted breed."
+   ["",
+	"",
+	"",
+	"",
+	"",
+	"",
+	""])
+
+(def dog_not_found
+   "Answers to the user regarding not finding the breed."
+   ["I am sorry but I did not find the breed according to the information you provided.",
+	"I tried my best but none of the breeds fits your information.",
+	"I tried really hard, but no breed was found.",
+	"I am sorry but according to your information, no dog breed fits.",
+	"Hmm... a tried everything. I could even boil eggs on my CPU, but I could not find an appropriate dog breed.",
+	"I did everything I could, but I could not recognize the dog breed.",
+	"I don't have good news. How to tell you, I could not recognize the dog breed."])
