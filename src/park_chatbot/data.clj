@@ -429,3 +429,13 @@
 	"I am the luckiest person in this room. I can't get old and wrinkled. What about the dog? Does it have any wrinkles?",
     "I am still young and handsome without any wrinkles, but what about the dog? Does it have any wrinkles?",
     "I am artificial, but still I got wrinkles. What about the dog, does it have any wrinkles?"])
+
+(def user_park_dog
+   "Questions regarding user to choose to find a park or dog."
+   ["Would you like today to find a park or a dog?",
+	"How are you feeling today, would you like to find a right park for you or to identify a dog breed?",
+	"I feel tired today. Let's make it short. Would you like to find a park or to identify a dog breed?",
+	"I feel excited today, let's go outside, let's find a park for you or would you like to find a dog rather? What is it going to be on a sunny day? Park or dog?",
+	"The sun is shining, you are smiling. Nothing can go wrong today. Would you like to advise a park or to identify a dog breed? Just let me know when you decide.",
+	"Oooh what a terrible rainy forecast today. I would advise you to stay at home, but it is your choice if you would like to advise a park to go to, or to identify a dog breed?",
+    "I lost internet connection. I can't tell if it is going to be sunny or rainy today. Would you rather get and advise which park to choose, or to identify a dog breed?"])
