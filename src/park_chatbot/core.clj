@@ -3,7 +3,8 @@
     (:require [opennlp.nlp :as nlp]
               [park-chatbot.data :as data]
               [clojure.string :as str]
-              [park-chatbot.easter-egg :as egg]))
+              [park-chatbot.easter-egg :as egg]
+              [park_chatbot.image-recognition :as ir]))
 
 (def tokenize
   "Initialize the pre-trained tokenizer from 'en-token.bin'."
