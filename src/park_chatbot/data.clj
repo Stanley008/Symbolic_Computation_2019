@@ -463,13 +463,13 @@
 
 (def dog_japanese_spitz
    "Answers to the user regarding finding the wanted breed."
-   ["",
-	"",
-	"",
-	"",
-	"",
-	"",
-	""])
+   ["I recognized the breed it is a Japanese Spitz.",
+	"I recognized the beast it is a Japanese Spitz.",
+	"What a cuttie. I found the breed it is a Japanese Spitz.",
+	"What a handsome breed. I love it. It is a Japanese Spitz.",
+	"I would never imagine, that you will so much interested in this breed. It is a Japanese Spitz.",
+	"Guess what? What? I found your breed, it is a Japanese Spitz.",
+	"I knew it from the beginning that it is going to be this dog breed, it is a Japanese Spitz."])
 
 (def dog_not_found
    "Answers to the user regarding not finding the breed."
