@@ -453,13 +453,13 @@
 
 (def dog_rottweiler
    "Answers to the user regarding finding the wanted breed."
-   ["",
-	"",
-	"",
-	"",
-	"",
-	"",
-	""])
+   ["I recognized the breed it is a Rottweiler.",
+	"I recognized the beast it is a Rottweiler.",
+	"What a cuttie. I found the breed it is a Rottweiler.",
+	"What a handsome breed. I love it. It is a Rottweiler.",
+	"I would never imagine, that you will so much interested in this breed. It is a Rottweiler.",
+	"Guess what? What? I found your breed, it is a Rottweiler.",
+	"I knew it from the beginning that it is going to be this dog breed, it is a Rottweiler."])
 
 (def dog_japanese_spitz
    "Answers to the user regarding finding the wanted breed."
