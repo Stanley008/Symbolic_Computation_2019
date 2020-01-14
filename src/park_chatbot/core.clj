@@ -57,12 +57,12 @@
   "Confirms if the user really want to end the conversation with the cahtbot.
   If yes updates the 'terminate' value in 'user' record to true.
   counter -> integer that stores the length of the conversation.
-  selected_parks -> reference to the list of parks with suitable preferences."
-  [counter selected_parks]
-  (if (empty? @selected_parks)
+  selected_options -> reference to the list of parks with suitable preferences."
+  [counter selected_options]
+  (if (empty? @selected_options)
     (println (rand-nth data/user_park_not_find))
     (println (rand-nth data/user_visit)
-      (:name (rand-nth @selected_parks) ".")))
+      (:name (rand-nth @selected_options) ".")))
   (println (rand-nth data/user_end_questions))
   (let [answer (tokenize (str/lower-case (take_user_input)))]
     (doseq [word answer]
@@ -90,31 +90,30 @@
   "Selects a random question object from the 'question_objects' list in data.clj.
   question_obj -> reference to question object variable from 'parkbot_loop' function."
   [question_obj]
-  (loop [new_question (rand-nth data/question_objects)]
+  (loop [new_question (rand-nth question_obj_list)]
     (if (= 0 @(:status new_question))
       (var-set question_obj new_question)
-      (recur (rand-nth data/question_objects)))))
+      (recur (rand-nth question_obj_list)))))
 
-(defn parkbot_loop
+(defn main_loop
   "The loop function of the chatbot. It is used to find the appropriate park
   for the user, based on his/her preferences."
-  []
+  [counter_max finding_func question_obj_list]
   (with-local-vars [counter 1
-                    word_class {:verb nil :noun nil}
                     user_input ""
                     question_obj (rand-nth data/question_objects)
-                    selected_parks []]
+                    selected_options []]
     (while (not @(:terminate data/user))
       (let []
         (println (rand-nth (:sent @question_obj)))
         (var-set user_input (take_user_input))
         (egg/check_easter_egg (tokenize (str/lower-case @user_input)))
         (when (end_conversation? @user_input)
-          (approve_ending? counter selected_parks))
-        (find_preferences @question_obj @user_input selected_parks @counter)
-        (if (= 0 (rem @counter 7))
+          (approve_ending? counter selected_options))
+        (finding_func @question_obj @user_input selected_options @counter)
+        (if (= 0 (rem @counter counter_max))
           (if (= false @(:terminate data/user))
-            (approve_ending? counter selected_parks)))
+            (approve_ending? counter selected_options)))
         (var-set counter (+ @counter 1))
         (ref-set (:status @question_obj) 1)
         (select_question question_obj)))
@@ -136,4 +135,4 @@
     (take_user_input)
    (println (rand-nth data/user_reply))
    (println (rand-nth data/user_no_question))
-   (parkbot_loop)))
+   (main_loop)))
