@@ -107,9 +107,9 @@
   (with-local-vars [tokens (tokenize (str/lower-case user_input))
                     topic nil]
     (doseq [word @tokens]
-      (if (contains? ["dogs" "dog" "doggies"] word)
+      (if (contains? (set '["dogs" "dog" "doggies"]) word)
         (var-set topic "dogs")
-        (when (contains? ["park" "parks"] word)
+        (when (contains? (set '["park" "parks"]) word)
           (var-set topic "parks"))))
     (if (nil? topic)
       (do
