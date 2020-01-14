@@ -48,12 +48,16 @@
    letna, petrin, riegrovy, stromovka, vajanovy, vysehrad])
 
 ;
-(def japanese_spitz (Dog. "white" "small" true "pointy" "pointy" "long" "false"))
-(def rottweiler (Dog. "black" "big" false "broad" "floppy" "short" "true"))
+(def japanese_spitz (Dog. "white" "small" true "pointy" "pointy" "long" false))
+(def rottweiler (Dog. "black" "big" false "broad" "floppy" "short" true))
 
 (def dogs
   "A vector of the dogs known by the chatbot."
   [japanese_spitz, rottweiler])
+
+(def dog_preference
+  "A vector of words that represent user preference on specific dog breed."
+  (set '["white", "black", "small", "big", "pointy", "broad", "floppy", "long", "short"]'))
 
 (def pos_preference
   "A vector of words that represent a positive opinion."
@@ -316,8 +320,6 @@
    "Don't you have a small pal that you would like to walk in the park?",
    "Do you have a small buddy that you would like to walk in the park?"])
 
-(def question_objects
-  "A vector of question objects that include:
   :sent -> the sentences that are used to ask the user for a preference;
   :topic -> the topic of the asked sentence;
   :status -> the status of the object, if 0 it is unused, if 1 it was already used"
