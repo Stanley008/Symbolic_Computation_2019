@@ -21,8 +21,8 @@
 
 (defn reset_questions
   "Resets the status of all question objects back to 0 (unused)."
-  []
-  (doseq [question_obj data/question_objects]
+  [question_obj_vector]
+  (doseq [question_obj question_obj_vector]
     (ref-set (:status question_obj) 0)))
 
 (defn strip_punctuation
@@ -123,8 +123,9 @@
   [counter_max finding_func question_obj_vector]
   (with-local-vars [counter 1
                     user_input ""
-                    question_obj (rand-nth data/question_objects)
+                    question_obj (rand-nth question_obj_vector)
                     selected_options []]
+    (reset_questions question_obj_vector)
     (while (not @(:terminate data/user))
       (let []
         (println (rand-nth (:sent @question_obj)))
@@ -145,7 +146,6 @@
   "The starter function. It initialize the conversation and asks for basic information."
   []
   (dosync
-    (reset_questions)
     (print (rand-nth data/greetings))
     (newline)
     (println (rand-nth data/name_ask))
