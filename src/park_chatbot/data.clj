@@ -158,8 +158,8 @@
    "My resources are limited, I will ask you everything I need. Don't reply with questions.",
    "I am going to ask you everything in next few steps. You don't need to ask anything. Let me do my job.",
    "You don't need to ask anything from now on. I will take care of your needs.",
-   "You don't need to ask anything from now on. I will handle park options and take care of your needs."]
-  "No worries. I am here and I will ask you every question I need to find you the best option just for you.")
+   "You don't need to ask anything from now on. I will handle park options and take care of your needs."
+   "No worries. I am here and I will ask you every question I need to find you the best option just for you."])
 
 (def user_end_questions
   "User questions to end the conversation."
