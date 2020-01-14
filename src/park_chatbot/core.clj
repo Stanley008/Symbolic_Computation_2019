@@ -93,12 +93,12 @@
 (defn select_question
   "Selects a random question object from the 'question_objects' list in data.clj.
   question_obj -> reference to question object variable from 'parkbot_loop' function;
-  question_obj_list -> the list of question objects from where a new one will be taken"
-  [question_obj question_obj_list]
-  (loop [new_question (rand-nth question_obj_list)]
+  question_obj_vector -> the list of question objects from where a new one will be taken"
+  [question_obj question_obj_vector]
+  (loop [new_question (rand-nth question_obj_vector)]
     (if (= 0 @(:status new_question))
       (var-set question_obj new_question)
-      (recur (rand-nth question_obj_list)))))
+      (recur (rand-nth question_obj_vector)))))
 
 (defn find_topic
   "Finds the topic the user want to talk about, either dogs or parks.
@@ -120,7 +120,7 @@
 (defn main_loop
   "The loop function of the chatbot. It is used to find the appropriate park
   for the user, based on his/her preferences."
-  [counter_max finding_func question_obj_list]
+  [counter_max finding_func question_obj_vector]
   (with-local-vars [counter 1
                     user_input ""
                     question_obj (rand-nth data/question_objects)
@@ -138,7 +138,7 @@
             (approve_ending? counter selected_options)))
         (var-set counter (+ @counter 1))
         (ref-set (:status @question_obj) 1)
-        (select_question question_obj question_obj_list)))
+        (select_question question_obj question_obj_vector)))
     (println (rand-nth data/user_goodbye))))
 
 (defn -main
