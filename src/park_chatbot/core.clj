@@ -99,6 +99,23 @@
       (var-set question_obj new_question)
       (recur (rand-nth question_obj_list)))))
 
+(defn find_topic
+  "Finds the topic the user want to talk about, either dogs or parks.
+  user_input -> string that represent the input of the user;"
+  [user_input]
+  (with-local-vars [tokens (tokenize (str/lower-case user_input))
+                    topic nil]
+    (doseq [word @tokens]
+      (if (contains? ["dogs" "dog" "doggies"] word)
+        (var-set topic "dogs")
+        (when (contains? ["park" "parks"] word)
+          (var-set topic "parks"))))
+    (if (nil? topic)
+      (do
+        (println "Can you repet your answer?")
+        (find_topic (take_user_input)))
+      @topic)))
+
 (defn main_loop
   "The loop function of the chatbot. It is used to find the appropriate park
   for the user, based on his/her preferences."
