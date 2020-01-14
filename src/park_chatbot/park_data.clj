@@ -116,7 +116,7 @@
    "Don't you have a small pal that you would like to walk in the park?",
    "Do you have a small buddy that you would like to walk in the park?"])
 
-(def question_objects
+(def park_question_obj_vector
   "A vector of question objects that include:
   :sent -> the sentences that are used to ask the user for a preference;
   :topic -> the topic of the asked sentence;
