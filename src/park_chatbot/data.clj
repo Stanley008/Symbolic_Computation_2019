@@ -116,7 +116,7 @@
    "Oh wow what a nice name. That’s cool, but I prefer nicknames. Mine is Parkiebot. Do you want to be called by a nickname?"])
 
 (def nickname_ask
-  "A vector of sentences that are used to ask the user's nickname"
+  "A vector of sentences that are used to ask the user's nickname."
   ["What nickname would you like?",
    "What is your nickname?",
    "I like your answer. I love nicknames. What is yours?",
@@ -259,7 +259,7 @@
     "Are restrooms important for you? Would you like to have them in the park?"])
 
 (def question_restaurant
-   "Questions regarding restaurants"
+   "Questions regarding restaurants."
    ["Would you like to visit a restaurant in the park?",
     "Would you like to have a restaurant in the park?",
     "Would you like to be able to eat in a restaurant in the park?",
@@ -343,7 +343,7 @@
     "Not bad."])
 
 (def user_continue_conv
-  "Replies if the user want to continue the conversation"
+  "Replies if the user want to continue the conversation."
   ["As you wish master."
    "Ok then, let's continue our conversation."
    "Let's talk more then."
@@ -463,20 +463,57 @@
 
 (def dog_japanese_spitz
    "Answers to the user regarding finding the wanted breed."
-   ["I recognized the breed it is a Japanese Spitz.",
-	"I recognized the beast it is a Japanese Spitz.",
-	"What a cuttie. I found the breed it is a Japanese Spitz.",
-	"What a handsome breed. I love it. It is a Japanese Spitz.",
-	"I would never imagine, that you will so much interested in this breed. It is a Japanese Spitz.",
-	"Guess what? What? I found your breed, it is a Japanese Spitz.",
-	"I knew it from the beginning that it is going to be this dog breed, it is a Japanese Spitz."])
+   ["I recognized the breed it is a Japanese Spitz.",]
+  "I recognized the beast it is a Japanese Spitz.",
+  "What a cuttie. I found the breed it is a Japanese Spitz.",
+  "What a handsome breed. I love it. It is a Japanese Spitz.",
+  "I would never imagine, that you will so much interested in this breed. It is a Japanese Spitz.",
+  "Guess what? What? I found your breed, it is a Japanese Spitz.",
+  "I knew it from the beginning that it is going to be this dog breed, it is a Japanese Spitz.")
 
 (def dog_not_found
    "Answers to the user regarding not finding the breed."
-   ["I am sorry but I did not find the breed according to the information you provided.",
-	"I tried my best but none of the breeds fits your information.",
-	"I tried really hard, but no breed was found.",
-	"I am sorry but according to your information, no dog breed fits.",
-	"Hmm... a tried everything. I could even boil eggs on my CPU, but I could not find an appropriate dog breed.",
-	"I did everything I could, but I could not recognize the dog breed.",
-	"I don't have good news. How to tell you, I could not recognize the dog breed."])
+   ["I am sorry but I did not find the breed according to the information you provided.",]
+  "I tried my best but none of the breeds fits your information.",
+  "I tried really hard, but no breed was found.",
+  "I am sorry but according to your information, no dog breed fits.",
+  "Hmm... I tried everything. I could even boil eggs on my CPU, but I could not find an appropriate dog breed.",
+  "I did everything I could, but I could not recognize the dog breed.",
+  "I don't have good news. How to tell you, I could not recognize the dog breed.")
+
+(def dog_info_rottweiler
+  "Information of Rottweiler such as breed, history, and fun facts."
+  ["Do you know that the Rottweiler is known for their loyal, loving, and confident characters?",]
+  "The Rottweiler can easily get overweight so they need high-quality food and LOTS OF EXERCISES!",
+  "The Rottweiler loves SWIMMING, especially with their people. AWWWWNNNN!!!",
+  "The Rottweiler can only live up to 9-10 years :(",
+  "The name 'Rottweiler' comes from the town called, Rottweil from the southern Germany. The name 'rot' is from the red tile roofs whereas 'wil' for villa in Roman. CUTE!",
+  "In 1910, the Rottweiler received recognition by the German Police Dog Association as the fourth official police dog. Wow, that is SMARTTT!!!",
+  "The Rottweiler was one of the first breeds to become guide dogs for the blind. Such a skilled dog!",
+  "The Rottweiler has a natural guarding instinct that can be traced back to their ancestors and it makes them exceptional watchdogs.",
+  "Do you know that Rottweilers bravely served as search-and-rescue workers at disaster sites as Oklahoma City bombing and the World Trade Center on 9/11.",
+  "Most Rottweilers are well-known for being extremely intelligent and highly trainable but some can be very stubborn.",
+  "You know the Rottweiler tends to shred a lot, usually in the spring and fall despite having medium-length flat furs. You gotta groom them more often in those seasons!")
+
+(def dog_info_japanese_spitz
+  "Information of Japanese Spitz such as breed, history, and fun facts."
+  ["The Japanese Spitz is known as The 'Cloud Dog' due to their FLUFFY white appearance. Awww, they are like clouds that can bard, WOOOFF!!!",]
+  "Do you know you should not give the Japanese Spitz baths very often as it can remove their essential oils and dry out their skin. BE CAREFUL!!!",
+  "Even though the Japanese Spitzs have long and thick furs, they don't really retain the dirt smell. So bathing them a few times a year is more than fine!",
+  "So the Japanese Spitz can live from 10 to 16 years old and that makes them one of the LONGEST living dog breeds. WOWIEEEEE!!!",
+  "Even though the Japanese Spitzs look a small floof cloud, they can and love to play canine sports like flyball, frisbee, and fetch. HOW CUTE!!!",
+  "The Japanese Spitz is a very handy doggo for active seniors since they love occasional slow and long jogs, plus they love MEETING NEW PEOPLE. Awwww!!!",
+  "Although the Japanese Spitzs are extremely social, they can go from extremely shy and timid, to stress of anxiety when socialized incorrectly. Make sure to keep a look out for them!",
+  "The Japanese Spitz puppies usually cost between $1,000 and $2,500 because they are so rare. WOWIEEEEE!!!",
+  "Do you know why the Japanese Spitz is white? It is because their ancestors, Samoyed were originally known to herd reindeer in the cold arctic. So INTERESTING!",
+  "Despite having thick and long fur, the Japanese Spitz CANNOT tolerate the cold very well AT ALL. And they prefer mild andn warm temperature.",
+  "The Japanese Spitzs are not picky eaters at all and in fact, they love to munch on a carrot or other dog-friendly fruits and vegetables. Such healthy doggos!!!",
+  "The Japanese Spitzs love their owners so much, they don't do well when being left on their own for long and can cause destructive behaviors. Poor doggos :(")
+  
+(def question_dog_info
+  "Asks if the user wants to know more information about the chosen breed."
+  ["Would you like to know more about the breed?",]
+  "Wow, this dog definitely has a very interesting background. Do you want to hear that?",
+  "Also guess what, there are so many fun facts about this dog! Wanna listen to some of those?",
+  "And HOLD ON. I was just quickly browsing through the history and it is FASCINATING, like where the name originated from. Wanna hear them?",
+  "Wow, so the Rottweiler was known as messengers during World War I. And Japanese Spitzs are trained to be companion dogs! Wanna know more facts like these?")
