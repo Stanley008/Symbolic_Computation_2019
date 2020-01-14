@@ -96,6 +96,19 @@
    "I am still young and handsome without any wrinkles, but what about the dog? Does it have any wrinkles?",
    "I am artificial, but still I got wrinkles. What about the dog, does it have any wrinkles?"])
 
+(def dog_question_obj_vector
+  "A vector of question objects that include:
+  :sent -> the sentences that are used to ask the user for a clue;
+  :topic -> the topic of the asked sentence;
+  :status -> the status of the object, if 0 it is unused, if 1 it was already used"
+  [{:sent dog_color :topic :color :status (ref 0)},
+   {:sent dog_size :topic :size :status (ref 0)},
+   {:sent dog_fluffiness :topic :fluffiness :status (ref 0)},
+   {:sent dog_nose :topic :nose :status (ref 0)},
+   {:sent dog_ears :topic :ears :status (ref 0)},
+   {:sent dog_tail :topic :tail :status (ref 0)},
+   {:sent dog_wrinkles :topic :wrinkles :status (ref 0)}])
+
 (def user_dog_picture_information
   "Questions regarding user to choose to find a dog by a picture or by information."
   ["Would you rather identify a dog by a picture or by providing me information?",
