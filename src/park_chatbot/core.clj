@@ -2,8 +2,12 @@
     "The chatbot library that includes all necessary functions for it to run."
     (:require [opennlp.nlp :as nlp]
               [park-chatbot.data :as data]
+              [park-chatbot.dog-data :as ddata]
+              [park-chatbot.park-data :as pdata]
               [clojure.string :as str]
-              [park-chatbot.easter-egg :as egg]))
+              [park-chatbot.easter-egg :as egg]
+              [park-chatbot.dog :as dog]
+              [park-chatbot.park :as park]))
 
 (def tokenize
   "Initialize the pre-trained tokenizer from 'en-token.bin'."
@@ -135,4 +139,7 @@
     (take_user_input)
    (println (rand-nth data/user_reply))
    (println (rand-nth data/user_no_question))
-   (main_loop)))
+   (println (rand-nth data/user_park_dog))
+   (if (= (find_topic (take_user_input)) "dogs")
+     (main_loop 2 dog/find_dog ddata/dog_question_obj_vector)
+     (main_loop 7 park/find_park pdata/park_question_obj_vector))))
