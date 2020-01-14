@@ -6,8 +6,8 @@
               [park-chatbot.park-data :as pdata]
               [clojure.string :as str]
               [park-chatbot.easter-egg :as egg]
-              [park-chatbot.dog :as dog]
-              [park-chatbot.park :as park]))
+              [park-chatbot.dog-core :as dcore]
+              [park-chatbot.park-core :as pcore]))
 
 (def tokenize
   "Initialize the pre-trained tokenizer from 'en-token.bin'."
@@ -156,5 +156,5 @@
    (println (rand-nth data/user_no_question))
    (println (rand-nth data/user_park_dog))
    (if (= (find_topic (take_user_input)) "dogs")
-     (main_loop 2 dog/find_dog dog/give_dog_answer ddata/dog_question_obj_vector)
-     (main_loop 7 park/find_park park/give_park_answer pdata/park_question_obj_vector))))
+     (main_loop 2 dcore/find_dog dcore/give_dog_answer ddata/dog_question_obj_vector)
+     (main_loop 7 pcore/find_park pcore/give_park_answer pdata/park_question_obj_vector))))
