@@ -33,10 +33,8 @@
   [sent]
   (with-local-vars [name nil]
     (doseq [token sent]
-      (if (= token (str/capitalize token))
-        (var-set name token)
-        (if (= @name nil)
-          (var-set name "Visitor"))))
+      (if (not= data/name_words (str/lower-case token))
+        (var-set name token)))
     @name))
 
 (defn ask_for_nickname
