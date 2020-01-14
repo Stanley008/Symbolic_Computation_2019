@@ -1,6 +1,7 @@
 (ns park-chatbot.park
     "The chatbot library that includes all necessary functions for park.clj to run."
     (:require [park-chatbot.data :as data]
+              [park-chatbot.park-data :as pdata]
               [clojure.string :as str]))
 
 (defn match_park
@@ -10,7 +11,7 @@
   selected_parks -> reference to the list of parks with suitable preferences."
   [topic user_preference selected_parks counter
    (if (= 1 counter)
-     (doseq [park data/parks]
+     (doseq [park pdata/parks]
        (if (= user_preference (topic park))
          (var-set selected_parks (conj @selected_parks park)))
       (doseq [park @selected_parks]
