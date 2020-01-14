@@ -62,11 +62,8 @@
   If yes updates the 'terminate' value in 'user' record to true.
   counter -> integer that stores the length of the conversation.
   selected_options -> reference to the list of parks with suitable preferences."
-  [counter selected_options]
-  (if (empty? @selected_options)
-    (println (rand-nth data/user_park_not_find))
-    (println (rand-nth data/user_visit)
-      (:name (rand-nth @selected_options) ".")))
+  [counter selected_options give_answer]
+  (give_answer selected_options)
   (println (rand-nth data/user_end_questions))
   (let [answer (tokenize (str/lower-case (take_user_input)))]
     (doseq [word answer]
@@ -120,7 +117,7 @@
 (defn main_loop
   "The loop function of the chatbot. It is used to find the appropriate park
   for the user, based on his/her preferences."
-  [counter_max finding_func question_obj_vector]
+  [counter_max finding_func give_answer question_obj_vector]
   (with-local-vars [counter 1
                     user_input ""
                     question_obj (rand-nth question_obj_vector)
@@ -132,11 +129,11 @@
         (var-set user_input (take_user_input))
         (egg/check_easter_egg (tokenize (str/lower-case @user_input)))
         (when (end_conversation? @user_input)
-          (approve_ending? counter selected_options))
+          (approve_ending? counter selected_options give_answer))
         (finding_func @question_obj @user_input selected_options @counter)
         (if (= 0 (rem @counter counter_max))
           (if (= false @(:terminate data/user))
-            (approve_ending? counter selected_options)))
+            (approve_ending? counter selected_options give_answer)))
         (var-set counter (+ @counter 1))
         (ref-set (:status @question_obj) 1)
         (select_question question_obj question_obj_vector)))
@@ -159,5 +156,5 @@
    (println (rand-nth data/user_no_question))
    (println (rand-nth data/user_park_dog))
    (if (= (find_topic (take_user_input)) "dogs")
-     (main_loop 2 dog/find_dog ddata/dog_question_obj_vector)
-     (main_loop 7 park/find_park pdata/park_question_obj_vector))))
+     (main_loop 2 dog/find_dog dog/give_dog_answer ddata/dog_question_obj_vector)
+     (main_loop 7 park/find_park park/give_park_answer pdata/park_question_obj_vector))))
