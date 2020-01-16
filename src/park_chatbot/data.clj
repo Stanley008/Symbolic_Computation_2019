@@ -186,7 +186,7 @@
    "Not bad."])
 
 (def user_continue_conv
-  "Replies if the user want to continue the conversation."
+  "Replies when the user want to continue the conversation."
   ["As you wish master."
    "Ok then, let's continue our conversation."
    "Let's talk more then."
