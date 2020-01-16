@@ -27,18 +27,8 @@
   [betramka, fran_garden, obora, kampa, zahrada, klam, ladronka,
    letna, petrin, riegrovy, stromovka, vajanovy, vysehrad])
 
-(def user_park_not_find
-  "User not find park answers."
-  ["I could not find an apropriate park for you.",
-   "I could not find anything. I am reallly sorry.",
-   "I have tried hard, but I could not find anything suitable for you.",
-   "I have tried hard, But I could not find anything regarding your needs.",
-   "My information system does not show anything that will suit you. I am really sorry.",
-   "I don't know how to say it, but nothing suits you. I would advice you to visit BRNO instead."
-   "I am really sorry, but I could not find an appropriate park for you. Atleast I can advice you the most beautiful park in the world Royal Botanics Garden in Melbourne. What a great trip would that be."])
-
-(def user_visit
-  "User visit answers."
+(def park_found
+  "Answers for the user about finding the park he wants."
   ["You can visit",
    "You can go to",
    "I would advice you to go to",
@@ -49,6 +39,16 @@
    "Naaah, that's not my most favourite park, but it is your choice and I would advice you to go to",
    "Allright, I heard everything I needed and my advice is to go to",
    "Interesting replies. My information system shows that most suitable park is"])
+
+(def park_not_found
+  "Answers for the user about not finding the park."
+  ["I could not find an apropriate park for you.",
+   "I could not find anything. I am reallly sorry.",
+   "I have tried hard, but I could not find anything suitable for you.",
+   "I have tried hard, But I could not find anything regarding your needs.",
+   "My information system does not show anything that will suit you. I am really sorry.",
+   "I don't know how to say it, but nothing suits you. I would advice you to visit BRNO instead."
+   "I am really sorry, but I could not find an appropriate park for you. Let me at least suggest you the most beautiful park in the world, which is Royal Botanics Garden in Melbourne. That would be a good trip."])
 
 (def question_restrooms
   "Questions regarding restrooms."

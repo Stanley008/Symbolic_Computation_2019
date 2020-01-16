@@ -1,19 +1,22 @@
 (ns park-chatbot.dog-data)
 
-
 ; A dog record template:
 ; name -> string that represents the name of the dog;
 ; color, size, fluffiness, nose, ears, tail ->
 ; string and booleans values that represent the features of the dog;
 (defrecord Dog
-  [color size fluffiness nose ears tail wrinkles])
+  [name color size fluffiness nose ears tail wrinkles])
 
-(def japanese_spitz (Dog. "white" "small" true "pointy" "pointy" "long" "false"))
-(def rottweiler (Dog. "black" "big" false "broad" "floppy" "short" "true"))
+(def japanese_spitz (Dog. "Japanese Spitz" "white" "small" true "pointy" "pointy" "long" false))
+(def rottweiler (Dog. "Rottweiler" "black" "big" false "broad" "floppy" "short" true))
 
 (def dogs
   "A vector of the dogs known by the chatbot."
   [japanese_spitz, rottweiler])
+
+(def dog_preference
+  "A vector of words that represent user's preferences on the dog breed."
+  (set '["white", "black", "small", "big", "pointy", "broad", "floopy", "long", "short"]))
 
 (def dog_color
   "Questions regarding dog color."
@@ -110,7 +113,7 @@
    {:sent dog_wrinkles :topic :wrinkles :status (ref 0)}])
 
 (def user_dog_picture_information
-  "Questions regarding user to choose to find a dog by a picture or by information."
+  "Questions for user if he wants to find a dog by a picture or by information."
   ["Would you rather identify a dog by a picture or by providing me information?",
    "What a lovely day. Would you like to identify a dog breed by sending me a picture or by providing me with some information to my questions?",
    "I have two possibilities of how to identify dogs. Either by a picture or by providing me with some information to my questions. What is it going to be today?",
@@ -120,28 +123,18 @@
    "I love dogs. Let's dig into it and identify the breed. Would you like to that by telling me information about it or by a picture?",
    "Are you feeling today answering my questions so I can gather more information about the breed, or would you rather send some picture?"])
 
-(def dog_rottweiler
-  "Answers to the user regarding finding the wanted breed."
-  ["I recognized the breed it is a Rottweiler.",
-   "I recognized the beast it is a Rottweiler.",
-   "What a cuttie. I found the breed it is a Rottweiler.",
-   "What a handsome breed. I love it. It is a Rottweiler.",
-   "I would never imagine, that you will so much interested in this breed. It is a Rottweiler.",
-   "Guess what? What? I found your breed, it is a Rottweiler.",
-   "I knew it from the beginning that it is going to be this dog breed, it is a Rottweiler."])
-
-(def dog_japanese_spitz
-  "Answers to the user regarding finding the wanted breed."
-  ["I recognized the breed it is a Japanese Spitz.",
-   "I recognized the beast it is a Japanese Spitz.",
-   "What a cuttie. I found the breed it is a Japanese Spitz.",
-   "What a handsome breed. I love it. It is a Japanese Spitz.",
-   "I would never imagine, that you will so much interested in this breed. It is a Japanese Spitz.",
-   "Guess what? What? I found your breed, it is a Japanese Spitz.",
-   "I knew it from the beginning that it is going to be this dog breed, it is a Japanese Spitz."])
+(def dog_found
+  "Answers for the user about finding the breed he wants."
+  ["I recognized the breed it is a",
+   "I recognized the beast it is a",
+   "What a cuttie. I found the breed it is a",
+   "What a handsome breed. I love it. It is a",
+   "I would never imagine, that you will so much interested in this breed. It is a",
+   "Guess what? What? I found your breed, it is a",
+   "I knew it from the beginning that it is going to be this dog breed, it is a"])
 
 (def dog_not_found
-  "Answers to the user regarding not finding the breed."
+  "Answers for the user about not finding the breed."
   ["I am sorry but I did not find the breed according to the information you provided.",
    "I tried my best but none of the breeds fits your information.",
    "I tried really hard, but no breed was found.",
@@ -180,7 +173,7 @@
    "The Japanese Spitzs love their owners so much, they don't do well when being left on their own for long and can cause destructive behaviors. Poor doggos :("])
 
 (def question_dog_info
-  "Asks if the user wants to know more information about the chosen breed."
+  "Ask if the user wants to know more information about the chosen breed."
   ["Would you like to know more about the breed?",
    "Wow, this dog definitely has a very interesting background. Do you want to hear that?",
    "Also guess what, there are so many fun facts about this dog! Wanna listen to some of those?",
