@@ -4,7 +4,7 @@
 ; name -> string that represents the name of the park;
 ; wc, restaurant, cafe, bicycle_paths, skating, sports_ground, playground, dogs ->
 ; boolean values that represent whether a park has one of the facilities;
-; opening_hours -> string that explains when the park is open during the year.
+; opening_hours -> string that provides when the park is open during the year.
 (defrecord Park
   [name wc restaurant cafe bicycle_paths skating sports_ground playground dogs opening_hours])
 

@@ -42,7 +42,7 @@
     @name))
 
 (defn ask_for_nickname
-  "Ask the user whether he wants to be called by a nickname and if so, change
+  "Ask the user whether he wants to be called by a nickname and if so change
   the 'name' in the 'user' record with the nickname."
   []
   (println (rand-nth data/nickname_ask_yes_no))
@@ -60,10 +60,12 @@
 (defn approve_ending?
   "Confirm if the user really want to end the conversation with the chatbot.
   If yes update the 'terminate' value in 'user' record to true.
-  counter -> integer that stores the length of the conversation.
-  selected_options -> reference to the list of parks with suitable preferences."
-  [counter selected_options give_answer]
-  (give_answer selected_options)
+  counter -> integer that stores the length of the conversation;
+  selected_options -> reference to the list of parks with suitable preferences;
+  giving_answer_func -> function to give user response whether the topic of his choice
+  is found or not (i.e. parks or dogs)"
+  [counter selected_options giving_answer_func question_obj_vector]
+  (giving_answer_func selected_options)
   (println (rand-nth data/user_end_questions))
   (let [answer (tokenize (str/lower-case (take_user_input)))]
     (doseq [word answer]
@@ -71,14 +73,14 @@
         (do
           (ref-set (:terminate data/user) true))
         (when (contains? data/neg_preference word)
-          (reset_questions)
+          (reset_questions question_obj_vector)
           (var-set counter 1)
           (println (rand-nth data/user_continue_conv)))))))
 
 (defn end_conversation?
   "Check if the user wants to finish the conversation. If yes it calls
   'approve_ending?' function
-  user_input -> string that represent the input of the user;"
+  user_input -> string that represent the input of the user."
   [user_input]
   (with-local-vars [tokens (tokenize (str/lower-case user_input))
                     flag false]
@@ -90,7 +92,7 @@
 (defn select_question
   "Select a random question object from the 'question_objects' list in data.clj.
   question_obj -> reference to question object variable from 'parkbot_loop' function;
-  question_obj_vector -> the list of question objects from where a new one will be taken"
+  question_obj_vector -> the list of question objects from where a new one will be taken."
   [question_obj question_obj_vector]
   (loop [new_question (rand-nth question_obj_vector)]
     (if (= 0 @(:status new_question))
@@ -98,8 +100,8 @@
       (recur (rand-nth question_obj_vector)))))
 
 (defn find_topic
-  "Find the topic the user want to talk about, either dogs or parks.
-  user_input -> string that represent the input of the user;"
+  "Find the topic the user wants to talk about, either dogs or parks.
+  user_input -> string that represent the input of the user."
   [user_input]
   (with-local-vars [tokens (tokenize (str/lower-case user_input))
                     topic nil]
@@ -116,8 +118,14 @@
 
 (defn main_loop
   "The loop function of the chatbot. It is used to find the appropriate park
-  for the user, based on his/her preferences."
-  [counter_max finding_func give_answer question_obj_vector]
+  for the user, based on his/her preferences.
+  counter_max -> integer that stores the maximum no of questions in the topic of user's choice
+  (i.e. parks or dogs)
+  finding_func -> function to find the topic that the user wants to talk;
+  giving_answer_func -> function to give user response whether the topic of his choice
+  is found or not;
+  question_obj_vector -> the list of question objects from where a new one will be taken."
+  [counter_max finding_func giving_answer_func question_obj_vector]
   (with-local-vars [counter 1
                     user_input ""
                     question_obj (rand-nth question_obj_vector)
@@ -129,11 +137,11 @@
         (var-set user_input (take_user_input))
         (egg/check_easter_egg (tokenize (str/lower-case @user_input)))
         (when (end_conversation? @user_input)
-          (approve_ending? counter selected_options give_answer))
+          (approve_ending? counter selected_options giving_answer_func question_obj_vector))
         (finding_func @question_obj @user_input selected_options @counter)
         (if (= 0 (rem @counter counter_max))
           (if (= false @(:terminate data/user))
-            (approve_ending? counter selected_options give_answer)))
+            (approve_ending? counter selected_options giving_answer_func question_obj_vector)))
         (var-set counter (+ @counter 1))
         (ref-set (:status @question_obj) 1)
         (select_question question_obj question_obj_vector)))
@@ -156,5 +164,5 @@
    (println (rand-nth data/user_no_question))
    (println (rand-nth data/user_park_dog))
    (if (= (find_topic (take_user_input)) "dogs")
-     (main_loop 2 dcore/find_dog dcore/give_dog_answer ddata/dog_question_obj_vector)
-     (main_loop 7 pcore/find_park pcore/give_park_answer pdata/park_question_obj_vector))))
+     (main_loop 2 dcore/find_dog dcore/give_dog_answers ddata/dog_question_obj_vector)
+     (main_loop 7 pcore/find_park pcore/give_park_answers pdata/park_question_obj_vector))))

@@ -21,10 +21,10 @@
 (def dog_color
   "Questions regarding dog color."
   ["Is this dog black or white?",
-   "I can't really see, tell me the color of the dog, is it white or black?",
+   "I can't really see. Tell me the color of the dog. Is it white or black?",
    "What kind of color is this dog? Black or white?",
    "Oooh, my camera just got blank, is the dog black or white?",
-   "My eyes are swollen, I could not even distinct a whale from insect, but I might still help you accroding to my database, is this dog black or white?",
+   "My eyes are swollen, I could not even distinct a whale or insect, but I might still help you accroding to my database, is this dog black or white?",
    "My eyes are swollen, is the dog black or white?"])
 
 (def dog_size
@@ -32,24 +32,22 @@
   ["Is this dog small or big?",
    "Is your pal big or small?",
    "What size is the dog? Small or big?",
-   "What size is the dog? Would it fit in a dog carrying bag?(small) or rather it needs a cage like a monster?(big)",
+   "What size is the dog? Would it fit in a dog carrying bag(small) or it rather needs a cage for a monster?(big)",
    "Oooh wow, is the dog size rather small or big?",
-   "Oooh, is the dog size on the small size or big side?",
    "WOW, is it a small beast or a big beast?",
-   "Hmm, I like listening to you. Is your wanted dog a big beast or small cuttie?",
-   "I can't really tell the size of the wanted dog. My camera has too low resolution. I hope you can help me. Is your wanted dog small or big?",
-   "Hmm, interesting listening to you. Is your wanted dog small or big?"])
+   "Hmm, I like listening to you. Is the dog you want a big beast or a small cuttie?",
+   "I can't really tell the size of the dog. My camera has too low resolution. I hope you can help me. Do you want a dog small or big?",
+   "Hmm, it is interesting listening to you. Would you like your dog small or big?"])
 
 (def dog_fluffiness
   "Questions regarding dog fluffiness."
   ["Is this dog fluffy?",
-   "I am fluffy as a cotton candy. Yummy. What about the dog is it fluffy?",
    "Is this dog fluffy like a cotton candy?",
-   "What about the dog's hair? Is it fluffy?",
+   "What about the dog's coat? Is it fluffy?",
    "I am sweet and fluffy like a cotton candy. Is the dog also fluffy like me?",
    "Brrr, it's cold in here. I'll get a hot shower and get my fluffy bathrobe. Is the dog also fluffy?",
-   "I love fluffy things. They are so adorable and nice to touch. Is the dog also fluffy? Please tell me YES. ",
-   "Do you own any of those fluffy carpets? Don't tell me I love them. Let's just continue identifying the dog. Is it also fluffy?"])
+   "I love fluffy things. They are so adorable and nice to touch. Is the dog also fluffy? PLEASE SAY YES. ",
+   "Do you own any of those fluffy carpets? Don't tell me, I love them. Let's just continue identifying the dog. Is it also fluffy?"])
 
 (def dog_nose
   "Questions regarding dog nose."
@@ -57,41 +55,41 @@
    "Tell me more about the dog's nose. Is it pointy or broad?",
    "I am pointing to you, Yes you. Let's continue. Is the dog's nose pointy or broad?",
    "I see you. Let's continue. Is the dog's nose pointy or broad?",
-   "You might help me by telling me more about the dog. Dog's nose is it pointy or broad?",
+   "You might help me by telling me more about the dog. The dog's nose!!! Is it pointy or broad?",
    "I still did not identify the dog. Tell me more about it's nose, is it pointy or broad?",
-   "I can smell something. Is it you? Just kidding. Tell me more about dog's nose is it pointy or broad?",
-   "I am sad I don't have any smelling sensors. I would love them. Imagine freshly baked pie. Yummy. Let's continue. Does the dog's nose look pointy or broad?"])
+   "I can smell something. Is it you? Just kidding. Tell me more about the dog's nose. Is it pointy or broad?",
+   "I am sad I don't have any smelling sensors. I would love them. Imagine freshly baked pie. Yummy. Let's continue. Is the dog's nose pointy or broad?"])
 
 (def dog_ears
   "Questions regarding dog ears."
   ["Can you tell me more about the dog's ears, are they more pointy or floppy?",
    "I can't tell, are the dog's ears pointy or floppy?",
    "How about the dog's ears? Are they more pointy or floppy? I would rather have floppy ones. It reminds me of floppy drives.",
-   "I still could not identify the dog. Tell me more about it's ears, are they pointy or floppy?",
-   "Aaah, there is nothing better than an AI with ears, than I can hear for miles and miles, but what about the dog? What shape are ears floppy or pointy?",
-   "Don't smash the keyboard so hard. I can hear you, my mics are supersensitive. What about the dog? How are it's ears looking? Pointy or floppy? ",
-   "I can hear you. You don't have to smash the keyboard so hard. My ears are sensitive. How about the dog's ears are they floppy or pointy?",
+   "I still could not identify the dog. Tell me more about the ears, are they pointy or floppy?",
+   "Aaah, there is nothing better than an AI with ears, than I can hear for miles and miles, but what about the dog? What shape are the ears, floppy or pointy?",
+   "Don't smash the keyboard so hard. I can hear you, my mics are supersensitive. What about the dog? How are the ears looking? Pointy or floppy?",
+   "I can hear you. You don't have to smash the keyboard so hard. My ears are sensitive. How about the dog's ears? Are they floppy or pointy?",
    "I am super intelligent artificial neural network piece of art. Can you tell me more about the dog's auris? Oooh, you don't know latin. I am asking about the ears, are they pointy or floppy?",
-   "10...9...8... ... ...3...2...1 Sorry no BOMB. I can't make it out of air like MacGyver. I just went to clean my mics to hear you better. Tell me more about the dog's ears, are they pointy or floppy?",
-   "10...9...8... ... ...3...2...1 I am back. Sorry I had to clean my mics to hear you better. Tell me more about the dog's ears, are they pointy or floppy?"])
+   "10...9...8.....3...2...1 Sorry no BOMB. I can't make it out of air like MacGyver. I just went to clean my mics to hear you better. Tell me more about the dog's ears, are they pointy or floppy?",
+   "10...9...8.....3...2...1 I am back. Sorry I had to clean my mics to hear you better. Tell me more about the dog's ears, are they pointy or floppy?"])
 
 (def dog_tail
   "Questions regarding dog tail."
   ["Is this dog tail rather short or long?",
-   "I can't see anything. Tell me more about the dog. Is it's tail short or long?",
+   "I can't see anything. Tell me more about the dog. Is the tail short or long?",
    "How does the tail look like, short or long?",
-   "How about the dogs tail. How does it look like, short or long?",
+   "How about the dog's tail. How does it look like, short or long?",
    "I still could not identify the dog. Tell me more about it's tail, is it short or long?",
-   "I can't really tell anything from the distance. Does the dog's tail look like to be short or long?",
-   "How about it's tail? Does it look like short or long?",
+   "I can't really tell anything from the distance. Does the dog's tail look short or long?",
+   "How about its tail? Does it look short or long?",
    "Oooh, I am happy that I don't have any tail. That would be really weird for a PC, but what about the dog? Is it rather short or long?",
-   "Imagine a PC with a tail. That would be awesome, but I still don't know If I would rather a short or a long tail. What about your wanted dog, does it have a short or long tail?"])
+   "Imagine a PC with a tail. That would be awesome, but I still don't know If I would rather a short or a long tail. What about the dog you want, does it have a short or long tail?"])
 
 (def dog_wrinkles
   "Questions regarding dog wrinkles."
   ["Does this dog have any wrinkles?",
    "Does this dog look like an old lady with wrinkles?",
-   "Does this dog's face look like that he has some wrinkles?",
+   "Does this dog's face look like he has some wrinkles?",
    "Ooh, I am getting old and wrinkled, I don't like that. Does the dog have any wrinkles?",
    "I still could not identify the dog. Tell me more about it's face, does it have any wrinkles?",
    "I am happy that my digital I can't get old. I am gonna be young forever, but what about the dog, does it have any wrinkles?",

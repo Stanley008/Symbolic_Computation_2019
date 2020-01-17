@@ -10,15 +10,15 @@
   (nlp/make-tokenizer "src/en-token.bin"))
 
 (defn match_dog
-  "Create/Update the selected dog based on the user preference.
+  "Create/Update the selected dog based on the user preferences.
   topic -> the breed information of the dog that the function searches for;
-  user_preference -> boolean, represents wether the user wants that facility included;
+  user_preference -> string or boolean that represents the selected breed preferences;
   selected_dog -> reference to the dog breed with suitable preferences."
   [topic user_preference selected_dog counter]
   (if (= 1 counter)
     (doseq [dog ddata/dogs]
       (if (= user_preference (topic dog))
-        (var-set selected_dog)))))
+        (var-set selected_dog dog)))))
 
 (defn find_dog
   "Find user's preference about a dog breed, then it calls 'match_dog' function.
@@ -44,4 +44,4 @@
   (if (empty? @selected_dog)
      (println (rand-nth ddata/dog_not_found))
      (println (rand-nth ddata/dog_found)
-       (:name (rand-nth @selected_dog) "."))))
+       (:name @selected_dog "."))))
