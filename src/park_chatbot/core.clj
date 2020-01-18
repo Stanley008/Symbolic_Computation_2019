@@ -11,6 +11,7 @@
               [park_chatbot.image-recognition :as ir]))
 
 (defn main_loop "Dummy main_loop function" [])
+(defn select_topic "Dummy select_topic function" [])
 
 (def tokenize
   "Initialize the pre-trained tokenizer from 'en-token.bin'."
@@ -94,6 +95,18 @@
         (find_recognition_type (take_user_input)))
       @type)))
 
+(defn recognise_image
+  "Predicts the dog breed that appeared on a given photo"
+  []
+  (println "Please insert the path to the dog image.")
+  (println (rand-nth ddata/dog_found) (ir/predict ir/model (take_user_input)) ".")
+  (println (rand-nth data/user_end_questions))
+  (let [answer (tokenize (str/lower-case (take_user_input)))]
+    (doseq [word answer]
+      (if (or (contains? data/pos_preference word) (contains? data/end_words word))
+        (println (rand-nth data/user_goodbye))
+        (select_topic)))))
+
 (defn select_topic
   "Ask the user for a topic and selects the respective one based on the answer"
   []
@@ -103,11 +116,8 @@
       (println (rand-nth ddata/user_dog_picture_information))
       (if (= (find_recognition_type (take_user_input)) "text")
         (main_loop 2 dcore/find_dog dcore/give_dog_answers ddata/dog_question_obj_vector)
-        (do
-          (println "Please insert the path to the dog image.")
-          (println (rand-nth ddata/dog_found) (ir/predic ir/model (take_user_input)) "."))))
+        (recognise_image)))
     (main_loop 7 pcore/find_park pcore/give_park_answers pdata/park_question_obj_vector)))
-
 
 (defn approve_ending?
   "Confirm if the user really want to end the conversation with the chatbot.
