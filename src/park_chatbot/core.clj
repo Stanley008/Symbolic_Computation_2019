@@ -74,7 +74,7 @@
           (ref-set (:terminate data/user) true))
         (when (contains? data/neg_preference word)
           (reset_questions question_obj_vector)
-          (var-set counter 1)
+          (var-set counter 0)
           (println (rand-nth data/user_continue_conv)))))))
 
 (defn end_conversation?
