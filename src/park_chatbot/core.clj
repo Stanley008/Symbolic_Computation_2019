@@ -77,7 +77,7 @@
         (if (contains? data/neg_preference word)
           (println (rand-nth data/nickname_end)))))))
 
-(defn ask_recognition_type
+(defn find_recognition_type
   "Ask the user what type of dog recognition (text/image) is desired.
   user_input -> string that represent the input of the user."
   [user_input]
@@ -91,7 +91,7 @@
     (if (nil? type)
       (do
         (println "Can you repeat your answer?")
-        (ask_recognition_type (take_user_input)))
+        (find_recognition_type (take_user_input)))
       @type)))
 
 (defn select_topic
@@ -99,6 +99,13 @@
   []
   (println (rand-nth data/user_park_dog))
   (if (= (find_topic (take_user_input)) "dogs")
+    (do
+      (println (rand-nth ddata/user_dog_picture_information))
+      (if (= (find_recognition_type (take_user_input)) "text")
+        (main_loop 2 dcore/find_dog dcore/give_dog_answers ddata/dog_question_obj_vector)
+        (do
+          (println "Please insert the path to the dog image.")
+          (println (rand-nth ddata/dog_found) (ir/predic ir/model (take_user_input)) "."))))
     (main_loop 7 pcore/find_park pcore/give_park_answers pdata/park_question_obj_vector)))
 
 
