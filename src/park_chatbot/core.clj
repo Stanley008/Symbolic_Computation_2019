@@ -7,7 +7,10 @@
               [clojure.string :as str]
               [park-chatbot.easter-egg :as egg]
               [park-chatbot.dog-core :as dcore]
-              [park-chatbot.park-core :as pcore]))
+              [park-chatbot.park-core :as pcore]
+              [park_chatbot.image-recognition :as ir]))
+
+(defn main_loop "Dummy main_loop function" [])
 
 (def tokenize
   "Initialize the pre-trained tokenizer from 'en-token.bin'."
@@ -41,6 +44,23 @@
         (var-set name token)))
     @name))
 
+(defn find_topic
+  "Find the topic the user wants to talk about, either dogs or parks.
+  user_input -> string that represent the input of the user."
+  [user_input]
+  (with-local-vars [tokens (tokenize (str/lower-case user_input))
+                    topic nil]
+    (doseq [word @tokens]
+      (if (contains? (set '["dogs" "dog" "doggies"]) word)
+        (var-set topic "dogs")
+        (when (contains? (set '["park" "parks"]) word)
+          (var-set topic "parks"))))
+    (if (nil? topic)
+      (do
+        (println "Can you repeat your answer?")
+        (find_topic (take_user_input)))
+      @topic)))
+
 (defn ask_for_nickname
   "Ask the user whether he wants to be called by a nickname and if so change
   the 'name' in the 'user' record with the nickname."
@@ -57,6 +77,38 @@
         (if (contains? data/neg_preference word)
           (println (rand-nth data/nickname_end)))))))
 
+(defn find_recognition_type
+  "Ask the user what type of dog recognition (text/image) is desired.
+  user_input -> string that represent the input of the user."
+  [user_input]
+  (with-local-vars [tokens (tokenize (str/lower-case user_input))
+                    type nil]
+    (doseq [word @tokens]
+      (if (contains? (set '["image" "photo" "images" "photos"]) word)
+        (var-set type "image")
+        (when (contains? (set '["text" "sentence" "word" "words" "information"]) word)
+          (var-set type "text"))))
+    (if (nil? type)
+      (do
+        (println "Can you repeat your answer?")
+        (find_recognition_type (take_user_input)))
+      @type)))
+
+(defn select_topic
+  "Ask the user for a topic and selects the respective one based on the answer"
+  []
+  (println (rand-nth data/user_park_dog))
+  (if (= (find_topic (take_user_input)) "dogs")
+    (do
+      (println (rand-nth ddata/user_dog_picture_information))
+      (if (= (find_recognition_type (take_user_input)) "text")
+        (main_loop 2 dcore/find_dog dcore/give_dog_answers ddata/dog_question_obj_vector)
+        (do
+          (println "Please insert the path to the dog image.")
+          (println (rand-nth ddata/dog_found) (ir/predic ir/model (take_user_input)) "."))))
+    (main_loop 7 pcore/find_park pcore/give_park_answers pdata/park_question_obj_vector)))
+
+
 (defn approve_ending?
   "Confirm if the user really want to end the conversation with the chatbot.
   If yes update the 'terminate' value in 'user' record to true.
@@ -71,11 +123,13 @@
     (doseq [word answer]
       (if (or (contains? data/pos_preference word) (contains? data/end_words word))
         (do
-          (ref-set (:terminate data/user) true))
+          (ref-set (:terminate data/user) true)
+          (println (rand-nth data/user_goodbye)))
         (when (contains? data/neg_preference word)
           (reset_questions question_obj_vector)
           (var-set counter 0)
-          (println (rand-nth data/user_continue_conv)))))))
+          (println (rand-nth data/user_continue_conv))
+          (select_topic))))))
 
 (defn end_conversation?
   "Check if the user wants to finish the conversation. If yes it calls
@@ -98,23 +152,6 @@
     (if (= 0 @(:status new_question))
       (var-set question_obj new_question)
       (recur (rand-nth question_obj_vector)))))
-
-(defn find_topic
-  "Find the topic the user wants to talk about, either dogs or parks.
-  user_input -> string that represent the input of the user."
-  [user_input]
-  (with-local-vars [tokens (tokenize (str/lower-case user_input))
-                    topic nil]
-    (doseq [word @tokens]
-      (if (contains? (set '["dogs" "dog" "doggies"]) word)
-        (var-set topic "dogs")
-        (when (contains? (set '["park" "parks"]) word)
-          (var-set topic "parks"))))
-    (if (nil? topic)
-      (do
-        (println "Can you repeat your answer?")
-        (find_topic (take_user_input)))
-      @topic)))
 
 (defn main_loop
   "The loop function of the chatbot. It is used to find the appropriate park
@@ -144,8 +181,7 @@
             (approve_ending? counter selected_options giving_answer_func question_obj_vector)))
         (var-set counter (+ @counter 1))
         (ref-set (:status @question_obj) 1)
-        (select_question question_obj question_obj_vector)))
-    (println (rand-nth data/user_goodbye))))
+        (select_question question_obj question_obj_vector)))))
 
 (defn -main
   "The starter function. It initializes the conversation and asks for basic information."
@@ -162,7 +198,4 @@
     (take_user_input)
    (println (rand-nth data/user_reply))
    (println (rand-nth data/user_no_question))
-   (println (rand-nth data/user_park_dog))
-   (if (= (find_topic (take_user_input)) "dogs")
-     (main_loop 2 dcore/find_dog dcore/give_dog_answers ddata/dog_question_obj_vector)
-     (main_loop 7 pcore/find_park pcore/give_park_answers pdata/park_question_obj_vector))))
+   (select_topic)))
