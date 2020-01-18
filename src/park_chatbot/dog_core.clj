@@ -17,10 +17,10 @@
   [topic user_preference selected_dog counter]
   (if (= 1 counter)
     (doseq [dog ddata/dogs]
-      (if (= user_preference (topic dog))
+      (when (= user_preference (topic dog))
         (var-set selected_dog (conj @selected_dog dog))))
     (doseq [dog @selected_dog]
-      (if (not= user_preference (topic dog))
+      (when (not= user_preference (topic dog))
         (var-set selected_dog (remove #{dog} @selected_dog))))))
 
 (defn find_dog
@@ -31,14 +31,11 @@
   (let [tokens (tokenize (str/lower-case answer))]
     (doseq [word tokens]
       (if (contains? ddata/dog_preference word)
-        (do
-          (match_dog (:topic dog_question_obj) word selected_dog counter))
+        (match_dog (:topic dog_question_obj) word selected_dog counter)
         (if (contains? data/pos_preference word)
-          (do
-            (match_dog (:topic dog_question_obj) true selected_dog counter))
-          (if (contains? data/neg_preference word)
-            (do
-              (match_dog (:topic dog_question_obj) false selected_dog counter))))))))
+          (match_dog (:topic dog_question_obj) true selected_dog counter)
+          (when (contains? data/neg_preference word)
+              (match_dog (:topic dog_question_obj) false selected_dog counter)))))))
 
 (defn give_dog_answers
   "Give the user responses on whether the dog that matches his preference is found or not.
