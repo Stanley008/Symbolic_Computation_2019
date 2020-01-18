@@ -18,7 +18,10 @@
   (if (= 1 counter)
     (doseq [dog ddata/dogs]
       (if (= user_preference (topic dog))
-        (var-set selected_dog dog)))))
+        (var-set selected_dog (conj @selected_dog dog))))
+    (doseq [dog @selected_dog]
+      (if (not= user_preference (topic dog))
+        (var-set selected_dog (remove #{dog} @selected_dog))))))
 
 (defn find_dog
   "Find user's preference about a dog breed, then it calls 'match_dog' function.
@@ -44,4 +47,4 @@
   (if (empty? @selected_dog)
      (println (rand-nth ddata/dog_not_found))
      (println (rand-nth ddata/dog_found)
-       (:name @selected_dog "."))))
+       (:name (rand-nth @selected_dog) "."))))
