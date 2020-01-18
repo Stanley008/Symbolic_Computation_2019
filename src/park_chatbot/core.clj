@@ -9,7 +9,7 @@
               [park-chatbot.dog-core :as dcore]
               [park-chatbot.park-core :as pcore]))
 
-(defn main_loop [])
+(defn main_loop "Dummy main_loop function" [])
 
 (def tokenize
   "Initialize the pre-trained tokenizer from 'en-token.bin'."
