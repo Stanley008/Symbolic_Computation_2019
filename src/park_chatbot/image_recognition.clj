@@ -19,6 +19,7 @@
   (nth ["Japanese Spitz" "Rotweiller"] n))
 
 (defn predict [model image-path]
+  (i/show (i/load-image image-path))
   (let [obs (image-file->observation image-path)]
    (-> (execute/run model [obs])
     first
