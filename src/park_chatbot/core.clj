@@ -56,7 +56,7 @@
         (var-set topic "dogs")
         (when (contains? (set '["park" "parks"]) word)
           (var-set topic "parks"))))
-    (if (nil? topic)
+    (if (nil? @topic)
       (do
         (println "Can you repeat your answer?")
         (find_topic (take_user_input)))
@@ -85,11 +85,11 @@
   (with-local-vars [tokens (tokenize (str/lower-case user_input))
                     type nil]
     (doseq [word @tokens]
-      (if (contains? (set '["image" "photo" "images" "photos"]) word)
+      (if (contains? data/image_recognition word)
         (var-set type "image")
-        (when (contains? (set '["text" "sentence" "word" "words" "information"]) word)
+        (when (contains? data/text_recognition word)
           (var-set type "text"))))
-    (if (nil? type)
+    (if (nil? @type)
       (do
         (println "Can you repeat your answer?")
         (find_recognition_type (take_user_input)))
