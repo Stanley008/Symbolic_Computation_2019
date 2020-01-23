@@ -99,7 +99,9 @@
   "Predicts the dog breed that appeared on a given photo"
   []
   (println "Please insert the path to the dog image.")
-  (println (rand-nth ddata/dog_found) (ir/predict ir/model (take_user_input)) ".")
+  (let [dog (ir/predict ir/model (take_user_input))]
+    (println (rand-nth ddata/dog_found) dog ".")
+    (dcore/give_dog_facts dog))
   (println (rand-nth data/user_end_questions))
   (let [answer (tokenize (str/lower-case (take_user_input)))]
     (doseq [word answer]
