@@ -44,9 +44,9 @@
   (println (rand-nth ddata/question_dog_info))
   (let [answer (tokenize (str/lower-case (read-line)))]
     (doseq [word answer]
-      (if (and (contains? data/pos_preference word) (contains? (set dog) "Rottweiler"))
+      (if (and (contains? data/pos_preference word) (= (:name dog) "Rottweiler"))
         (println (rand-nth ddata/dog_info_rottweiler))
-        (if (and (contains? data/pos_preference word) (contains? (set dog) "Japanese"))
+        (if (and (contains? data/pos_preference word) (= (:name dog) "Japanese Spitz"))
           (println (rand-nth ddata/dog_info_japanese_spitz))
           (if (contains? data/neg_preference word)
             (println (rand-nth data/user_continue_conv))))))))
