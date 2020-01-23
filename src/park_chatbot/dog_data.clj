@@ -41,13 +41,13 @@
 
 (def dog_fluffiness
   "Questions regarding dog fluffiness."
-  ["Is this dog fluffy?",
-   "Is this dog fluffy like a cotton candy?",
-   "What about the dog's coat? Is it fluffy?",
-   "I am sweet and fluffy like a cotton candy. Is the dog also fluffy like me?",
-   "Brrr, it's cold in here. I'll get a hot shower and get my fluffy bathrobe. Is the dog also fluffy?",
-   "I love fluffy things. They are so adorable and nice to touch. Is the dog also fluffy? PLEASE SAY YES. ",
-   "Do you own any of those fluffy carpets? Don't tell me, I love them. Let's just continue identifying the dog. Is it also fluffy?"])
+  ["Is this dog fluffy? (Yes or No)",
+   "Is this dog fluffy like a cotton candy? (Yes or No)",
+   "What about the dog's coat? Is it fluffy? (Yes or No)",
+   "I am sweet and fluffy like a cotton candy. Is the dog also fluffy like me? (Yes or No)",
+   "Brrr, it's cold in here. I'll get a hot shower and get my fluffy bathrobe. Is the dog also fluffy? (Yes or No)",
+   "I love fluffy things. They are so adorable and nice to touch. Is the dog also fluffy? (Yes or No)",
+   "Do you own any of those fluffy carpets? Don't tell me, I love them. Let's just continue identifying the dog. Is it also fluffy? (Yes or No)"])
 
 (def dog_nose
   "Questions regarding dog nose."
@@ -75,15 +75,15 @@
 
 (def dog_tail
   "Questions regarding dog tail."
-  ["Is this dog tail rather short or long?",
-   "I can't see anything. Tell me more about the dog. Is the tail short or long?",
-   "How does the tail look like, short or long?",
-   "How about the dog's tail. How does it look like, short or long?",
-   "I still could not identify the dog. Tell me more about it's tail, is it short or long?",
-   "I can't really tell anything from the distance. Does the dog's tail look short or long?",
-   "How about its tail? Does it look short or long?",
-   "Oooh, I am happy that I don't have any tail. That would be really weird for a PC, but what about the dog? Is it rather short or long?",
-   "Imagine a PC with a tail. That would be awesome, but I still don't know If I would rather a short or a long tail. What about the dog you want, does it have a short or long tail?"])
+  ["Is this dog tail rather short or long? (Yes or No)",
+   "I can't see anything. Tell me more about the dog. Is the tail short or long? (Yes or No)",
+   "How does the tail look like, short or long? (Yes or No)",
+   "How about the dog's tail. How does it look like, short or long? (Yes or No)",
+   "I still could not identify the dog. Tell me more about it's tail, is it short or long? (Yes or No)",
+   "I can't really tell anything from the distance. Does the dog's tail look short or long? (Yes or No)",
+   "How about its tail? Does it look short or long? (Yes or No)",
+   "Oooh, I am happy that I don't have any tail. That would be really weird for a PC, but what about the dog? Is it rather short or long? (Yes or No)",
+   "Imagine a PC with a tail. That would be awesome, but I still don't know If I would rather a short or a long tail. What about the dog you want, does it have a short or long tail? (Yes or No)"])
 
 (def dog_wrinkles
   "Questions regarding dog wrinkles."
