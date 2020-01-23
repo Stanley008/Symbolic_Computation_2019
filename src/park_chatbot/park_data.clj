@@ -116,6 +116,13 @@
    "Don't you have a small pal that you would like to walk in the park?",
    "Do you have a small buddy that you would like to walk in the park?"])
 
+(def question_opening_hours
+  "Questions regarding opening hours."
+  ["Would you like to know when your park opens and closes?",
+   "When do you plan to visit the park then? Do you want to know when the park opens?",
+   "Now that you know where to visit, do you want to go there now? Want me to check if it opens now?",
+   "Parks in Prague usually open almost every day, all year so would you like to know about your park's opening hours?"])
+
 (def park_question_obj_vector
   "A vector of question objects that include:
   :sent -> the sentences that are used to ask the user for a preference;
