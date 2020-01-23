@@ -40,11 +40,25 @@
             (ref-set ((:topic park_question_obj) data/user) false)
             (match_park (:topic park_question_obj) false selected_parks counter)))))))
 
+(defn give_park_opening_hours
+  "Give opening hours of the selected park
+  park -> reference to the selected park that user has been informed about."
+  [park]
+  (println (rand-nth pdata/question_opening_hours))
+  (let [answer (tokenize (str/lower-case (take_user_input)))]
+    (doseq [word answer]
+      (if (contains? data/pos_preference word)
+        (println "The park opens" (:opening_hours park))
+        (if (contains? data/neg_preference word)
+          (println (rand-nth data/user_continue_conv)))))))
+
 (defn give_park_answers
   "Give the user responses on whether the park that matches his preference is found or not.
   selected_parks -> reference to the list of parks with suitable preferences."
   [selected_parks]
   (if (empty? @selected_parks)
     (println (rand-nth pdata/park_not_found))
-    (println (rand-nth pdata/park_found)
-      (:name (rand-nth @selected_parks) "."))))
+    (let [park (rand-nth @select_parks)]
+      (println (rand-nth pdata/park_found)
+        (:name park "."))
+      (give_park_opening_hours park))))
