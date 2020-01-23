@@ -75,27 +75,27 @@
 
 (def dog_tail
   "Questions regarding dog tail."
-  ["Is this dog tail rather short or long? (Yes or No)",
-   "I can't see anything. Tell me more about the dog. Is the tail short or long? (Yes or No)",
-   "How does the tail look like, short or long? (Yes or No)",
-   "How about the dog's tail. How does it look like, short or long? (Yes or No)",
-   "I still could not identify the dog. Tell me more about it's tail, is it short or long? (Yes or No)",
-   "I can't really tell anything from the distance. Does the dog's tail look short or long? (Yes or No)",
-   "How about its tail? Does it look short or long? (Yes or No)",
-   "Oooh, I am happy that I don't have any tail. That would be really weird for a PC, but what about the dog? Is it rather short or long? (Yes or No)",
-   "Imagine a PC with a tail. That would be awesome, but I still don't know If I would rather a short or a long tail. What about the dog you want, does it have a short or long tail? (Yes or No)"])
+  ["Is this dog tail rather short or long?",
+   "I can't see anything. Tell me more about the dog. Is the tail short or long?",
+   "How does the tail look like, short or long?",
+   "How about the dog's tail. How does it look like, short or long?",
+   "I still could not identify the dog. Tell me more about it's tail, is it short or long?",
+   "I can't really tell anything from the distance. Does the dog's tail look short or long?",
+   "How about its tail? Does it look short or long?",
+   "Oooh, I am happy that I don't have any tail. That would be really weird for a PC, but what about the dog? Is it rather short or long?",
+   "Imagine a PC with a tail. That would be awesome, but I still don't know If I would rather a short or a long tail. What about the dog you want, does it have a short or long tail?"])
 
 (def dog_wrinkles
   "Questions regarding dog wrinkles."
-  ["Does this dog have any wrinkles?",
-   "Does this dog look like an old lady with wrinkles?",
-   "Does this dog's face look like he has some wrinkles?",
-   "Ooh, I am getting old and wrinkled, I don't like that. Does the dog have any wrinkles?",
-   "I still could not identify the dog. Tell me more about it's face, does it have any wrinkles?",
-   "I am happy that my digital I can't get old. I am gonna be young forever, but what about the dog, does it have any wrinkles?",
-   "I am the luckiest person in this room. I can't get old and wrinkled. What about the dog? Does it have any wrinkles?",
-   "I am still young and handsome without any wrinkles, but what about the dog? Does it have any wrinkles?",
-   "I am artificial, but still I got wrinkles. What about the dog, does it have any wrinkles?"])
+  ["Does this dog have any wrinkles? (Yes or No)",
+   "Does this dog look like an old lady with wrinkles? (Yes or No)",
+   "Does this dog's face look like he has some wrinkles? (Yes or No)",
+   "Ooh, I am getting old and wrinkled, I don't like that. Does the dog have any wrinkles? (Yes or No)",
+   "I still could not identify the dog. Tell me more about it's face, does it have any wrinkles? (Yes or No)",
+   "I am happy that my digital I can't get old. I am gonna be young forever, but what about the dog, does it have any wrinkles? (Yes or No)",
+   "I am the luckiest person in this room. I can't get old and wrinkled. What about the dog? Does it have any wrinkles? (Yes or No)",
+   "I am still young and handsome without any wrinkles, but what about the dog? Does it have any wrinkles? (Yes or No)",
+   "I am artificial, but still I got wrinkles. What about the dog, does it have any wrinkles? (Yes or No)"])
 
 (def dog_question_obj_vector
   "A vector of question objects that include:
