@@ -115,7 +115,7 @@
     (do
       (println (rand-nth ddata/user_dog_picture_information))
       (if (= (find_recognition_type (take_user_input)) "text")
-        (main_loop 2 dcore/find_dog dcore/give_dog_answers ddata/dog_question_obj_vector)
+        (main_loop 3 dcore/find_dog dcore/give_dog_answers ddata/dog_question_obj_vector)
         (recognise_image)))
     (main_loop 7 pcore/find_park pcore/give_park_answers pdata/park_question_obj_vector)))
 
