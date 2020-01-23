@@ -17,8 +17,11 @@
   [topic user_preference selected_dog counter]
   (if (= 1 counter)
     (doseq [dog ddata/dogs]
-      (if (= user_preference (topic dog))
-        (var-set selected_dog)))))
+      (when (= user_preference (topic dog))
+        (var-set selected_dog (conj @selected_dog dog))))
+    (doseq [dog @selected_dog]
+      (when (not= user_preference (topic dog))
+        (var-set selected_dog (remove #{dog} @selected_dog))))))
 
 (defn find_dog
   "Find user's preference about a dog breed, then it calls 'match_dog' function.
@@ -39,11 +42,11 @@
   dog -> reference to the dog breed that the user has been informed about."
   [dog]
   (println (rand-nth ddata/question_dog_info))
-  (let [answer (tokenize (str/lower-case (take_user_input)))]
+  (let [answer (tokenize (str/lower-case (read-line)))]
     (doseq [word answer]
-      (if and (contains? data/pos_preference word) (contains? (set dog) "Rottweiler")
+      (if (and (contains? data/pos_preference word) (contains? (set dog) "Rottweiler"))
         (println (rand-nth ddata/dog_info_rottweiler))
-        (if and (contains? data/pos_preference word) (contains? (set dog) "Japanese")
+        (if (and (contains? data/pos_preference word) (contains? (set dog) "Japanese"))
           (println (rand-nth ddata/dog_info_japanese_spitz))
           (if (contains? data/neg_preference word)
             (println (rand-nth data/user_continue_conv))))))))

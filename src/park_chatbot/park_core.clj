@@ -45,7 +45,7 @@
   park -> reference to the selected park that user has been informed about."
   [park]
   (println (rand-nth pdata/question_opening_hours))
-  (let [answer (tokenize (str/lower-case (take_user_input)))]
+  (let [answer (tokenize (str/lower-case (read-line)))]
     (doseq [word answer]
       (if (contains? data/pos_preference word)
         (println "The park opens" (:opening_hours park))
@@ -58,7 +58,7 @@
   [selected_parks]
   (if (empty? @selected_parks)
     (println (rand-nth pdata/park_not_found))
-    (let [park (rand-nth @select_parks)]
+    (let [park (rand-nth @selected_parks)]
       (println (rand-nth pdata/park_found)
         (:name park "."))
       (give_park_opening_hours park))))
