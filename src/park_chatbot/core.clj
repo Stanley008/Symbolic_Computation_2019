@@ -33,7 +33,7 @@
   "Remove the puntuation from a string and outputs the new string.
   text -> string from where the punctuation should be removed."
   [text]
-  (str/replace text #"[.?,;:!']" ""))
+  (str/replace text #"[.?,;:!'@#$%^&*+-=_<>~]" ""))
 
 (defn find_name
   "Search for a name in a string
@@ -41,8 +41,10 @@
   [sent]
   (with-local-vars [name nil]
     (doseq [token sent]
-      (if (not= data/name_words (str/lower-case token))
+      (if (not= data/name_words (str/lower-case (strip_punctuation(token))))
         (var-set name token)))
+    (if (nil? @name)
+      (var-set name "Visitor"))
     @name))
 
 (defn find_topic
