@@ -25,6 +25,14 @@
   "A vector of words that are used by the user when giving names."
   (set '["i", "am", "my", "name", "is", "this", "it", "is", "people", "call", "me", "they", "called"]))
 
+(def text_recognition
+  "A vector of words that are used to select the text dog recognizing."
+  (set '["text" "sentence" "word" "words" "information" "questions" "question" "sentences" "info" "q"]))
+
+(def image_recognition
+  "A vector of words that are used to select the image dog recognizing."
+  (set '["image" "photo" "images" "photos" "pictures" "pic" "picture" "img" "jpg" "png"]))
+
 (def greetings
   "A vector of sentences that are used for greeting the user."
   ["Hello, I am Parkbot. I am the most advanced park information bot and I am here to help you. Hello, I am Parkbot.",
