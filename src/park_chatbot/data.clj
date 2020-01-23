@@ -14,8 +14,8 @@
 
 (def pos_preference
   "A vector of words that represent a positive opinion."
-  (set '["yes", "like", "love", "enjoy", "true", "yeah", "great", "affirmative",
-         "y", "maybe"]))
+  (set '["yes", "like", "love", "enjoy", "true", "yeah", "great", "ok", "mind",
+         "y", "maybe", "nice", "lovely", "amazing", "awesome", "sure", "why not"]))
 
 (def neg_preference
   "A vector of words that represent a negative opinion."
@@ -23,7 +23,7 @@
 
 (def name_words
   "A vector of words that are used by the user when giving names."
-  (set '["i", "am", "my", "name", "is", "this", "is", "people", "call", "me", "They", "called"]))
+  (set '["i", "am", "my", "name", "is", "this", "it", "is", "people", "call", "me", "they", "called"]))
 
 (def greetings
   "A vector of sentences that are used for greeting the user."
@@ -32,12 +32,12 @@
    "Hi, I am Parkbot. I am here today to help you to find the best park just for you.",
    "Welcome, I am Parkbot. I am here to help you to find the best park just for you.",
    "Hi, I am Parkbot. It’s a pleasure to meet you. I am here to help you.",
-   "Hey there, I am Parkbot. I am advanced interficial park information bot and I am here to help you to find the most suitable park just for you.",
+   "Hey there, I am Parkbot. I am an advanced interficial park information bot and I am here to help you to find the most suitable park just for you.",
    "Good day. I am the most advanced interfacial park information bot. My name is Parkbot.",
    "Howdy, my name is Parkbot. I am here to help you.",
    "Great to see you. My name is Parkbot. I am advanced park information bot and I am here to help you.",
    "Nice to see you. I am a Parkbot living in Prague. I would like to help you to find the right park just for you.",
-   "Look who it is! It’s me Parkbot and I am here today to help you."])
+   "Look who it is! It’s me, Parkbot and I am here today to help you."])
 
 (def name_ask
   "A vector of sentences that are used to ask the user's name."
@@ -68,7 +68,7 @@
    "I like your answer. I love nicknames. What is yours?",
    "I am thrilled to hear you answer. What is your nickname?",
    "I am waiting for your secret nickname. Tell me it!",
-   "WOW, you are the first one. What is your nickname? ",
+   "WOW, you are the first one. What is your nickname?",
    "Positive answer, nice… I was just wondering, if you can type your nickname here? That’s my only input. Thank you."])
 
 (def nickname_answer
@@ -76,14 +76,14 @@
   ["Than I will call you",
    "It is your choice, I will call you",
    "Your choice, I will call you",
-   "I like it. I will call you than ",
+   "I like it. I will call you",
    "Oh wow what a nice nickname, I will call you",
-   "Never heard this nickname, I shall call you than",
-   "Did you type it correctly? I am just kidding, It is your nickname. I am gonna call you than",
+   "Never heard this nickname, I shall call you",
+   "Did you type it correctly? I am just kidding, It is your nickname. I am gonna call you",
    "Any mistake in your nickname? Just kidding, I am gonna call you",
    "This is the first time I hear this. I love it",
    "OK, as you wish",
-   "Great, I am gonna make your wish go true"])
+   "Great, I am gonna make your wish come true"])
 
 (def nickname_end
   "A vector of sentences that are used if the user does not want a nickname."
@@ -153,7 +153,7 @@
 
 (def user_no_question
   "User do not ask questions."
-  ["Please don't ask questions when a question was already written. My resources are limited.",
+  ["Please don't ask questions when a question is already asked. My resources are limited.",
    "Be kind and don't ask questions. I am gonna ask everything.",
    "My resources are limited, I will ask you everything I need. Don't reply with questions.",
    "I am going to ask you everything in next few steps. You don't need to ask anything. Let me do my job.",
@@ -195,9 +195,9 @@
 (def user_park_dog
   "Questions regarding user to choose to find a park or dog."
   ["Would you like today to find a park or a dog?",
-   "How are you feeling today, would you like to find a right park for you or to identify a dog breed?",
-   "I feel tired today. Let's make it short. Would you like to find a park or to identify a dog breed?",
-   "I feel excited today, let's go outside, let's find a park for you or would you like to find a dog rather? What is it going to be on a sunny day? Park or dog?",
-   "The sun is shining, you are smiling. Nothing can go wrong today. Would you like to advise a park or to identify a dog breed? Just let me know when you decide.",
-   "Oooh what a terrible rainy forecast today. I would advise you to stay at home, but it is your choice if you would like to advise a park to go to, or to identify a dog breed?",
-   "I lost internet connection. I can't tell if it is going to be sunny or rainy today. Would you rather get and advise which park to choose, or to identify a dog breed?"])
+   "How are you feeling today, would you like to find a right park for you or identify a dog breed?",
+   "I feel tired today. Let's make it short. Would you like to find a park or identify a dog breed?",
+   "I feel excited today, let's go outside, let's find a park for you or would you rather like to find a dog? What is it going to be on a sunny day? Park or dog?",
+   "The sun is shining, you are smiling. Nothing can go wrong today. Would you like to choose a park or to learn a dog breed? Just let me know when you decide.",
+   "Oooh what a terrible rainy forecast today. I would advise you to stay at home, but it is your choice if you would like to choose a park to go to, or a dog breed?",
+   "I lost internet connection. I can't tell if it is going to be sunny or rainy today. Would you rather get a park recommendation, or identify a dog breed?"])

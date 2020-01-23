@@ -12,7 +12,7 @@
 (defn match_park
   "Create/Update the list of selected parks based on the user preference.
   topic -> the facility of the park that the function searches for;
-  user_preference -> boolean, represents wether the user want that facility included;
+  user_preference -> boolean that represents the park preferences of the park;
   selected_parks -> reference to the list of parks with suitable preferences."
   [topic user_preference selected_parks counter]
   (if (= 1 counter)
@@ -25,7 +25,7 @@
 
 (defn find_park
   "Find user's preference about a park facility and updates the facility preference
-  values in the user record with true/false. Then it calls 'match_park' function.
+  values in the user record with true/false. Then it calls 'match_park' function;
   park_question_obj -> the question object (see 'park_question_objects' from data.clj);
   selected_parks -> reference to the list of parks with suitable preferences."
   [park_question_obj answer selected_parks counter]
