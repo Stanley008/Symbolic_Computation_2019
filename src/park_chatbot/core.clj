@@ -41,11 +41,11 @@
   [sent]
   (with-local-vars [name nil]
     (doseq [token sent]
-      (if (not= data/name_words (str/lower-case (strip_punctuation(token))))
+      (if (not= data/name_words (str/lower-case (strip_punctuation token)))
         (var-set name token)))
     (if (nil? @name)
-      (var-set name "Visitor"))
-    @name))
+      (var-set name "Visitor")
+      @name)))
 
 (defn find_topic
   "Find the topic the user wants to talk about, either dogs or parks.
