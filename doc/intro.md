@@ -20,7 +20,7 @@ Chatbot is built in Clojure and Clojure-opennlp, a library to interface with the
 
 Considered already having a REPL environment and upon running the program, the chatbot welcomes the user with background music and communicates with the user about name, nickname (if any), and a general question.
 
-<img src="/docs/chatbot_intro.png" alt="Chatbot Introduction"/>
+<img src="/docs/chatbot_intro.png"/>
 
 Following the general conversation, the chatbot informs the user of two options: parks and dogs. Upon user's choice, the chatbot prompts respective dialogue structure that aims to learn user's preferences in order to determine an appropriate result that is within the chatbot's knowledge. The dialogue structures of both park and dog generally follow the same pattern, though that of dog can additionally identify the result based on an image from user. 
 
