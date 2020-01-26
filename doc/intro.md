@@ -38,14 +38,14 @@ As to maintain such functionalities with optimal efficiency in codes, database a
 
 ### Park 
 
-Upon choosing park option, the parkbot provides a list of questionnaires, from which the user can respond 'yes' or 'no.' The match algorithm is that the parkbot parses the keyword from the question using park record and matches it with that from the user record in order to update the response respectively. Keywords vary from restroom, cafe, restaurant to playground. Despite having a strict dialogue tree in prompting user's preferences, the parkbot is able to provide a variation of textual statements along with an appropriate response about park as well as its opening hours and prompt whether the user wants to continue or terminate the chat. That being said, the parkbot also allows the user to exit the chat with keywords that are within parkbot’s knowledge at any time he wishes. 
+From the park option, the user is able to search a park with facilities of his choice from 13 available parks in Prauge. The parkbot first provides a list of questionnaires, from which the user can respond 'yes' or 'no.' The match algorithm is that the parkbot parses the keyword from the question using park record and matches it with that from the user record in order to update the response respectively. Keywords vary from restroom, cafe, restaurant to playground. Despite having a strict dialogue tree in prompting user's preferences, the parkbot is able to provide a variation of textual statements along with an appropriate response about park as well as its opening hours and prompt whether the user wants to continue or terminate the chat. That being said, the parkbot also allows the user to exit the chat with keywords that are within parkbot’s knowledge at any time he wishes. 
 
 ##### General Dialogue Tree about Park
 <img src= "https://i.imgur.com/nYh7lnB.png">
 
 ### Dog 
 
-In this option, the user is given two more options: textual information and image to learn about the dog type. Hence, not only does the dog option follow similar dialogue tree as the park, it additionally has image classification that uses Artificial Neural Network to determine the result based on an image. 
+In this option, the parkbot offers two types of dog breeds: Japanese Spitz and Rottweiler. There are two options the user can choose to look for: textual information and an image. Hence, not only does the dog option follow similar dialogue tree as the park, it additionally has image classification that uses Artificial Neural Network to determine the result based on an image. 
 
 With the textual input, the parkbot can recognize the type of dog the user looks for using similar algorithms and data storage as the park. With the image, however, the parkbot first locates the image from the path given by the user and based on the image, it identifies the dog breed using pre-trained network model as well as dependencies. Since the accuracy of the image classification with pre-trained network model can only perform 68% at its best, it is important to note that the result may vary from appropriate to unable to trace in worst case, based on the specification of the image provided by the user and the imagery knowledge of the parkbot.
 
@@ -66,3 +66,12 @@ The parkbot can also be terminated upon the user's command, however the user is 
 Due to the maximal accuracy rate that the parkbot can perform for the image classification, it is possible for the user to not receive appropriate response if the given image is not from within the parkbot’s knowledge.
 
 As of now, the user is also required not to answer a question from the parkbot with a question due to the lack of functionality that reads the input to further provide suitable responses. This feature is however expected to be implemented in the future.
+
+## Future Chatbot v3.0 suggested improvements
+
+Despite the current chatbot solution having enhanced in two versions throughout the development process, it is still necessary to always make sure of the effiency of the existing codes as well as design decisions. Hence, the contributors have decided on the improvements listed below in the future enhancement versions:
+- Provide all parks that are located in Czech Republic;
+- Improve picture recognition for higher success/accuracy rate;
+- Include more breeds of dogs;
+- Support distinction between dogs and cats; and
+- Implement UI design and assistance.
