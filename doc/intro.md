@@ -10,11 +10,17 @@ Chatbot is built in Clojure and Clojure-opennlp, a library to interface with the
 
 ## Dependencies
 
+- [The Clojure Programming Language](https://github.com/clojure/clojure/) 
+- [Natural Language Processing in Clojure (opennlp)](https://github.com/dakrone/clojure-opennlp)
+- [A Neural Network Toolkit for Clojure](https://clojars.org/thinktopic/cortex)
+- [Image Manipulation Library](https://clojars.org/thinktopic/think.image)
+- [Image Processing Library for Clojure](https://clojars.org/net.mikera/imagez)
+
 ## Design and Deliverables
 
 Considered already having a REPL environment and upon running the program, the chatbot welcomes the user with background music and communicates with the user about name, nickname (if any), and a general question.
 
-> cli for chatbot intro
+<img src="/docs/chatbot_intro.png" alt="Chatbot Introduction"/>
 
 Following the general conversation, the chatbot informs the user of two options: parks and dogs. Upon user's choice, the chatbot prompts respective dialogue structure that aims to learn user's preferences in order to determine an appropriate result that is within the chatbot's knowledge. The dialogue structures of both park and dog generally follow the same pattern, though that of dog can additionally identify the result based on an image from user. 
 
@@ -37,3 +43,13 @@ With the textual input, the chatbot can recognize the type of dog the user looks
 As to make the dialogue both informative and fun, the chatbot further asks if the user wants to know fun/historical fact for both textual and imagery options after providing the appropriate breed type. The dog option also performs same algorithms as park for user's request to terminate the program. 
 
 > 3 cli screenshots for dog dialogue (one -> text dialogue, continue convo | two -> image dialogue, continue convo | three -> either one with exit convo)
+
+## Limitations
+
+As a limitation, the 'background music' functionality requires the user to switch to 'add_bg_music' branch before running the program, due to the usage of a music library that includes many dependencies for the soundtrack.
+
+The chatbot can also be terminated upon the user's command, however the user is required to use certain keywords that are known by the chatbot when determining the termination. The list of exit keywords can be found in data.clj.
+
+Due to the maximal accuracy rate that the chatbot can perform for the image classification, it is possible for the user to not receive appropriate response if the given image is not from within the chatbot's knowledge.
+
+As of now, the user is also required not to answer a question from the chatbot with a question due to the lack of functionality that reads the input to further provide suitable responses. This feature is however expected to be implemented in the future.
