@@ -8,11 +8,11 @@ CHATBOT (name) is a chatbot solution to communicate with and recommend users abo
 
 In version 1.0, the chatbot is to provide a park that suits different types of facilities that users look for upon their textual inputs. Following version 1.0, the chatbot in version 2.0 is further enhanced with a trained image recognition network. As a result, the chatbot is able to identify appropriate dog type upon both textual and imagery input.
 
-### Requirement
+## Requirement
 
 [Leiningen](https://leiningen.org/) 2.0 or higher
 
-### Installation
+## Installation
 
 Download and install Leiningen (only if you don't have Leiningen.)
 
@@ -22,9 +22,9 @@ git clone github.com/Stanley008/Symbolic_Computation_2019.git
 cd Symbolic_Computation_2019
 ```
 
-### Usage
+## Usage
 
-#### Open the terminal from your project folder and run the following commands:
+Open the terminal from your project folder and run the following commands:
 
 ```
 To talk to the chatbot: lein run
@@ -32,7 +32,7 @@ To talk to the chatbot: lein run
 To run a specific function from the chatbot: lein repl
 ```
 
-### Design and Deliverables
+## Design and Deliverables
 
 Considered already having a REPL environment and upon running the program, the chatbot welcomes the user with background music and communicates with the user about name, nickname (if any), and a general question.
 
@@ -44,13 +44,13 @@ As to maintain such functionalities with optimal efficiency in codes, database a
 
 > cli screenshot for park and dog options
 
-#### Park 
+### Park 
 
 Upon choosing park option, the chatbot provides a list of questionnaires, from which the user can respond 'yes' or 'no.' The match algorithm is that the chatbot parses the keyword from the question using park record and matches it with that from the user record in order to update the response respectively. Keywords vary from restroom, cafe, restaurant to playground. Despite having a strict dialogue tree in prompting user's preferences, the chatbot is able to provide a variation of textual statements along with an appropriate response about park as well as its opening hours and prompt whether the user wants to continue or terminate the chat. That being said, the chatbot also allows the user to exit the chat with keywords that are within chatbot's knowledge at any time he wishes. 
 
 > 2 cli screenshots for park dialogue (one -> 3 q&a, exit word, continue convo | two -> same but exit convo)
 
-#### Dog 
+### Dog 
 
 In this option, the user is given options to learn about the dog type by using either textual information or an image. Hence, not only does the dog option follow similar dialogue tree as the park, it additionally has image classification that uses Artificial Neural Network to determine the result based on an image. 
 
@@ -60,7 +60,7 @@ As to make the dialogue both informative and fun, the chatbot further asks if th
 
 > 3 cli screenshots for dog dialogue (one -> text dialogue, continue convo | two -> image dialogue, continue convo | three -> either one with exit convo)
 
-### Limitations
+## Limitations
 
 As a limitation, the 'background music' functionality requires the user to switch to 'add_bg_music' branch before running the program, due to the usage of a music library that includes many dependencies for the soundtrack. 
 
@@ -70,7 +70,7 @@ Due to the maximal accuracy rate that the chatbot can perform for the image clas
 
 As of now, the user is also required not to answer a question from the chatbot with a question due to the lack of functionality that reads the input to further provide suitable responses. This feature is however expected to be implemented in the future. 
 
-### Secrets
+## Secrets
 
 As a token of appreciation from the contributors, the chatbot contains some secrets to make it fun with certain festive themes. The user will encounter this while communicating with the chatbot about parks and dogs. 
 
