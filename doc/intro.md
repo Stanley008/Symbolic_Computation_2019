@@ -67,7 +67,7 @@ Due to the maximal accuracy rate that the parkbot can perform for the image clas
 
 As of now, the user is also required not to answer a question from the parkbot with a question due to the lack of functionality that reads the input to further provide suitable responses. This feature is however expected to be implemented in the future.
 
-## Future Chatbot v3.0 suggested improvements
+## Future Parkbot v3.0 Suggested Improvements
 
 Despite the current chatbot solution having enhanced in two versions throughout the development process, it is still necessary to always make sure of the effiency of the existing codes as well as design decisions. Hence, the contributors have decided on the improvements listed below in the future enhancement versions:
 - Provide all parks that are located in Czech Republic;
