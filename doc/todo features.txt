@@ -1,5 +1,0 @@
-To do/ features:
-
-1. Create individual answers for each "how are you" question.
-2. Create question trees
-3. Add Christmas easter egg
