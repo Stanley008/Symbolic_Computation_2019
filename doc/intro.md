@@ -45,7 +45,7 @@ Upon choosing park option, the parkbot provides a list of questionnaires, from w
 
 ### Dog 
 
-In this option, the user is given options to learn about the dog type by using either textual information or an image. Hence, not only does the dog option follow similar dialogue tree as the park, it additionally has image classification that uses Artificial Neural Network to determine the result based on an image. 
+In this option, the user is given two more options: textual information and image to learn about the dog type. Hence, not only does the dog option follow similar dialogue tree as the park, it additionally has image classification that uses Artificial Neural Network to determine the result based on an image. 
 
 With the textual input, the parkbot can recognize the type of dog the user looks for using similar algorithms and data storage as the park. With the image, however, the parkbot first locates the image from the path given by the user and based on the image, it identifies the dog breed using pre-trained network model as well as dependencies. Since the accuracy of the image classification with pre-trained network model can only perform 68% at its best, it is important to note that the result may vary from appropriate to unable to trace in worst case, based on the specification of the image provided by the user and the imagery knowledge of the parkbot.
 
