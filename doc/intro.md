@@ -1,10 +1,14 @@
-# Chatbot (name?)
+# Chatbot (name?): tag line?
 
 ## Overview
 
 Chatbot project is created to allow users to be able to communicate about different types of facilities they look for in a park as well as dog breeds they would like to see based on their preferences. 
 
+## Technology
+
 Chatbot is built in Clojure and Clojure-opennlp, a library to interface with the OpenNLP (Open Natural Language Processing) functions to provide linguistic tools to perform on various blocks of text. The chatbot then further enhances with Neutral Network Deep Learning to implement image classification to recognize image input. Leiningen is also used as a package management/dependencies tool to execute this Clojure based chatbot solution.
+
+## Dependencies
 
 ## Design and Deliverables
 
@@ -33,5 +37,3 @@ With the textual input, the chatbot can recognize the type of dog the user looks
 As to make the dialogue both informative and fun, the chatbot further asks if the user wants to know fun/historical fact for both textual and imagery options after providing the appropriate breed type. The dog option also performs same algorithms as park for user's request to terminate the program. 
 
 > 3 cli screenshots for dog dialogue (one -> text dialogue, continue convo | two -> image dialogue, continue convo | three -> either one with exit convo)
-
-
