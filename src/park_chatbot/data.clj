@@ -209,3 +209,23 @@
    "The sun is shining, you are smiling. Nothing can go wrong today. Would you like to choose a park or to learn a dog breed? Just let me know when you decide.",
    "Oooh what a terrible rainy forecast today. I would advise you to stay at home, but it is your choice if you would like to choose a park to go to, or a dog breed?",
    "I lost internet connection. I can't tell if it is going to be sunny or rainy today. Would you rather get a park recommendation, or identify a dog breed?"])
+
+(def repeat_answer_dog_park
+  "Additional repeat questions to choose dogs/parks."
+  ["Can you repeat your answer?",
+   "Would you be so kind and repeat your answer?",
+   "I am bloody tired, I did not hear you well, could you repeat your answer?",
+   "What was the answer? I did not hear you.",
+   "What would be the topic today? Please respond only dogs or parks. Thank you.",
+   "Could you please repeat your answer?",
+   "I can't see what you said, my eyes are swollen today. What did you pick? Dogs or parks?"])
+
+(def repeat_answer_dog
+  "Additional repeat questions regarding the user to choose text/image recognition."
+  ["Can you repeat your answer?",
+   "Would you be so kind and repeat your answer?",
+   "I am bloody tired, I did not hear you well, could you repeat your answer?",
+   "What was the answer? I did not hear you.",
+   "What would be the topic today? Please respond only by picture or by text/ information. Thank you.",
+   "Could you please repeat your answer?",
+   "I can't see what you said, my eyes are swollen today. What did you pick? How would you like to recognize a dog, by a picture or by providing information?"])

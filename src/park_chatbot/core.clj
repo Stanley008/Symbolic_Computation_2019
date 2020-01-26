@@ -60,7 +60,7 @@
           (var-set topic "parks"))))
     (if (nil? @topic)
       (do
-        (println "Can you repeat your answer?")
+        (println (rand-nth data/repeat_answer_dog_park))   
         (find_topic (take_user_input)))
       @topic)))
 
@@ -93,7 +93,7 @@
           (var-set type "text"))))
     (if (nil? @type)
       (do
-        (println "Can you repeat your answer?")
+        (println (rand-nth data/repeat_answer_dog)) 
         (find_recognition_type (take_user_input)))
       @type)))
 
